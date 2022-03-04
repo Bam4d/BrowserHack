@@ -195,13 +195,13 @@ makedefs.o: makedefs.c $(CONFIG_H) ../include/permonst.h \
 		../include/dlb.h ../include/patchlevel.h ../include/qtext.h
 
 ../include/onames.h: makedefs.js
-	js ./makedefs.js -o
+	node ./makedefs.js -o
 ../include/pm.h: makedefs.js
-	js ./makedefs.js -p
+	node ./makedefs.js -p
 ../src/monstr.c: makedefs.js
-	js ./makedefs.js -m
+	node ./makedefs.js -m
 ../include/vis_tab.h: makedefs.js
-	js ./makedefs.js -z
+	node ./makedefs.js -z
 # makedefs -z makes both vis_tab.h and vis_tab.c, but writes the .h first
 ../src/vis_tab.c: ../include/vis_tab.h
 
@@ -331,7 +331,7 @@ tile2beos: tile2beos.o $(TEXT_IO)
 tilemap.js: ../win/share/tilemap.c $(HACK_H)
 	$(CC) $(CFLAGS) $(LFLAGS) $(UTIL_CFLAGS) -o tilemap.js ../win/share/tilemap.c $(LIBS)
 ../src/tile.c: tilemap.js
-	js ./tilemap.js
+	node ./tilemap.js
 
 ../include/tile.h: ../win/share/tile.h
 	cp ../win/share/tile.h ../include/tile.h

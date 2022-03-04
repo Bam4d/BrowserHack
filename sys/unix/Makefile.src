@@ -509,7 +509,7 @@ tile.c: ../win/share/tilemap.c $(HACK_H)
 #	hack.h depends on makedefs' output, so we know makedefs will be
 #	up to date before being executed
 ../include/date.h:	$(VERSOURCES) $(HACK_H)
-	js ../util/makedefs.js -v
+	node ../util/makedefs.js -v
 
 
 lint:

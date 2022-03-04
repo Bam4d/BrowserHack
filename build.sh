@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-EMCC=~/src/emscripten/emcc
+EMCC=emcc
 JOBS=4
 MYDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 

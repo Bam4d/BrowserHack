@@ -83,60 +83,60 @@ GEM_RSC.RSC:
 
 
 data:	data.base ../util/makedefs.js
-	js ../util/makedefs.js -d
+	node ../util/makedefs.js -d
 
 rumors:	rumors.tru rumors.fal ../util/makedefs.js
-	js ../util/makedefs.js -r
+	node ../util/makedefs.js -r
 
 quest.dat:	quest.txt ../util/makedefs.js
-	js ../util/makedefs.js -q
+	node ../util/makedefs.js -q
 
 oracles:	oracles.txt ../util/makedefs.js
-	js ../util/makedefs.js -h
+	node ../util/makedefs.js -h
 
 # note: 'options' should have already been made when include/date.h was created
 options:	../util/makedefs.js
-	js ../util/makedefs.js -v
+	node ../util/makedefs.js -v
 
 
 spec_levs: ../util/lev_comp.js \
 	bigroom.des castle.des endgame.des gehennom.des knox.des medusa.des \
 	mines.des oracle.des sokoban.des tower.des yendor.des
-	js ../util/lev_comp.js bigroom.des
-	js ../util/lev_comp.js castle.des
-	js ../util/lev_comp.js endgame.des
-	js ../util/lev_comp.js gehennom.des
-	js ../util/lev_comp.js knox.des
-	js ../util/lev_comp.js medusa.des
-	js ../util/lev_comp.js mines.des
-	js ../util/lev_comp.js oracle.des
-	js ../util/lev_comp.js sokoban.des
-	js ../util/lev_comp.js tower.des
-	js ../util/lev_comp.js yendor.des
+	node ../util/lev_comp.js bigroom.des
+	node ../util/lev_comp.js castle.des
+	node ../util/lev_comp.js endgame.des
+	node ../util/lev_comp.js gehennom.des
+	node ../util/lev_comp.js knox.des
+	node ../util/lev_comp.js medusa.des
+	node ../util/lev_comp.js mines.des
+	node ../util/lev_comp.js oracle.des
+	node ../util/lev_comp.js sokoban.des
+	node ../util/lev_comp.js tower.des
+	node ../util/lev_comp.js yendor.des
 	touch spec_levs
 
 quest_levs: ../util/lev_comp.js \
 	Arch.des Barb.des Caveman.des Healer.des Knight.des Monk.des \
 	Priest.des Ranger.des Rogue.des Samurai.des Tourist.des Valkyrie.des \
 	Wizard.des
-	js ../util/lev_comp.js Arch.des
-	js ../util/lev_comp.js Barb.des
-	js ../util/lev_comp.js Caveman.des
-	js ../util/lev_comp.js Healer.des
-	js ../util/lev_comp.js Knight.des
-	js ../util/lev_comp.js Monk.des
-	js ../util/lev_comp.js Priest.des
-	js ../util/lev_comp.js Ranger.des
-	js ../util/lev_comp.js Rogue.des
-	js ../util/lev_comp.js Samurai.des
-	js ../util/lev_comp.js Tourist.des
-	js ../util/lev_comp.js Valkyrie.des
-	js ../util/lev_comp.js Wizard.des
+	node ../util/lev_comp.js Arch.des
+	node ../util/lev_comp.js Barb.des
+	node ../util/lev_comp.js Caveman.des
+	node ../util/lev_comp.js Healer.des
+	node ../util/lev_comp.js Knight.des
+	node ../util/lev_comp.js Monk.des
+	node ../util/lev_comp.js Priest.des
+	node ../util/lev_comp.js Ranger.des
+	node ../util/lev_comp.js Rogue.des
+	node ../util/lev_comp.js Samurai.des
+	node ../util/lev_comp.js Tourist.des
+	node ../util/lev_comp.js Valkyrie.des
+	node ../util/lev_comp.js Wizard.des
 	touch quest_levs
 
 dungeon: dungeon.def ../util/makedefs.js ../util/dgn_comp.js
-	js ../util/makedefs.js -e
-	js ../util/dgn_comp.js dungeon.pdf
+	node ../util/makedefs.js -e
+	node ../util/dgn_comp.js dungeon.pdf
 
 spotless:
 	-rm -f spec_levs quest_levs *.lev $(VARDAT) dungeon dungeon.pdf
