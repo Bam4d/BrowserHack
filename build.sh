@@ -31,7 +31,7 @@ pushd build
 
 popd
 cp build/browserhack.js web/
-cp build/browserhack.js.mem web/
+cp build/browserhack.wasm web/
 cp build/browserhack.data web/
 
 pushd web
