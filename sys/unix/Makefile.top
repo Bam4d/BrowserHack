@@ -187,21 +187,21 @@ dofiles:
 		-e '}' 					\
 	  	-e '$$s/.*/nodlb/p' < dat/options` ;	\
 	$(MAKE) dofiles-$${target-nodlb}
-	cp src/$(GAME) $(GAMEDIR)
-	cp util/recover $(GAMEDIR)
+	#cp src/$(GAME) $(GAMEDIR)
+	#cp util/recover $(GAMEDIR)
 	-rm -f $(SHELLDIR)/$(GAME)
 	sed -e 's;/usr/games/lib/nethackdir;$(GAMEDIR);' \
 		-e 's;HACKDIR/nethack;HACKDIR/$(GAME);' \
 		< sys/unix/nethack.sh \
 		> $(SHELLDIR)/$(GAME)
 # set up their permissions
-	-( cd $(GAMEDIR) ; $(CHOWN) $(GAMEUID) $(GAME) recover ; \
-			$(CHGRP) $(GAMEGRP) $(GAME) recover )
-	chmod $(GAMEPERM) $(GAMEDIR)/$(GAME)
-	chmod $(EXEPERM) $(GAMEDIR)/recover
-	-$(CHOWN) $(GAMEUID) $(SHELLDIR)/$(GAME)
-	$(CHGRP) $(GAMEGRP) $(SHELLDIR)/$(GAME)
-	chmod $(EXEPERM) $(SHELLDIR)/$(GAME)
+	# -( cd $(GAMEDIR) ; $(CHOWN) $(GAMEUID) $(GAME) recover ; \
+	# 		$(CHGRP) $(GAMEGRP) $(GAME) recover )
+	# chmod $(GAMEPERM) $(GAMEDIR)/$(GAME)
+	# chmod $(EXEPERM) $(GAMEDIR)/recover
+	# -$(CHOWN) $(GAMEUID) $(SHELLDIR)/$(GAME)
+	# $(CHGRP) $(GAMEGRP) $(SHELLDIR)/$(GAME)
+	# chmod $(EXEPERM) $(SHELLDIR)/$(GAME)
 
 dofiles-dlb: check-dlb
 	( cd dat ; cp nhdat $(DATNODLB) $(GAMEDIR) )

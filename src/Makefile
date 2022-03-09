@@ -152,7 +152,7 @@ GNOMEINC=-I/usr/lib/glib/include -I/usr/lib/gnome-libs/include -I../win/gnome
 # CFLAGS = -g -I../include
 
 CFLAGS = -O3 -I../include
-LFLAGS = 
+LFLAGS = -lnodefs.js -lidbfs.js -s TOTAL_MEMORY=512mb
 
 # The Qt and Be window systems are written in C++, while the rest of
 # NetHack is standard C.  If using Qt, uncomment the LINK line here to get
@@ -293,7 +293,7 @@ WINLIB = $(WINWEBLIB)
 LIBS =
 
 # make NetHack
-GAME     = nethack
+GAME     = nethack.wasm
 # GAME     = nethack.prg
 
 # if you defined RANDOM in unixconf.h/tosconf.h since your system did not come
@@ -400,7 +400,7 @@ $(GAME):	$(SYSTEM)
 
 Sysunix:	$(HOBJ) Makefile
 	@echo "Loading ..."
-	$(LINK) $(LFLAGS) -o $(GAME) $(HOBJ) $(WINLIB) $(LIBS)
+	$(LINK) $(LFLAGS) -o browserhack.js $(HOBJ) $(WINLIB) $(LIBS) --js-library ../win/web/nethack_lib.js --preload-file /home/bam4d/fb/BrowserHack/build/nethack@../nethack
 	@touch Sysunix
 
 Sys3B2:	$(HOBJ) Makefile

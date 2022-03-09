@@ -89,8 +89,8 @@
 # flags for debugging:
 # CFLAGS = -g -I../include
 
-CFLAGS = -O3 -I../include
-LFLAGS =
+CFLAGS = -O3 -I../include 
+LFLAGS = -lnodefs.js -lidbfs.js
 
 # Lu Wang:
 # Utils were supposed to be compiled to binaries
@@ -193,6 +193,10 @@ makedefs.o: makedefs.c $(CONFIG_H) ../include/permonst.h \
 		../include/artilist.h ../include/dungeon.h ../include/obj.h \
 		../include/monst.h ../include/you.h ../include/flag.h \
 		../include/dlb.h ../include/patchlevel.h ../include/qtext.h
+
+# Override build step that emcc fails
+makedefs:	$(MAKEOBJS)
+	$(CC) $(MAKEOBJS) -o makedefs
 
 ../include/onames.h: makedefs.js
 	node ./makedefs.js -o

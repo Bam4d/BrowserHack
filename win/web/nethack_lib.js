@@ -1,7 +1,7 @@
 /* vim: set sw=2 ts=2 et ft=javascript */
 // Copyright (c) 2015 Lu Wang <coolwanglu@gmail.com>
 var LibraryNetHack = {
-  $nethack__deps: ['$EmterpreterAsync'],
+  //$nethack__deps: ['$EmterpreterAsync'],
   $nethack: {
     // Macros from NetHack source code
     // window types
@@ -100,7 +100,7 @@ var LibraryNetHack = {
 
       // load tilenames
       nethack.tilenames = [];
-      Browser.asyncLoad('tilenames.json', function(u8_array) {
+      fetch('tilenames.json', function(u8_array) {
         try {
           nethack.tilenames = JSON.parse(UTF8ArrayToString(u8_array, 0));
         } catch(e) { }
@@ -1118,6 +1118,8 @@ var LibraryNetHack = {
         default:
             assert(false);
     }
+
+    console.log(Web_create_nhwindow);
     for(var i = 0;;++i) {
       if(!nethack.windows[i]) {
         nethack.windows[i] = {

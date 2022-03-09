@@ -40,6 +40,7 @@ void Web_init(int max_tile, int *win_message, int *win_status, int *win_map, int
 void Web_init_nhwindows(int * argcp, char ** argv) 
 { 
     // in JS we treat ANY_P as integer
+    printf("Web_init_nhwindows");
     if(sizeof(ANY_P) != 4) { EM_ASM( throw new Error('sizeof ANY_P is not 4!'); ); }
     if(sizeof(ANY_P) != sizeof(int)) { EM_ASM( throw new Error('sizeof ANY_P is not sizeof int!'); ); }
     if(sizeof(MENU_ITEM_P) != 8) { EM_ASM( throw new Error('sizeof MENU_ITEM_P is not 8!'); ); }
@@ -50,6 +51,7 @@ void Web_init_nhwindows(int * argcp, char ** argv)
 }
 void Web_player_selection() 
 { 
+    printf("Web_player_selection");
     in_player_selection = 1;
 
     // based on tty port
