@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.tex": "latex",
+        "hack.h": "c",
+        "wintype.h": "c",
+        "winprocs.h": "c"
+    }
+}

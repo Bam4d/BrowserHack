@@ -90,7 +90,7 @@
 # CFLAGS = -g -I../include
 
 CFLAGS = -O3 -I../include 
-LFLAGS = -lnodefs.js -lidbfs.js
+LFLAGS = -lnodefs.js -lidbfs.js -s TOTAL_MEMORY=512mb
 
 # Lu Wang:
 # Utils were supposed to be compiled to binaries

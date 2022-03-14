@@ -34,13 +34,14 @@ void BrowserHack_update_stats() {
 }
 
 // forward declaration
+void Web_raw_print(const char * str);
 winid Web_create_nhwindow(int type);
 
 void Web_init(int max_tile, int *win_message, int *win_status, int *win_map, int *win_inven);
 void Web_init_nhwindows(int * argcp, char ** argv) 
 { 
     // in JS we treat ANY_P as integer
-    printf("Web_init_nhwindows");
+    Web_raw_print("Web_init_nhwindows C");
     if(sizeof(ANY_P) != 4) { EM_ASM( throw new Error('sizeof ANY_P is not 4!'); ); }
     if(sizeof(ANY_P) != sizeof(int)) { EM_ASM( throw new Error('sizeof ANY_P is not sizeof int!'); ); }
     if(sizeof(MENU_ITEM_P) != 8) { EM_ASM( throw new Error('sizeof MENU_ITEM_P is not 8!'); ); }
@@ -51,7 +52,7 @@ void Web_init_nhwindows(int * argcp, char ** argv)
 }
 void Web_player_selection() 
 { 
-    printf("Web_player_selection");
+    Web_raw_print("Web_player_selection C");
     in_player_selection = 1;
 
     // based on tty port

@@ -19,6 +19,7 @@ STATIC_DCL void NDECL(do_positionbar);
 void
 moveloop()
 {
+	raw_print("mainloop");
 #if defined(MICRO) || defined(WIN32)
     char ch;
     int abort_lev;

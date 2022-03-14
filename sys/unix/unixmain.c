@@ -88,6 +88,8 @@ char *argv[];
 	hackpid = getpid();
 	(void) umask(0777 & ~FCMASK);
 
+	//raw_print("choose_windows");
+
 	choose_windows(DEFAULT_WINDOW_SYS);
 
 #ifdef CHDIR			/* otherwise no chdir() */
@@ -119,6 +121,7 @@ char *argv[];
 		if(!*dir)
 		    error("Flag -d must be followed by a directory name.");
 	    }
+		//raw_print("dir");
 	    if (argc > 1)
 #endif /* CHDIR */
 
@@ -150,8 +153,10 @@ char *argv[];
 	check_linux_console();
 #endif
 	initoptions();
+	raw_print("before_init_windows");
 	init_nhwindows(&argc,argv);
 	exact_username = whoami();
+	raw_print("done whoami");
 #ifdef _M_UNIX
 	init_sco_cons();
 #endif
@@ -483,6 +488,8 @@ whoami() {
 	 */
 	register char *s;
 
+	raw_print("doing whoami");
+
 	if (*plname) return FALSE;
 	if(/* !*plname && */ (s = nh_getenv("USER")))
 		(void) strncpy(plname, s, sizeof(plname)-1);
@@ -490,6 +497,8 @@ whoami() {
 		(void) strncpy(plname, s, sizeof(plname)-1);
 	if(!*plname && (s = getlogin()))
 		(void) strncpy(plname, s, sizeof(plname)-1);
+
+	raw_print("returning whoami");
 	return TRUE;
 }
 

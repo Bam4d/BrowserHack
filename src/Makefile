@@ -152,7 +152,7 @@ GNOMEINC=-I/usr/lib/glib/include -I/usr/lib/gnome-libs/include -I../win/gnome
 # CFLAGS = -g -I../include
 
 CFLAGS = -O3 -I../include
-LFLAGS = -lnodefs.js -lidbfs.js -s TOTAL_MEMORY=512mb
+LFLAGS = -lnodefs.js -lidbfs.js
 
 # The Qt and Be window systems are written in C++, while the rest of
 # NetHack is standard C.  If using Qt, uncomment the LINK line here to get
