@@ -419,6 +419,7 @@ check_linux_console()
 void
 init_linux_cons()
 {
+	raw_print("init_linux_cons");
 # ifdef TTY_GRAPHICS
 	if (!strcmp(windowprocs.name, "tty") && linux_flag_console) {
 		atexit(linux_mapon);

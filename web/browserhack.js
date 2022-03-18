@@ -196,7 +196,7 @@ Module['FS_createPath']("/", "nethack", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/nethack/logfile", "start": 0, "end": 0}, {"filename": "/nethack/minetn-2.lev", "start": 0, "end": 1052}, {"filename": "/nethack/Hea-filb.lev", "start": 1052, "end": 1709}, {"filename": "/nethack/history", "start": 1709, "end": 12180}, {"filename": "/nethack/nethackrc.default", "start": 12180, "end": 12559}, {"filename": "/nethack/Bar-filb.lev", "start": 12559, "end": 13096}, {"filename": "/nethack/minend-3.lev", "start": 13096, "end": 15469}, {"filename": "/nethack/Rog-goal.lev", "start": 15469, "end": 18301}, {"filename": "/nethack/Kni-loca.lev", "start": 18301, "end": 19908}, {"filename": "/nethack/Mon-goal.lev", "start": 19908, "end": 20996}, {"filename": "/nethack/soko3-1.lev", "start": 20996, "end": 22003}, {"filename": "/nethack/Sam-fila.lev", "start": 22003, "end": 22400}, {"filename": "/nethack/Rog-fila.lev", "start": 22400, "end": 22988}, {"filename": "/nethack/Pri-loca.lev", "start": 22988, "end": 24014}, {"filename": "/nethack/dungeon", "start": 24014, "end": 26506}, {"filename": "/nethack/record", "start": 26506, "end": 26506}, {"filename": "/nethack/minend-2.lev", "start": 26506, "end": 29297}, {"filename": "/nethack/minetn-6.lev", "start": 29297, "end": 30512}, {"filename": "/nethack/baalz.lev", "start": 30512, "end": 31650}, {"filename": "/nethack/minetn-3.lev", "start": 31650, "end": 32649}, {"filename": "/nethack/Val-filb.lev", "start": 32649, "end": 33098}, {"filename": "/nethack/water.lev", "start": 33098, "end": 35976}, {"filename": "/nethack/Ran-filb.lev", "start": 35976, "end": 36413}, {"filename": "/nethack/hh", "start": 36413, "end": 42082}, {"filename": "/nethack/Kni-strt.lev", "start": 42082, "end": 43537}, {"filename": "/nethack/Val-loca.lev", "start": 43537, "end": 44993}, {"filename": "/nethack/Arc-goal.lev", "start": 44993, "end": 47655}, {"filename": "/nethack/knox.lev", "start": 47655, "end": 50100}, {"filename": "/nethack/Cav-filb.lev", "start": 50100, "end": 50577}, {"filename": "/nethack/Tou-filb.lev", "start": 50577, "end": 51014}, {"filename": "/nethack/bigrm-5.lev", "start": 51014, "end": 53376}, {"filename": "/nethack/Arc-strt.lev", "start": 53376, "end": 55686}, {"filename": "/nethack/tower3.lev", "start": 55686, "end": 56310}, {"filename": "/nethack/fakewiz2.lev", "start": 56310, "end": 56607}, {"filename": "/nethack/Cav-fila.lev", "start": 56607, "end": 56964}, {"filename": "/nethack/soko3-2.lev", "start": 56964, "end": 57895}, {"filename": "/nethack/license", "start": 57895, "end": 62770}, {"filename": "/nethack/Ran-fila.lev", "start": 62770, "end": 63127}, {"filename": "/nethack/Mon-fila.lev", "start": 63127, "end": 63681}, {"filename": "/nethack/opthelp", "start": 63681, "end": 77328}, {"filename": "/nethack/Arc-fila.lev", "start": 77328, "end": 77860}, {"filename": "/nethack/sanctum.lev", "start": 77860, "end": 80336}, {"filename": "/nethack/Pri-goal.lev", "start": 80336, "end": 81596}, {"filename": "/nethack/minetn-1.lev", "start": 81596, "end": 82463}, {"filename": "/nethack/bigrm-3.lev", "start": 82463, "end": 84769}, {"filename": "/nethack/bigrm-1.lev", "start": 84769, "end": 87075}, {"filename": "/nethack/minetn-4.lev", "start": 87075, "end": 88022}, {"filename": "/nethack/Pri-fila.lev", "start": 88022, "end": 88474}, {"filename": "/nethack/Sam-goal.lev", "start": 88474, "end": 90338}, {"filename": "/nethack/Kni-goal.lev", "start": 90338, "end": 92992}, {"filename": "/nethack/Wiz-loca.lev", "start": 92992, "end": 95650}, {"filename": "/nethack/Wiz-strt.lev", "start": 95650, "end": 97891}, {"filename": "/nethack/asmodeus.lev", "start": 97891, "end": 98907}, {"filename": "/nethack/cmdhelp", "start": 98907, "end": 104132}, {"filename": "/nethack/Bar-goal.lev", "start": 104132, "end": 106635}, {"filename": "/nethack/Mon-filb.lev", "start": 106635, "end": 107169}, {"filename": "/nethack/Pri-strt.lev", "start": 107169, "end": 109303}, {"filename": "/nethack/valley.lev", "start": 109303, "end": 112382}, {"filename": "/nethack/Ran-strt.lev", "start": 112382, "end": 114092}, {"filename": "/nethack/Kni-filb.lev", "start": 114092, "end": 114549}, {"filename": "/nethack/Rog-strt.lev", "start": 114549, "end": 117255}, {"filename": "/nethack/soko1-1.lev", "start": 117255, "end": 118459}, {"filename": "/nethack/Tou-fila.lev", "start": 118459, "end": 118816}, {"filename": "/nethack/Hea-strt.lev", "start": 118816, "end": 121145}, {"filename": "/nethack/orcus.lev", "start": 121145, "end": 123531}, {"filename": "/nethack/Cav-loca.lev", "start": 123531, "end": 125997}, {"filename": "/nethack/Cav-goal.lev", "start": 125997, "end": 127986}, {"filename": "/nethack/Hea-fila.lev", "start": 127986, "end": 128483}, {"filename": "/nethack/Sam-strt.lev", "start": 128483, "end": 130609}, {"filename": "/nethack/minefill.lev", "start": 130609, "end": 131094}, {"filename": "/nethack/medusa-1.lev", "start": 131094, "end": 133602}, {"filename": "/nethack/Mon-strt.lev", "start": 133602, "end": 135716}, {"filename": "/nethack/Rog-loca.lev", "start": 135716, "end": 138368}, {"filename": "/nethack/Wiz-goal.lev", "start": 138368, "end": 141197}, {"filename": "/nethack/soko4-2.lev", "start": 141197, "end": 141891}, {"filename": "/nethack/oracle.lev", "start": 141891, "end": 142590}, {"filename": "/nethack/nethack", "start": 142590, "end": 143985}, {"filename": "/nethack/data", "start": 143985, "end": 353138}, {"filename": "/nethack/Wiz-fila.lev", "start": 353138, "end": 353690}, {"filename": "/nethack/Sam-loca.lev", "start": 353690, "end": 356678}, {"filename": "/nethack/wizard3.lev", "start": 356678, "end": 357639}, {"filename": "/nethack/Val-strt.lev", "start": 357639, "end": 359723}, {"filename": "/nethack/fire.lev", "start": 359723, "end": 362835}, {"filename": "/nethack/fakewiz1.lev", "start": 362835, "end": 363135}, {"filename": "/nethack/wizard1.lev", "start": 363135, "end": 364268}, {"filename": "/nethack/castle.lev", "start": 364268, "end": 368021}, {"filename": "/nethack/help", "start": 368021, "end": 378536}, {"filename": "/nethack/Bar-loca.lev", "start": 378536, "end": 381068}, {"filename": "/nethack/Bar-fila.lev", "start": 381068, "end": 381385}, {"filename": "/nethack/soko2-1.lev", "start": 381385, "end": 382124}, {"filename": "/nethack/Mon-loca.lev", "start": 382124, "end": 384578}, {"filename": "/nethack/minetn-7.lev", "start": 384578, "end": 385845}, {"filename": "/nethack/tower2.lev", "start": 385845, "end": 386341}, {"filename": "/nethack/Hea-goal.lev", "start": 386341, "end": 387910}, {"filename": "/nethack/Rog-filb.lev", "start": 387910, "end": 388498}, {"filename": "/nethack/medusa-2.lev", "start": 388498, "end": 391280}, {"filename": "/nethack/soko2-2.lev", "start": 391280, "end": 392103}, {"filename": "/nethack/Pri-filb.lev", "start": 392103, "end": 392655}, {"filename": "/nethack/Tou-strt.lev", "start": 392655, "end": 395273}, {"filename": "/nethack/tower1.lev", "start": 395273, "end": 395801}, {"filename": "/nethack/earth.lev", "start": 395801, "end": 398762}, {"filename": "/nethack/wizard2.lev", "start": 398762, "end": 399436}, {"filename": "/nethack/Bar-strt.lev", "start": 399436, "end": 401612}, {"filename": "/nethack/Val-fila.lev", "start": 401612, "end": 402021}, {"filename": "/nethack/Cav-strt.lev", "start": 402021, "end": 404146}, {"filename": "/nethack/wizhelp", "start": 404146, "end": 404809}, {"filename": "/nethack/bigrm-4.lev", "start": 404809, "end": 407123}, {"filename": "/nethack/perm", "start": 407123, "end": 407123}, {"filename": "/nethack/options", "start": 407123, "end": 407723}, {"filename": "/nethack/Arc-filb.lev", "start": 407723, "end": 408255}, {"filename": "/nethack/Tou-goal.lev", "start": 408255, "end": 411212}, {"filename": "/nethack/Wiz-filb.lev", "start": 411212, "end": 411744}, {"filename": "/nethack/juiblex.lev", "start": 411744, "end": 413938}, {"filename": "/nethack/Ran-goal.lev", "start": 413938, "end": 416473}, {"filename": "/nethack/Sam-filb.lev", "start": 416473, "end": 417869}, {"filename": "/nethack/quest.dat", "start": 417869, "end": 514972}, {"filename": "/nethack/Kni-fila.lev", "start": 514972, "end": 515329}, {"filename": "/nethack/minend-1.lev", "start": 515329, "end": 517954}, {"filename": "/nethack/air.lev", "start": 517954, "end": 520653}, {"filename": "/nethack/soko1-2.lev", "start": 520653, "end": 521879}, {"filename": "/nethack/oracles", "start": 521879, "end": 527817}, {"filename": "/nethack/bigrm-2.lev", "start": 527817, "end": 530179}, {"filename": "/nethack/astral.lev", "start": 530179, "end": 533306}, {"filename": "/nethack/Ran-loca.lev", "start": 533306, "end": 535122}, {"filename": "/nethack/Hea-loca.lev", "start": 535122, "end": 536551}, {"filename": "/nethack/soko4-1.lev", "start": 536551, "end": 537218}, {"filename": "/nethack/Tou-loca.lev", "start": 537218, "end": 539873}, {"filename": "/nethack/rumors", "start": 539873, "end": 582689}, {"filename": "/nethack/Arc-loca.lev", "start": 582689, "end": 585480}, {"filename": "/nethack/Val-goal.lev", "start": 585480, "end": 586903}, {"filename": "/nethack/minetn-5.lev", "start": 586903, "end": 589216}], "remote_package_size": 589216, "package_uuid": "f3b0e13a-705d-41f9-9997-ef6e4bf37d74"});
+    loadPackage({"files": [{"filename": "/nethack/logfile", "start": 0, "end": 0}, {"filename": "/nethack/minetn-2.lev", "start": 0, "end": 1052}, {"filename": "/nethack/Hea-filb.lev", "start": 1052, "end": 1709}, {"filename": "/nethack/history", "start": 1709, "end": 12180}, {"filename": "/nethack/nethackrc.default", "start": 12180, "end": 12559}, {"filename": "/nethack/Bar-filb.lev", "start": 12559, "end": 13096}, {"filename": "/nethack/minend-3.lev", "start": 13096, "end": 15469}, {"filename": "/nethack/Rog-goal.lev", "start": 15469, "end": 18301}, {"filename": "/nethack/Kni-loca.lev", "start": 18301, "end": 19908}, {"filename": "/nethack/Mon-goal.lev", "start": 19908, "end": 20996}, {"filename": "/nethack/soko3-1.lev", "start": 20996, "end": 22003}, {"filename": "/nethack/Sam-fila.lev", "start": 22003, "end": 22400}, {"filename": "/nethack/Rog-fila.lev", "start": 22400, "end": 22988}, {"filename": "/nethack/Pri-loca.lev", "start": 22988, "end": 24014}, {"filename": "/nethack/dungeon", "start": 24014, "end": 26506}, {"filename": "/nethack/record", "start": 26506, "end": 26506}, {"filename": "/nethack/minend-2.lev", "start": 26506, "end": 29297}, {"filename": "/nethack/minetn-6.lev", "start": 29297, "end": 30512}, {"filename": "/nethack/baalz.lev", "start": 30512, "end": 31650}, {"filename": "/nethack/minetn-3.lev", "start": 31650, "end": 32649}, {"filename": "/nethack/Val-filb.lev", "start": 32649, "end": 33098}, {"filename": "/nethack/water.lev", "start": 33098, "end": 35976}, {"filename": "/nethack/Ran-filb.lev", "start": 35976, "end": 36413}, {"filename": "/nethack/hh", "start": 36413, "end": 42082}, {"filename": "/nethack/Kni-strt.lev", "start": 42082, "end": 43537}, {"filename": "/nethack/Val-loca.lev", "start": 43537, "end": 44993}, {"filename": "/nethack/Arc-goal.lev", "start": 44993, "end": 47655}, {"filename": "/nethack/knox.lev", "start": 47655, "end": 50100}, {"filename": "/nethack/Cav-filb.lev", "start": 50100, "end": 50577}, {"filename": "/nethack/Tou-filb.lev", "start": 50577, "end": 51014}, {"filename": "/nethack/bigrm-5.lev", "start": 51014, "end": 53376}, {"filename": "/nethack/Arc-strt.lev", "start": 53376, "end": 55686}, {"filename": "/nethack/tower3.lev", "start": 55686, "end": 56310}, {"filename": "/nethack/fakewiz2.lev", "start": 56310, "end": 56607}, {"filename": "/nethack/Cav-fila.lev", "start": 56607, "end": 56964}, {"filename": "/nethack/soko3-2.lev", "start": 56964, "end": 57895}, {"filename": "/nethack/license", "start": 57895, "end": 62770}, {"filename": "/nethack/Ran-fila.lev", "start": 62770, "end": 63127}, {"filename": "/nethack/Mon-fila.lev", "start": 63127, "end": 63681}, {"filename": "/nethack/opthelp", "start": 63681, "end": 77328}, {"filename": "/nethack/Arc-fila.lev", "start": 77328, "end": 77860}, {"filename": "/nethack/sanctum.lev", "start": 77860, "end": 80336}, {"filename": "/nethack/Pri-goal.lev", "start": 80336, "end": 81596}, {"filename": "/nethack/minetn-1.lev", "start": 81596, "end": 82463}, {"filename": "/nethack/bigrm-3.lev", "start": 82463, "end": 84769}, {"filename": "/nethack/bigrm-1.lev", "start": 84769, "end": 87075}, {"filename": "/nethack/minetn-4.lev", "start": 87075, "end": 88022}, {"filename": "/nethack/Pri-fila.lev", "start": 88022, "end": 88474}, {"filename": "/nethack/Sam-goal.lev", "start": 88474, "end": 90338}, {"filename": "/nethack/Kni-goal.lev", "start": 90338, "end": 92992}, {"filename": "/nethack/Wiz-loca.lev", "start": 92992, "end": 95650}, {"filename": "/nethack/Wiz-strt.lev", "start": 95650, "end": 97891}, {"filename": "/nethack/asmodeus.lev", "start": 97891, "end": 98907}, {"filename": "/nethack/cmdhelp", "start": 98907, "end": 104132}, {"filename": "/nethack/Bar-goal.lev", "start": 104132, "end": 106635}, {"filename": "/nethack/Mon-filb.lev", "start": 106635, "end": 107169}, {"filename": "/nethack/Pri-strt.lev", "start": 107169, "end": 109303}, {"filename": "/nethack/valley.lev", "start": 109303, "end": 112382}, {"filename": "/nethack/Ran-strt.lev", "start": 112382, "end": 114092}, {"filename": "/nethack/Kni-filb.lev", "start": 114092, "end": 114549}, {"filename": "/nethack/Rog-strt.lev", "start": 114549, "end": 117255}, {"filename": "/nethack/soko1-1.lev", "start": 117255, "end": 118459}, {"filename": "/nethack/Tou-fila.lev", "start": 118459, "end": 118816}, {"filename": "/nethack/Hea-strt.lev", "start": 118816, "end": 121145}, {"filename": "/nethack/orcus.lev", "start": 121145, "end": 123531}, {"filename": "/nethack/Cav-loca.lev", "start": 123531, "end": 125997}, {"filename": "/nethack/Cav-goal.lev", "start": 125997, "end": 127986}, {"filename": "/nethack/Hea-fila.lev", "start": 127986, "end": 128483}, {"filename": "/nethack/Sam-strt.lev", "start": 128483, "end": 130609}, {"filename": "/nethack/minefill.lev", "start": 130609, "end": 131094}, {"filename": "/nethack/medusa-1.lev", "start": 131094, "end": 133602}, {"filename": "/nethack/Mon-strt.lev", "start": 133602, "end": 135716}, {"filename": "/nethack/Rog-loca.lev", "start": 135716, "end": 138368}, {"filename": "/nethack/Wiz-goal.lev", "start": 138368, "end": 141197}, {"filename": "/nethack/soko4-2.lev", "start": 141197, "end": 141891}, {"filename": "/nethack/oracle.lev", "start": 141891, "end": 142590}, {"filename": "/nethack/nethack", "start": 142590, "end": 143985}, {"filename": "/nethack/data", "start": 143985, "end": 353138}, {"filename": "/nethack/Wiz-fila.lev", "start": 353138, "end": 353690}, {"filename": "/nethack/Sam-loca.lev", "start": 353690, "end": 356678}, {"filename": "/nethack/wizard3.lev", "start": 356678, "end": 357639}, {"filename": "/nethack/Val-strt.lev", "start": 357639, "end": 359723}, {"filename": "/nethack/fire.lev", "start": 359723, "end": 362835}, {"filename": "/nethack/fakewiz1.lev", "start": 362835, "end": 363135}, {"filename": "/nethack/wizard1.lev", "start": 363135, "end": 364268}, {"filename": "/nethack/castle.lev", "start": 364268, "end": 368021}, {"filename": "/nethack/help", "start": 368021, "end": 378536}, {"filename": "/nethack/Bar-loca.lev", "start": 378536, "end": 381068}, {"filename": "/nethack/Bar-fila.lev", "start": 381068, "end": 381385}, {"filename": "/nethack/soko2-1.lev", "start": 381385, "end": 382124}, {"filename": "/nethack/Mon-loca.lev", "start": 382124, "end": 384578}, {"filename": "/nethack/minetn-7.lev", "start": 384578, "end": 385845}, {"filename": "/nethack/tower2.lev", "start": 385845, "end": 386341}, {"filename": "/nethack/Hea-goal.lev", "start": 386341, "end": 387910}, {"filename": "/nethack/Rog-filb.lev", "start": 387910, "end": 388498}, {"filename": "/nethack/medusa-2.lev", "start": 388498, "end": 391280}, {"filename": "/nethack/soko2-2.lev", "start": 391280, "end": 392103}, {"filename": "/nethack/Pri-filb.lev", "start": 392103, "end": 392655}, {"filename": "/nethack/Tou-strt.lev", "start": 392655, "end": 395273}, {"filename": "/nethack/tower1.lev", "start": 395273, "end": 395801}, {"filename": "/nethack/earth.lev", "start": 395801, "end": 398762}, {"filename": "/nethack/wizard2.lev", "start": 398762, "end": 399436}, {"filename": "/nethack/Bar-strt.lev", "start": 399436, "end": 401612}, {"filename": "/nethack/Val-fila.lev", "start": 401612, "end": 402021}, {"filename": "/nethack/Cav-strt.lev", "start": 402021, "end": 404146}, {"filename": "/nethack/wizhelp", "start": 404146, "end": 404809}, {"filename": "/nethack/bigrm-4.lev", "start": 404809, "end": 407123}, {"filename": "/nethack/perm", "start": 407123, "end": 407123}, {"filename": "/nethack/options", "start": 407123, "end": 407723}, {"filename": "/nethack/Arc-filb.lev", "start": 407723, "end": 408255}, {"filename": "/nethack/Tou-goal.lev", "start": 408255, "end": 411212}, {"filename": "/nethack/Wiz-filb.lev", "start": 411212, "end": 411744}, {"filename": "/nethack/juiblex.lev", "start": 411744, "end": 413938}, {"filename": "/nethack/Ran-goal.lev", "start": 413938, "end": 416473}, {"filename": "/nethack/Sam-filb.lev", "start": 416473, "end": 417869}, {"filename": "/nethack/quest.dat", "start": 417869, "end": 514972}, {"filename": "/nethack/Kni-fila.lev", "start": 514972, "end": 515329}, {"filename": "/nethack/minend-1.lev", "start": 515329, "end": 517954}, {"filename": "/nethack/air.lev", "start": 517954, "end": 520653}, {"filename": "/nethack/soko1-2.lev", "start": 520653, "end": 521879}, {"filename": "/nethack/oracles", "start": 521879, "end": 527817}, {"filename": "/nethack/bigrm-2.lev", "start": 527817, "end": 530179}, {"filename": "/nethack/astral.lev", "start": 530179, "end": 533306}, {"filename": "/nethack/Ran-loca.lev", "start": 533306, "end": 535122}, {"filename": "/nethack/Hea-loca.lev", "start": 535122, "end": 536551}, {"filename": "/nethack/soko4-1.lev", "start": 536551, "end": 537218}, {"filename": "/nethack/Tou-loca.lev", "start": 537218, "end": 539873}, {"filename": "/nethack/rumors", "start": 539873, "end": 582689}, {"filename": "/nethack/Arc-loca.lev", "start": 582689, "end": 585480}, {"filename": "/nethack/Val-goal.lev", "start": 585480, "end": 586903}, {"filename": "/nethack/minetn-5.lev", "start": 586903, "end": 589216}], "remote_package_size": 589216, "package_uuid": "cb88ba96-b602-48e7-b978-cbf8ba3c798d"});
 
   })();
 
@@ -922,13 +922,37 @@ function ccall(ident, returnType, argTypes, args, opts) {
       }
     }
   }
+  // Data for a previous async operation that was in flight before us.
+  var previousAsync = Asyncify.currData;
   var ret = func.apply(null, cArgs);
   function onDone(ret) {
+    runtimeKeepalivePop();
     if (stack !== 0) stackRestore(stack);
     return convertReturnValue(ret);
   }
+  // Keep the runtime alive through all calls. Note that this call might not be
+  // async, but for simplicity we push and pop in all calls.
+  runtimeKeepalivePush();
+  var asyncMode = opts && opts.async;
+  if (Asyncify.currData != previousAsync) {
+    // A change in async operation happened. If there was already an async
+    // operation in flight before us, that is an error: we should not start
+    // another async operation while one is active, and we should not stop one
+    // either. The only valid combination is to have no change in the async
+    // data (so we either had one in flight and left it alone, or we didn't have
+    // one), or to have nothing in flight and to start one.
+    assert(!(previousAsync && Asyncify.currData), 'We cannot start an async operation when one is already flight');
+    assert(!(previousAsync && !Asyncify.currData), 'We cannot stop an async operation in flight');
+    // This is a new async operation. The wasm is paused and has unwound its stack.
+    // We need to return a Promise that resolves the return value
+    // once the stack is rewound and execution finishes.
+    assert(asyncMode, 'The call to ' + ident + ' is running asynchronously. If this was intended, add the async option to the ccall/cwrap call.');
+    return Asyncify.whenDone().then(onDone);
+  }
 
   ret = onDone(ret);
+  // If this is an async ccall, ensure we return a promise
+  if (asyncMode) return Promise.resolve(ret);
   return ret;
 }
 
@@ -1507,6 +1531,8 @@ function preMain() {
 }
 
 function exitRuntime() {
+  // ASYNCIFY cannot be used once the runtime starts shutting down.
+  Asyncify.state = Asyncify.State.Disabled;
   checkStackCookie();
   runtimeExited = true;
 }
@@ -1790,6 +1816,8 @@ function createWasm() {
   function receiveInstance(instance, module) {
     var exports = instance.exports;
 
+    exports = Asyncify.instrumentWasmExports(exports);
+
     Module['asm'] = exports;
 
     wasmMemory = Module['asm']['memory'];
@@ -1878,6 +1906,7 @@ function createWasm() {
   if (Module['instantiateWasm']) {
     try {
       var exports = Module['instantiateWasm'](info, receiveInstance);
+      exports = Asyncify.instrumentWasmExports(exports);
       return exports;
     } catch(e) {
       err('Module.instantiateWasm callback failed with error: ' + e);
@@ -1896,8 +1925,8 @@ var tempI64;
 // === Body ===
 
 var ASM_CONSTS = {
-  260296: function() {FS.syncfs(function (err) { if(err) console.log('Cannot sync FS, savegame may not work!'); });},  
- 260390: function() {FS.syncfs(function (err) { if(err) console.log('Cannot sync FS, savegame may not work!'); });}
+  260376: function() {FS.syncfs(function (err) { if(err) console.log('Cannot sync FS, savegame may not work!'); });},  
+ 260470: function() {FS.syncfs(function (err) { if(err) console.log('Cannot sync FS, savegame may not work!'); });}
 };
 
 
@@ -1918,11 +1947,11 @@ var ASM_CONSTS = {
             // Run the wasm function ptr with signature 'v'. If no function
             // with such signature was exported, this call does not need
             // to be emitted (and would confuse Closure)
-            getWasmTableEntry(func)();
+            (function() {  dynCall_v.call(null, func); })();
           } else {
             // If any function with signature 'vi' was exported, run
             // the callback with that signature.
-            getWasmTableEntry(func)(callback.arg);
+            (function(a1) {  dynCall_vi.apply(null, [func, a1]); })(callback.arg);
           }
         } else {
           func(callback.arg === undefined ? null : callback.arg);
@@ -2002,58 +2031,294 @@ var ASM_CONSTS = {
       return demangleAll(js);
     }
 
-  var nethack = {NHW_MESSAGE:1,NHW_STATUS:2,NHW_MAP:3,NHW_MENU:4,NHW_TEXT:5,ATR_NONE:0,ATR_BOLD:1,ATR_DIM:2,ATR_ULINE:4,ATR_BLINK:5,ATR_INVERSE:7,PICK_NONE:0,PICK_ONE:1,PICK_ANY:2,LS_UI_PREFERENCES:"BrowserHack_UI_Preferences",LS_OPTIONS:"BrowserHack_Options",LS_KONGREGATE_SAVE:"BrowserHack_Kongregate_Save",pre_run:function() { // thisois called before main()
-        if(window.parent.kongregate) {
-          ENV['USER'] = window.parent.kongregate.services.getUsername();
-          if(ENV['USER'] == 'coolwanglu')
-            Module.arguments = ['-D'];   
-        } else {
-          ENV['USER'] = 'player'; // set to `player` such that NetHack will ask for a name
-          // wizard mode
-          var wizard_mode_hashes = [
-            '#↑↑↓↓←→←→BAStart',
-            '#黑化黑灰化肥灰会挥发',
-            '#The quick brown fox jumps over the lazy dog',
-            '#子子子子子子子子子子子子',
-            '#Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo',
-            '#石室诗士施氏嗜狮誓食十狮',
-            '#WL-the-wizard'
-          ];
-          if(document.location.hash == '#wizard-mode') alert('Could not enable wizard mode!');
-          else if(wizard_mode_hashes.indexOf(document.location.hash) != -1) Module.arguments = ['-D'];
+  function runAndAbortIfError(func) {
+      try {
+        return func();
+      } catch (e) {
+        abort(e);
+      }
+    }
+  
+  /** @param {boolean=} synchronous */
+  function callUserCallback(func, synchronous) {
+      if (runtimeExited || ABORT) {
+        err('user callback triggered after runtime exited or application aborted.  Ignoring.');
+        return;
+      }
+      // For synchronous calls, let any exceptions propagate, and don't let the runtime exit.
+      if (synchronous) {
+        func();
+        return;
+      }
+      try {
+        func();
+      } catch (e) {
+        handleException(e);
+      }
+    }
+  
+  function runtimeKeepalivePush() {
+      runtimeKeepaliveCounter += 1;
+    }
+  
+  function runtimeKeepalivePop() {
+      assert(runtimeKeepaliveCounter > 0);
+      runtimeKeepaliveCounter -= 1;
+    }
+  var Asyncify = {State:{Normal:0,Unwinding:1,Rewinding:2,Disabled:3},state:0,StackSize:4096,currData:null,handleSleepReturnValue:0,exportCallStack:[],callStackNameToId:{},callStackIdToName:{},callStackId:0,asyncPromiseHandlers:null,sleepCallbacks:[],getCallStackId:function(funcName) {
+        var id = Asyncify.callStackNameToId[funcName];
+        if (id === undefined) {
+          id = Asyncify.callStackId++;
+          Asyncify.callStackNameToId[funcName] = id;
+          Asyncify.callStackIdToName[id] = funcName;
         }
-  
-        ENV['HOME'] = '/home/nethack_player';
-        try { FS.mkdir('/home/nethack_player'); } catch(e) { }
-  
-        // mount and load the save dir
-        try { FS.mkdir('/nethack/save'); } catch(e) { }
-        if(window.parent.kongregate) {
-          // in kongregate we cannot use IDBFS
-          if(typeof localStorage !== 'undefined') {
-            var savedata = {};
+        return id;
+      },instrumentWasmImports:function(imports) {
+        var ASYNCIFY_IMPORTS = ["env.Web_get_ext_cmd_helper","env.nethack_exit","env.Web_askname_helper","env.Web_display_nhwindow","env.Web_yn_function_helper","env.Web_select_menu","env.Web_display_file","env.Web_nh_poskey_helper","env.invoke_*","env.emscripten_sleep","env.emscripten_wget","env.emscripten_wget_data","env.emscripten_idb_load","env.emscripten_idb_store","env.emscripten_idb_delete","env.emscripten_idb_exists","env.emscripten_idb_load_blob","env.emscripten_idb_store_blob","env.SDL_Delay","env.emscripten_scan_registers","env.emscripten_lazy_load_code","env.emscripten_fiber_swap","wasi_snapshot_preview1.fd_sync","env.__wasi_fd_sync","env._emval_await","env._dlopen_js","env.__asyncjs__*"].map((x) => x.split('.')[1]);
+        for (var x in imports) {
+          (function(x) {
+            var original = imports[x];
+            if (typeof original == 'function') {
+              imports[x] = function() {
+                var originalAsyncifyState = Asyncify.state;
+                try {
+                  return original.apply(null, arguments);
+                } finally {
+                  // Only asyncify-declared imports are allowed to change the
+                  // state.
+                  var isAsyncifyImport = ASYNCIFY_IMPORTS.indexOf(x) >= 0 ||
+                                         x.startsWith('__asyncjs__');
+                  // Changing the state from normal to disabled is allowed (in any
+                  // function) as that is what shutdown does (and we don't have an
+                  // explicit list of shutdown imports).
+                  var changedToDisabled =
+                        originalAsyncifyState === Asyncify.State.Normal &&
+                        Asyncify.state        === Asyncify.State.Disabled;
+                  // invoke_* functions are allowed to change the state if we do
+                  // not ignore indirect calls.
+                  var ignoredInvoke = x.startsWith('invoke_') &&
+                                      true;
+                  if (Asyncify.state !== originalAsyncifyState &&
+                      !isAsyncifyImport &&
+                      !changedToDisabled &&
+                      !ignoredInvoke) {
+                    throw new Error('import ' + x + ' was not in ASYNCIFY_IMPORTS, but changed the state');
+                  }
+                }
+              }
+            }
+          })(x);
+        }
+      },instrumentWasmExports:function(exports) {
+        var ret = {};
+        for (var x in exports) {
+          (function(x) {
+            var original = exports[x];
+            if (typeof original == 'function') {
+              ret[x] = function() {
+                Asyncify.exportCallStack.push(x);
+                try {
+                  return original.apply(null, arguments);
+                } finally {
+                  if (!ABORT) {
+                    var y = Asyncify.exportCallStack.pop();
+                    assert(y === x);
+                    Asyncify.maybeStopUnwind();
+                  }
+                }
+              };
+            } else {
+              ret[x] = original;
+            }
+          })(x);
+        }
+        return ret;
+      },maybeStopUnwind:function() {
+        if (Asyncify.currData &&
+            Asyncify.state === Asyncify.State.Unwinding &&
+            Asyncify.exportCallStack.length === 0) {
+          // We just finished unwinding.
+          
+          Asyncify.state = Asyncify.State.Normal;
+          // Keep the runtime alive so that a re-wind can be done later.
+          runAndAbortIfError(Module['_asyncify_stop_unwind']);
+          if (typeof Fibers != 'undefined') {
+            Fibers.trampoline();
+          }
+        }
+      },whenDone:function() {
+        assert(Asyncify.currData, 'Tried to wait for an async operation when none is in progress.');
+        assert(!Asyncify.asyncPromiseHandlers, 'Cannot have multiple async operations in flight at once');
+        return new Promise((resolve, reject) => {
+          Asyncify.asyncPromiseHandlers = {
+            resolve: resolve,
+            reject: reject
+          };
+        });
+      },allocateData:function() {
+        // An asyncify data structure has three fields:
+        //  0  current stack pos
+        //  4  max stack pos
+        //  8  id of function at bottom of the call stack (callStackIdToName[id] == name of js function)
+        //
+        // The Asyncify ABI only interprets the first two fields, the rest is for the runtime.
+        // We also embed a stack in the same memory region here, right next to the structure.
+        // This struct is also defined as asyncify_data_t in emscripten/fiber.h
+        var ptr = _malloc(12 + Asyncify.StackSize);
+        Asyncify.setDataHeader(ptr, ptr + 12, Asyncify.StackSize);
+        Asyncify.setDataRewindFunc(ptr);
+        return ptr;
+      },setDataHeader:function(ptr, stack, stackSize) {
+        HEAP32[((ptr)>>2)] = stack;
+        HEAP32[(((ptr)+(4))>>2)] = stack + stackSize;
+      },setDataRewindFunc:function(ptr) {
+        var bottomOfCallStack = Asyncify.exportCallStack[0];
+        var rewindId = Asyncify.getCallStackId(bottomOfCallStack);
+        HEAP32[(((ptr)+(8))>>2)] = rewindId;
+      },getDataRewindFunc:function(ptr) {
+        var id = HEAP32[(((ptr)+(8))>>2)];
+        var name = Asyncify.callStackIdToName[id];
+        var func = Module['asm'][name];
+        return func;
+      },doRewind:function(ptr) {
+        var start = Asyncify.getDataRewindFunc(ptr);
+        // Once we have rewound and the stack we no longer need to artificially keep
+        // the runtime alive.
+        
+        return start();
+      },handleSleep:function(startAsync) {
+        assert(Asyncify.state !== Asyncify.State.Disabled, 'Asyncify cannot be done during or after the runtime exits');
+        if (ABORT) return;
+        if (Asyncify.state === Asyncify.State.Normal) {
+          // Prepare to sleep. Call startAsync, and see what happens:
+          // if the code decided to call our callback synchronously,
+          // then no async operation was in fact begun, and we don't
+          // need to do anything.
+          var reachedCallback = false;
+          var reachedAfterCallback = false;
+          startAsync((handleSleepReturnValue) => {
+            assert(!handleSleepReturnValue || typeof handleSleepReturnValue == 'number' || typeof handleSleepReturnValue == 'boolean'); // old emterpretify API supported other stuff
+            if (ABORT) return;
+            Asyncify.handleSleepReturnValue = handleSleepReturnValue || 0;
+            reachedCallback = true;
+            if (!reachedAfterCallback) {
+              // We are happening synchronously, so no need for async.
+              return;
+            }
+            // This async operation did not happen synchronously, so we did
+            // unwind. In that case there can be no compiled code on the stack,
+            // as it might break later operations (we can rewind ok now, but if
+            // we unwind again, we would unwind through the extra compiled code
+            // too).
+            assert(!Asyncify.exportCallStack.length, 'Waking up (starting to rewind) must be done from JS, without compiled code on the stack.');
+            Asyncify.state = Asyncify.State.Rewinding;
+            runAndAbortIfError(() => Module['_asyncify_start_rewind'](Asyncify.currData));
+            if (typeof Browser != 'undefined' && Browser.mainLoop.func) {
+              Browser.mainLoop.resume();
+            }
+            var asyncWasmReturnValue, isError = false;
             try {
-              var savedata = JSON.parse(localStorage[nethack.LS_KONGREGATE_SAVE] || '');
-            } catch (e) {}
-            for(var fn in savedata) {
-              try {
-                var data = atob(savedata[fn]);
-                var buf = new ArrayBuffer(data.length);
-                var array = new Uint8Array(buf);
-                for(var i = 0; i < data.length; ++i)
-                  array[i] = data.charCodeAt(i);
-                FS.writeFile(fn, array, { encoding: 'binary' });
-              } catch(e) { }
+              asyncWasmReturnValue = Asyncify.doRewind(Asyncify.currData);
+            } catch (err) {
+              asyncWasmReturnValue = err;
+              isError = true;
+            }
+            // Track whether the return value was handled by any promise handlers.
+            var handled = false;
+            if (!Asyncify.currData) {
+              // All asynchronous execution has finished.
+              // `asyncWasmReturnValue` now contains the final
+              // return value of the exported async WASM function.
+              //
+              // Note: `asyncWasmReturnValue` is distinct from
+              // `Asyncify.handleSleepReturnValue`.
+              // `Asyncify.handleSleepReturnValue` contains the return
+              // value of the last C function to have executed
+              // `Asyncify.handleSleep()`, where as `asyncWasmReturnValue`
+              // contains the return value of the exported WASM function
+              // that may have called C functions that
+              // call `Asyncify.handleSleep()`.
+              var asyncPromiseHandlers = Asyncify.asyncPromiseHandlers;
+              if (asyncPromiseHandlers) {
+                Asyncify.asyncPromiseHandlers = null;
+                (isError ? asyncPromiseHandlers.reject : asyncPromiseHandlers.resolve)(asyncWasmReturnValue);
+                handled = true;
+              }
+            }
+            if (isError && !handled) {
+              // If there was an error and it was not handled by now, we have no choice but to
+              // rethrow that error into the global scope where it can be caught only by
+              // `onerror` or `onunhandledpromiserejection`.
+              throw asyncWasmReturnValue;
+            }
+          });
+          reachedAfterCallback = true;
+          if (!reachedCallback) {
+            // A true async operation was begun; start a sleep.
+            Asyncify.state = Asyncify.State.Unwinding;
+            // TODO: reuse, don't alloc/free every sleep
+            Asyncify.currData = Asyncify.allocateData();
+            runAndAbortIfError(() => Module['_asyncify_start_unwind'](Asyncify.currData));
+            if (typeof Browser != 'undefined' && Browser.mainLoop.func) {
+              Browser.mainLoop.pause();
             }
           }
+        } else if (Asyncify.state === Asyncify.State.Rewinding) {
+          // Stop a resume.
+          Asyncify.state = Asyncify.State.Normal;
+          runAndAbortIfError(Module['_asyncify_stop_rewind']);
+          _free(Asyncify.currData);
+          Asyncify.currData = null;
+          // Call all sleep callbacks now that the sleep-resume is all done.
+          Asyncify.sleepCallbacks.forEach((func) => callUserCallback(func));
         } else {
-          FS.mount(IDBFS, {}, '/nethack/save');
-          addRunDependency('BrowserHack-save-dir');
-          FS.syncfs(true, function(err) { 
-            if(err) console.log('Cannot sync fs, savegame may not work!'); 
-            removeRunDependency('BrowserHack-save-dir');
-          });
+          abort('invalid state: ' + Asyncify.state);
         }
+        return Asyncify.handleSleepReturnValue;
+      },handleAsync:function(startAsync) {
+        return Asyncify.handleSleep((wakeUp) => {
+          // TODO: add error handling as a second param when handleSleep implements it.
+          startAsync().then(wakeUp);
+        });
+      }};
+  var nethack = {NHW_MESSAGE:1,NHW_STATUS:2,NHW_MAP:3,NHW_MENU:4,NHW_TEXT:5,ATR_NONE:0,ATR_BOLD:1,ATR_DIM:2,ATR_ULINE:4,ATR_BLINK:5,ATR_INVERSE:7,PICK_NONE:0,PICK_ONE:1,PICK_ANY:2,LS_UI_PREFERENCES:"BrowserHack_UI_Preferences",LS_OPTIONS:"BrowserHack_Options",LS_KONGREGATE_SAVE:"BrowserHack_Kongregate_Save",TEST_DES_FILE:"\nMAZE: \"mylevel\", ' '\nFLAGS:premapped\nGEOMETRY:center,center\n\nMAP\n ||||||   \n |....|   \n |........\n |....|  .\n ||||||  .\n         .\n         .\n..........\nENDMAP\n\nSTAIR:(2, 1),down\nBRANCH: (0,7,0,7),(1,8,1,8)\n",pre_run:function() {  // thisois called before main()
+        
+        ENV['USER'] = 'player'; // set to `player` such that NetHack will ask for a name
+        // wizard mode
+        var wizard_mode_hashes = [
+          '#↑↑↓↓←→←→BAStart',
+          '#黑化黑灰化肥灰会挥发',
+          '#The quick brown fox jumps over the lazy dog',
+          '#子子子子子子子子子子子子',
+          '#Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo',
+          '#石室诗士施氏嗜狮誓食十狮',
+          '#WL-the-wizard'
+        ];
+        if(document.location.hash == '#wizard-mode')
+          alert('Could not enable wizard mode!');
+        else if(wizard_mode_hashes.indexOf(document.location.hash) != -1)
+          Module.arguments = ['-D'];
+        
+  
+        ENV['HOME'] = '/home/nethack_player';
+        try {
+          FS.mkdir('/home/nethack_player');
+        } catch (e) {
+        }
+  
+        // mount and load the save dir
+        try {
+          FS.mkdir('/nethack/save');
+        } catch (e) {
+        }
+        
+        FS.mount(IDBFS, {}, '/nethack/save');
+        addRunDependency('BrowserHack-save-dir');
+        FS.syncfs(true, function(err) { 
+          if(err) console.log('Cannot sync fs, savegame may not work!'); 
+          removeRunDependency('BrowserHack-save-dir');
+        });
+        
   
         // load user options
         if(typeof localStorage !== 'undefined') {
@@ -2071,39 +2336,18 @@ var ASM_CONSTS = {
           FS.writeFile(ENV['HOME'] + '/.nethackrc', user_options, { encoding: 'utf8' });
         }
   
+        // TODO: this can be done async in docs, but not for now
         // load tilenames
-        nethack.tilenames = ["giant ant", "killer bee", "soldier ant", "fire ant", "giant beetle", "queen bee", "acid blob", "quivering blob", "gelatinous cube", "chickatrice", "cockatrice", "pyrolisk", "jackal", "fox", "coyote", "werejackal", "little dog", "dog", "large dog", "dingo", "wolf", "werewolf", "warg", "winter wolf cub", "winter wolf", "hell hound pup", "hell hound", "Cerberus", "gas spore", "floating eye", "freezing sphere", "flaming sphere", "shocking sphere", "beholder", "kitten", "housecat", "jaguar", "lynx", "panther", "large cat", "tiger", "gremlin", "gargoyle", "winged gargoyle", "hobbit", "dwarf", "bugbear", "dwarf lord", "dwarf king", "mind flayer", "master mind flayer", "manes", "homunculus", "imp", "lemure", "quasit", "tengu", "blue jelly", "spotted jelly", "ochre jelly", "kobold", "large kobold", "kobold lord", "kobold shaman", "leprechaun", "small mimic", "large mimic", "giant mimic", "wood nymph", "water nymph", "mountain nymph", "goblin", "hobgoblin", "orc", "hill orc", "Mordor orc", "Uruk-hai", "orc shaman", "orc-captain", "rock piercer", "iron piercer", "glass piercer", "rothe", "mumak", "leocrotta", "wumpus", "titanothere", "baluchitherium", "mastodon", "sewer rat", "giant rat", "rabid rat", "wererat", "rock mole", "woodchuck", "cave spider", "centipede", "giant spider", "scorpion", "lurker above", "trapper", "white unicorn", "gray unicorn", "black unicorn", "pony", "horse", "warhorse", "fog cloud", "dust vortex", "ice vortex", "energy vortex", "steam vortex", "fire vortex", "baby long worm", "baby purple worm", "long worm", "purple worm", "grid bug", "xan", "yellow light", "black light", "zruty", "couatl", "Aleax", "Angel", "ki-rin", "Archon", "bat", "giant bat", "raven", "vampire bat", "plains centaur", "forest centaur", "mountain centaur", "baby gray dragon", "baby silver dragon", "baby shimmering dragon", "baby red dragon", "baby white dragon", "baby orange dragon", "baby black dragon", "baby blue dragon", "baby green dragon", "baby yellow dragon", "gray dragon", "silver dragon", "shimmering dragon", "red dragon", "white dragon", "orange dragon", "black dragon", "blue dragon", "green dragon", "yellow dragon", "stalker", "air elemental", "fire elemental", "earth elemental", "water elemental", "lichen", "brown mold", "yellow mold", "green mold", "red mold", "shrieker", "violet fungus", "gnome", "gnome lord", "gnomish wizard", "gnome king", "giant", "stone giant", "hill giant", "fire giant", "frost giant", "storm giant", "ettin", "titan", "minotaur", "jabberwock", "vorpal jabberwock", "Keystone Kop", "Kop Sergeant", "Kop Lieutenant", "Kop Kaptain", "lich", "demilich", "master lich", "arch-lich", "kobold mummy", "gnome mummy", "orc mummy", "dwarf mummy", "elf mummy", "human mummy", "ettin mummy", "giant mummy", "red naga hatchling", "black naga hatchling", "golden naga hatchling", "guardian naga hatchling", "red naga", "black naga", "golden naga", "guardian naga", "ogre", "ogre lord", "ogre king", "gray ooze", "brown pudding", "black pudding", "green slime", "quantum mechanic", "rust monster", "disenchanter", "garter snake", "snake", "water moccasin", "pit viper", "python", "cobra", "troll", "ice troll", "rock troll", "water troll", "Olog-hai", "umber hulk", "vampire", "vampire lord", "vampire mage", "Vlad the Impaler", "barrow wight", "wraith", "Nazgul", "xorn", "monkey", "ape", "owlbear", "yeti", "carnivorous ape", "sasquatch", "kobold zombie", "gnome zombie", "orc zombie", "dwarf zombie", "elf zombie", "human zombie", "ettin zombie", "giant zombie", "ghoul", "skeleton", "straw golem", "paper golem", "rope golem", "gold golem", "leather golem", "wood golem", "flesh golem", "clay golem", "stone golem", "glass golem", "iron golem", "human", "wererat", "werejackal", "werewolf", "elf", "Woodland-elf", "Green-elf", "Grey-elf", "elf-lord", "Elvenking", "doppelganger", "nurse", "shopkeeper", "guard", "prisoner", "Oracle", "aligned priest", "high priest", "soldier", "sergeant", "lieutenant", "captain", "watchman", "watch captain", "Medusa", "Wizard of Yendor", "Croesus", "Charon", "ghost", "shade", "water demon", "horned devil", "succubus", "incubus", "erinys", "barbed devil", "marilith", "vrock", "hezrou", "bone devil", "ice devil", "nalfeshnee", "pit fiend", "balrog", "Juiblex", "Yeenoghu", "Orcus", "Geryon", "Dispater", "Baalzebub", "Asmodeus", "Demogorgon", "Death", "Pestilence", "Famine", "mail daemon", "djinni", "sandestin", "jellyfish", "piranha", "shark", "giant eel", "electric eel", "kraken", "newt", "gecko", "iguana", "baby crocodile", "lizard", "chameleon", "crocodile", "salamander", "long worm tail", "archeologist", "barbarian", "caveman", "cavewoman", "healer", "knight", "monk", "priest", "priestess", "ranger", "rogue", "samurai", "tourist", "valkyrie", "wizard", "Lord Carnarvon", "Pelias", "Shaman Karnov", "Earendil", "Elwing", "Hippocrates", "King Arthur", "Grand Master", "Arch Priest", "Orion", "Master of Thieves", "Lord Sato", "Twoflower", "Norn", "Neferet the Green", "Minion of Huhetotl", "Thoth Amon", "Chromatic Dragon", "Goblin King", "Cyclops", "Ixoth", "Master Kaen", "Nalzok", "Scorpius", "Master Assassin", "Ashikaga Takauji", "Lord Surtur", "Dark One", "student", "chieftain", "neanderthal", "High-elf", "attendant", "page", "abbot", "acolyte", "hunter", "thug", "ninja", "roshi", "guide", "warrior", "apprentice", "invisible monster", "strange object", "arrow", "runed arrow / elven arrow", "crude arrow / orcish arrow", "silver arrow", "bamboo arrow / ya", "crossbow bolt", "dart", "throwing star / shuriken", "boomerang", "spear", "runed spear / elven spear", "crude spear / orcish spear", "stout spear / dwarvish spear", "silver spear", "throwing spear / javelin", "trident", "dagger", "runed dagger / elven dagger", "crude dagger / orcish dagger", "silver dagger", "athame", "scalpel", "knife", "stiletto", "worm tooth", "crysknife", "axe", "double-headed axe / battle-axe", "short sword", "runed short sword / elven short sword", "crude short sword / orcish short sword", "broad short sword / dwarvish short sword", "curved sword / scimitar", "silver saber", "broadsword", "runed broadsword / elven broadsword", "long sword", "two-handed sword", "samurai sword / katana", "long samurai sword / tsurugi", "runed broadsword / runesword", "vulgar polearm / partisan", "hilted polearm / ranseur", "forked polearm / spetum", "single-edged polearm / glaive", "lance", "angled poleaxe / halberd", "long poleaxe / bardiche", "pole cleaver / voulge", "broad pick / dwarvish mattock", "pole sickle / fauchard", "pruning hook / guisarme", "hooked polearm / bill-guisarme", "pronged polearm / lucern hammer", "beaked polearm / bec de corbin", "mace", "morning star", "war hammer", "club", "rubber hose", "staff / quarterstaff", "thonged club / aklys", "flail", "bullwhip", "bow", "runed bow / elven bow", "crude bow / orcish bow", "long bow / yumi", "sling", "crossbow", "leather hat / elven leather helm", "iron skull cap / orcish helm", "hard hat / dwarvish iron helm", "fedora", "conical hat / cornuthaum", "conical hat / dunce cap", "dented pot", "plumed helmet / helmet", "etched helmet / helm of brilliance", "crested helmet / helm of opposite alignment", "visored helmet / helm of telepathy", "gray dragon scale mail", "silver dragon scale mail", "shimmering dragon scale mail", "red dragon scale mail", "white dragon scale mail", "orange dragon scale mail", "black dragon scale mail", "blue dragon scale mail", "green dragon scale mail", "yellow dragon scale mail", "gray dragon scales", "silver dragon scales", "shimmering dragon scales", "red dragon scales", "white dragon scales", "orange dragon scales", "black dragon scales", "blue dragon scales", "green dragon scales", "yellow dragon scales", "plate mail", "crystal plate mail", "bronze plate mail", "splint mail", "banded mail", "dwarvish mithril-coat", "elven mithril-coat", "chain mail", "crude chain mail / orcish chain mail", "scale mail", "studded leather armor", "ring mail", "crude ring mail / orcish ring mail", "leather armor", "leather jacket", "Hawaiian shirt", "T-shirt", "mummy wrapping", "faded pall / elven cloak", "coarse mantelet / orcish cloak", "hooded cloak / dwarvish cloak", "slippery cloak / oilskin cloak", "robe", "apron / alchemy smock", "leather cloak", "tattered cape / cloak of protection", "opera cloak / cloak of invisibility", "ornamental cope / cloak of magic resistance", "piece of cloth / cloak of displacement", "small shield", "blue and green shield / elven shield", "white-handed shield / Uruk-hai shield", "red-eyed shield / orcish shield", "large shield", "large round shield / dwarvish roundshield", "polished silver shield / shield of reflection", "old gloves / leather gloves", "padded gloves / gauntlets of fumbling", "riding gloves / gauntlets of power", "fencing gloves / gauntlets of dexterity", "walking shoes / low boots", "hard shoes / iron shoes", "jackboots / high boots", "combat boots / speed boots", "jungle boots / water walking boots", "hiking boots / jumping boots", "mud boots / elven boots", "buckled boots / kicking boots", "riding boots / fumble boots", "snow boots / levitation boots", "wooden / adornment", "granite / gain strength", "opal / gain constitution", "clay / increase accuracy", "coral / increase damage", "black onyx / protection", "moonstone / regeneration", "tiger eye / searching", "jade / stealth", "bronze / sustain ability", "agate / levitation", "topaz / hunger", "sapphire / aggravate monster", "ruby / conflict", "diamond / warning", "pearl / poison resistance", "iron / fire resistance", "brass / cold resistance", "copper / shock resistance", "twisted / free action", "steel / slow digestion", "silver / teleportation", "gold / teleport control", "ivory / polymorph", "emerald / polymorph control", "wire / invisibility", "engagement / see invisible", "shiny / protection from shape changers", "circular / amulet of ESP", "spherical / amulet of life saving", "oval / amulet of strangulation", "triangular / amulet of restful sleep", "pyramidal / amulet versus poison", "square / amulet of change", "concave / amulet of unchanging", "hexagonal / amulet of reflection", "octagonal / amulet of magical breathing", "Amulet of Yendor / cheap plastic imitation of the Amulet of Yendor", "Amulet of Yendor / Amulet of Yendor", "large box", "chest", "ice box", "bag / sack", "bag / oilskin sack", "bag / bag of holding", "bag / bag of tricks", "key / skeleton key", "lock pick", "credit card", "candle / tallow candle", "candle / wax candle", "brass lantern", "lamp / oil lamp", "lamp / magic lamp", "expensive camera", "looking glass / mirror", "glass orb / crystal ball", "lenses", "blindfold", "towel", "saddle", "leash", "stethoscope", "tinning kit", "tin opener", "can of grease", "figurine", "magic marker", "land mine", "beartrap", "whistle / tin whistle", "whistle / magic whistle", "flute / wooden flute", "flute / magic flute", "horn / tooled horn", "horn / frost horn", "horn / fire horn", "horn / horn of plenty", "harp / wooden harp", "harp / magic harp", "bell", "bugle", "drum / leather drum", "drum / drum of earthquake", "pick-axe", "iron hook / grappling hook", "unicorn horn", "candelabrum / Candelabrum of Invocation", "silver bell / Bell of Opening", "tripe ration", "corpse", "egg", "meatball", "meat stick", "huge chunk of meat", "meat ring", "kelp frond", "eucalyptus leaf", "apple", "orange", "pear", "melon", "banana", "carrot", "sprig of wolfsbane", "clove of garlic", "slime mold", "lump of royal jelly", "cream pie", "candy bar", "fortune cookie", "pancake", "lembas wafer", "cram ration", "food ration", "K-ration", "C-ration", "tin", "ruby / gain ability", "pink / restore ability", "orange / confusion", "yellow / blindness", "emerald / paralysis", "dark green / speed", "cyan / levitation", "sky blue / hallucination", "brilliant blue / invisibility", "magenta / see invisible", "purple-red / healing", "puce / extra healing", "milky / gain level", "swirly / enlightenment", "bubbly / monster detection", "smoky / object detection", "cloudy / gain energy", "effervescent / sleeping", "black / full healing", "golden / polymorph", "brown / booze", "fizzy / sickness", "dark / fruit juice", "white / acid", "murky / oil", "clear / water", "ZELGO MER / enchant armor", "JUYED AWK YACC / destroy armor", "NR 9 / confuse monster", "XIXAXA XOXAXA XUXAXA / scare monster", "PRATYAVAYAH / remove curse", "DAIYEN FOOELS / enchant weapon", "LEP GEX VEN ZEA / create monster", "PRIRUTSENIE / taming", "ELBIB YLOH / genocide", "VERR YED HORRE / light", "VENZAR BORGAVVE / teleportation", "THARR / gold detection", "YUM YUM / food detection", "KERNOD WEL / identify", "ELAM EBOW / magic mapping", "DUAM XNAHT / amnesia", "ANDOVA BEGARIN / fire", "KIRJE / earth", "VE FORBRYDERNE / punishment", "HACKEM MUCHE / charging", "VELOX NEB / stinking cloud", "FOOBIE BLETCH", "TEMOV", "GARVEN DEH", "READ ME", "stamped / mail", "unlabeled / blank paper", "parchment / dig", "vellum / magic missile", "ragged / fireball", "dog eared / cone of cold", "mottled / sleep", "stained / finger of death", "cloth / light", "leather / detect monsters", "white / healing", "pink / knock", "red / force bolt", "orange / confuse monster", "yellow / cure blindness", "velvet / drain life", "light green / slow monster", "dark green / wizard lock", "turquoise / create monster", "cyan / detect food", "light blue / cause fear", "dark blue / clairvoyance", "indigo / cure sickness", "magenta / charm monster", "purple / haste self", "violet / detect unseen", "tan / levitation", "plaid / extra healing", "light brown / restore ability", "dark brown / invisibility", "gray / detect treasure", "wrinkled / remove curse", "dusty / magic mapping", "bronze / identify", "copper / turn undead", "silver / polymorph", "gold / teleport away", "glittering / create familiar", "shining / cancellation", "dull / protection", "thin / jumping", "thick / stone to flesh", "plain / blank paper", "papyrus / Book of the Dead", "glass / light", "balsa / secret door detection", "crystal / enlightenment", "maple / create monster", "pine / wishing", "oak / nothing", "ebony / striking", "marble / make invisible", "tin / slow monster", "brass / speed monster", "copper / undead turning", "silver / polymorph", "platinum / cancellation", "iridium / teleportation", "zinc / opening", "aluminum / locking", "uranium / probing", "iron / digging", "steel / magic missile", "hexagonal / fire", "short / cold", "runed / sleep", "long / death", "curved / lightning", "forked", "spiked", "jeweled", "gold piece", "white / dilithium crystal", "white / diamond", "red / ruby", "orange / jacinth", "blue / sapphire", "black / black opal", "green / emerald", "green / turquoise", "yellow / citrine", "green / aquamarine", "yellowish brown / amber", "yellowish brown / topaz", "black / jet", "white / opal", "yellow / chrysoberyl", "red / garnet", "violet / amethyst", "red / jasper", "violet / fluorite", "black / obsidian", "orange / agate", "green / jade", "white / worthless piece of white glass", "blue / worthless piece of blue glass", "red / worthless piece of red glass", "yellowish brown / worthless piece of yellowish brown glass", "orange / worthless piece of orange glass", "yellow / worthless piece of yellow glass", "black / worthless piece of black glass", "green / worthless piece of green glass", "violet / worthless piece of violet glass", "gray / luckstone", "gray / loadstone", "gray / touchstone", "gray / flint", "rock", "boulder", "statue", "heavy iron ball", "iron chain", "splash of venom / blinding venom", "splash of venom / acid venom", "dark part of a room", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "doorway", "open door", "open door", "closed door", "closed door", "iron bars", "tree", "floor of a room", "corridor", "lit corridor", "staircase up", "staircase down", "ladder up", "ladder down", "altar", "grave", "opulent throne", "sink", "fountain", "water", "ice", "molten lava", "lowered drawbridge", "lowered drawbridge", "raised drawbridge", "raised drawbridge", "air", "cloud", "water", "arrow trap", "dart trap", "falling rock trap", "squeaky board", "bear trap", "land mine", "rolling boulder trap", "sleeping gas trap", "rust trap", "fire trap", "pit", "spiked pit", "hole", "trap door", "teleportation trap", "level teleporter", "magic portal", "web", "statue trap", "magic trap", "anti-magic field", "polymorph trap", "wall", "wall", "wall", "wall", "cmap 67", "cmap 68", "cmap 69", "cmap 70", "cmap 71", "cmap 72", "cmap 73", "cmap 74", "cmap 75", "cmap 76", "cmap 77", "cmap 78", "cmap 79", "cmap 80", "cmap 81", "cmap 82", "explosion dark 0", "explosion dark 1", "explosion dark 2", "explosion dark 3", "explosion dark 4", "explosion dark 5", "explosion dark 6", "explosion dark 7", "explosion dark 8", "explosion noxious 0", "explosion noxious 1", "explosion noxious 2", "explosion noxious 3", "explosion noxious 4", "explosion noxious 5", "explosion noxious 6", "explosion noxious 7", "explosion noxious 8", "explosion muddy 0", "explosion muddy 1", "explosion muddy 2", "explosion muddy 3", "explosion muddy 4", "explosion muddy 5", "explosion muddy 6", "explosion muddy 7", "explosion muddy 8", "explosion wet 0", "explosion wet 1", "explosion wet 2", "explosion wet 3", "explosion wet 4", "explosion wet 5", "explosion wet 6", "explosion wet 7", "explosion wet 8", "explosion magical 0", "explosion magical 1", "explosion magical 2", "explosion magical 3", "explosion magical 4", "explosion magical 5", "explosion magical 6", "explosion magical 7", "explosion magical 8", "explosion fiery 0", "explosion fiery 1", "explosion fiery 2", "explosion fiery 3", "explosion fiery 4", "explosion fiery 5", "explosion fiery 6", "explosion fiery 7", "explosion fiery 8", "explosion frosty 0", "explosion frosty 1", "explosion frosty 2", "explosion frosty 3", "explosion frosty 4", "explosion frosty 5", "explosion frosty 6", "explosion frosty 7", "explosion frosty 8", "zap 0 0", "zap 0 1", "zap 0 2", "zap 0 3", "zap 1 0", "zap 1 1", "zap 1 2", "zap 1 3", "zap 2 0", "zap 2 1", "zap 2 2", "zap 2 3", "zap 3 0", "zap 3 1", "zap 3 2", "zap 3 3", "zap 4 0", "zap 4 1", "zap 4 2", "zap 4 3", "zap 5 0", "zap 5 1", "zap 5 2", "zap 5 3", "zap 6 0", "zap 6 1", "zap 6 2", "zap 6 3", "zap 7 0", "zap 7 1", "zap 7 2", "zap 7 3", "warning 0", "warning 1", "warning 2", "warning 3", "warning 4", "warning 5", "sub mine walls 0", "sub mine walls 1", "sub mine walls 2", "sub mine walls 3", "sub mine walls 4", "sub mine walls 5", "sub mine walls 6", "sub mine walls 7", "sub mine walls 8", "sub mine walls 9", "sub mine walls 10", "sub gehennom walls 0", "sub gehennom walls 1", "sub gehennom walls 2", "sub gehennom walls 3", "sub gehennom walls 4", "sub gehennom walls 5", "sub gehennom walls 6", "sub gehennom walls 7", "sub gehennom walls 8", "sub gehennom walls 9", "sub gehennom walls 10", "sub knox walls 0", "sub knox walls 1", "sub knox walls 2", "sub knox walls 3", "sub knox walls 4", "sub knox walls 5", "sub knox walls 6", "sub knox walls 7", "sub knox walls 8", "sub knox walls 9", "sub knox walls 10", "sub sokoban walls 0", "sub sokoban walls 1", "sub sokoban walls 2", "sub sokoban walls 3", "sub sokoban walls 4", "sub sokoban walls 5", "sub sokoban walls 6", "sub sokoban walls 7", "sub sokoban walls 8", "sub sokoban walls 9", "sub sokoban walls 10"];;
-        // fetch('tilenames.json', function(u8_array) {
-        //   try {
-        //     nethack.tilenames = JSON.parse(UTF8ArrayToString(u8_array, 0));
-        //   } catch(e) { }
-        // });
+        nethack.tilenames = ["giant ant", "killer bee", "soldier ant", "fire ant", "giant beetle", "queen bee", "acid blob", "quivering blob", "gelatinous cube", "chickatrice", "cockatrice", "pyrolisk", "jackal", "fox", "coyote", "werejackal", "little dog", "dog", "large dog", "dingo", "wolf", "werewolf", "warg", "winter wolf cub", "winter wolf", "hell hound pup", "hell hound", "Cerberus", "gas spore", "floating eye", "freezing sphere", "flaming sphere", "shocking sphere", "beholder", "kitten", "housecat", "jaguar", "lynx", "panther", "large cat", "tiger", "gremlin", "gargoyle", "winged gargoyle", "hobbit", "dwarf", "bugbear", "dwarf lord", "dwarf king", "mind flayer", "master mind flayer", "manes", "homunculus", "imp", "lemure", "quasit", "tengu", "blue jelly", "spotted jelly", "ochre jelly", "kobold", "large kobold", "kobold lord", "kobold shaman", "leprechaun", "small mimic", "large mimic", "giant mimic", "wood nymph", "water nymph", "mountain nymph", "goblin", "hobgoblin", "orc", "hill orc", "Mordor orc", "Uruk-hai", "orc shaman", "orc-captain", "rock piercer", "iron piercer", "glass piercer", "rothe", "mumak", "leocrotta", "wumpus", "titanothere", "baluchitherium", "mastodon", "sewer rat", "giant rat", "rabid rat", "wererat", "rock mole", "woodchuck", "cave spider", "centipede", "giant spider", "scorpion", "lurker above", "trapper", "white unicorn", "gray unicorn", "black unicorn", "pony", "horse", "warhorse", "fog cloud", "dust vortex", "ice vortex", "energy vortex", "steam vortex", "fire vortex", "baby long worm", "baby purple worm", "long worm", "purple worm", "grid bug", "xan", "yellow light", "black light", "zruty", "couatl", "Aleax", "Angel", "ki-rin", "Archon", "bat", "giant bat", "raven", "vampire bat", "plains centaur", "forest centaur", "mountain centaur", "baby gray dragon", "baby silver dragon", "baby shimmering dragon", "baby red dragon", "baby white dragon", "baby orange dragon", "baby black dragon", "baby blue dragon", "baby green dragon", "baby yellow dragon", "gray dragon", "silver dragon", "shimmering dragon", "red dragon", "white dragon", "orange dragon", "black dragon", "blue dragon", "green dragon", "yellow dragon", "stalker", "air elemental", "fire elemental", "earth elemental", "water elemental", "lichen", "brown mold", "yellow mold", "green mold", "red mold", "shrieker", "violet fungus", "gnome", "gnome lord", "gnomish wizard", "gnome king", "giant", "stone giant", "hill giant", "fire giant", "frost giant", "storm giant", "ettin", "titan", "minotaur", "jabberwock", "vorpal jabberwock", "Keystone Kop", "Kop Sergeant", "Kop Lieutenant", "Kop Kaptain", "lich", "demilich", "master lich", "arch-lich", "kobold mummy", "gnome mummy", "orc mummy", "dwarf mummy", "elf mummy", "human mummy", "ettin mummy", "giant mummy", "red naga hatchling", "black naga hatchling", "golden naga hatchling", "guardian naga hatchling", "red naga", "black naga", "golden naga", "guardian naga", "ogre", "ogre lord", "ogre king", "gray ooze", "brown pudding", "black pudding", "green slime", "quantum mechanic", "rust monster", "disenchanter", "garter snake", "snake", "water moccasin", "pit viper", "python", "cobra", "troll", "ice troll", "rock troll", "water troll", "Olog-hai", "umber hulk", "vampire", "vampire lord", "vampire mage", "Vlad the Impaler", "barrow wight", "wraith", "Nazgul", "xorn", "monkey", "ape", "owlbear", "yeti", "carnivorous ape", "sasquatch", "kobold zombie", "gnome zombie", "orc zombie", "dwarf zombie", "elf zombie", "human zombie", "ettin zombie", "giant zombie", "ghoul", "skeleton", "straw golem", "paper golem", "rope golem", "gold golem", "leather golem", "wood golem", "flesh golem", "clay golem", "stone golem", "glass golem", "iron golem", "human", "wererat", "werejackal", "werewolf", "elf", "Woodland-elf", "Green-elf", "Grey-elf", "elf-lord", "Elvenking", "doppelganger", "nurse", "shopkeeper", "guard", "prisoner", "Oracle", "aligned priest", "high priest", "soldier", "sergeant", "lieutenant", "captain", "watchman", "watch captain", "Medusa", "Wizard of Yendor", "Croesus", "Charon", "ghost", "shade", "water demon", "horned devil", "succubus", "incubus", "erinys", "barbed devil", "marilith", "vrock", "hezrou", "bone devil", "ice devil", "nalfeshnee", "pit fiend", "balrog", "Juiblex", "Yeenoghu", "Orcus", "Geryon", "Dispater", "Baalzebub", "Asmodeus", "Demogorgon", "Death", "Pestilence", "Famine", "mail daemon", "djinni", "sandestin", "jellyfish", "piranha", "shark", "giant eel", "electric eel", "kraken", "newt", "gecko", "iguana", "baby crocodile", "lizard", "chameleon", "crocodile", "salamander", "long worm tail", "archeologist", "barbarian", "caveman", "cavewoman", "healer", "knight", "monk", "priest", "priestess", "ranger", "rogue", "samurai", "tourist", "valkyrie", "wizard", "Lord Carnarvon", "Pelias", "Shaman Karnov", "Earendil", "Elwing", "Hippocrates", "King Arthur", "Grand Master", "Arch Priest", "Orion", "Master of Thieves", "Lord Sato", "Twoflower", "Norn", "Neferet the Green", "Minion of Huhetotl", "Thoth Amon", "Chromatic Dragon", "Goblin King", "Cyclops", "Ixoth", "Master Kaen", "Nalzok", "Scorpius", "Master Assassin", "Ashikaga Takauji", "Lord Surtur", "Dark One", "student", "chieftain", "neanderthal", "High-elf", "attendant", "page", "abbot", "acolyte", "hunter", "thug", "ninja", "roshi", "guide", "warrior", "apprentice", "invisible monster", "strange object", "arrow", "runed arrow / elven arrow", "crude arrow / orcish arrow", "silver arrow", "bamboo arrow / ya", "crossbow bolt", "dart", "throwing star / shuriken", "boomerang", "spear", "runed spear / elven spear", "crude spear / orcish spear", "stout spear / dwarvish spear", "silver spear", "throwing spear / javelin", "trident", "dagger", "runed dagger / elven dagger", "crude dagger / orcish dagger", "silver dagger", "athame", "scalpel", "knife", "stiletto", "worm tooth", "crysknife", "axe", "double-headed axe / battle-axe", "short sword", "runed short sword / elven short sword", "crude short sword / orcish short sword", "broad short sword / dwarvish short sword", "curved sword / scimitar", "silver saber", "broadsword", "runed broadsword / elven broadsword", "long sword", "two-handed sword", "samurai sword / katana", "long samurai sword / tsurugi", "runed broadsword / runesword", "vulgar polearm / partisan", "hilted polearm / ranseur", "forked polearm / spetum", "single-edged polearm / glaive", "lance", "angled poleaxe / halberd", "long poleaxe / bardiche", "pole cleaver / voulge", "broad pick / dwarvish mattock", "pole sickle / fauchard", "pruning hook / guisarme", "hooked polearm / bill-guisarme", "pronged polearm / lucern hammer", "beaked polearm / bec de corbin", "mace", "morning star", "war hammer", "club", "rubber hose", "staff / quarterstaff", "thonged club / aklys", "flail", "bullwhip", "bow", "runed bow / elven bow", "crude bow / orcish bow", "long bow / yumi", "sling", "crossbow", "leather hat / elven leather helm", "iron skull cap / orcish helm", "hard hat / dwarvish iron helm", "fedora", "conical hat / cornuthaum", "conical hat / dunce cap", "dented pot", "plumed helmet / helmet", "etched helmet / helm of brilliance", "crested helmet / helm of opposite alignment", "visored helmet / helm of telepathy", "gray dragon scale mail", "silver dragon scale mail", "shimmering dragon scale mail", "red dragon scale mail", "white dragon scale mail", "orange dragon scale mail", "black dragon scale mail", "blue dragon scale mail", "green dragon scale mail", "yellow dragon scale mail", "gray dragon scales", "silver dragon scales", "shimmering dragon scales", "red dragon scales", "white dragon scales", "orange dragon scales", "black dragon scales", "blue dragon scales", "green dragon scales", "yellow dragon scales", "plate mail", "crystal plate mail", "bronze plate mail", "splint mail", "banded mail", "dwarvish mithril-coat", "elven mithril-coat", "chain mail", "crude chain mail / orcish chain mail", "scale mail", "studded leather armor", "ring mail", "crude ring mail / orcish ring mail", "leather armor", "leather jacket", "Hawaiian shirt", "T-shirt", "mummy wrapping", "faded pall / elven cloak", "coarse mantelet / orcish cloak", "hooded cloak / dwarvish cloak", "slippery cloak / oilskin cloak", "robe", "apron / alchemy smock", "leather cloak", "tattered cape / cloak of protection", "opera cloak / cloak of invisibility", "ornamental cope / cloak of magic resistance", "piece of cloth / cloak of displacement", "small shield", "blue and green shield / elven shield", "white-handed shield / Uruk-hai shield", "red-eyed shield / orcish shield", "large shield", "large round shield / dwarvish roundshield", "polished silver shield / shield of reflection", "old gloves / leather gloves", "padded gloves / gauntlets of fumbling", "riding gloves / gauntlets of power", "fencing gloves / gauntlets of dexterity", "walking shoes / low boots", "hard shoes / iron shoes", "jackboots / high boots", "combat boots / speed boots", "jungle boots / water walking boots", "hiking boots / jumping boots", "mud boots / elven boots", "buckled boots / kicking boots", "riding boots / fumble boots", "snow boots / levitation boots", "wooden / adornment", "granite / gain strength", "opal / gain constitution", "clay / increase accuracy", "coral / increase damage", "black onyx / protection", "moonstone / regeneration", "tiger eye / searching", "jade / stealth", "bronze / sustain ability", "agate / levitation", "topaz / hunger", "sapphire / aggravate monster", "ruby / conflict", "diamond / warning", "pearl / poison resistance", "iron / fire resistance", "brass / cold resistance", "copper / shock resistance", "twisted / free action", "steel / slow digestion", "silver / teleportation", "gold / teleport control", "ivory / polymorph", "emerald / polymorph control", "wire / invisibility", "engagement / see invisible", "shiny / protection from shape changers", "circular / amulet of ESP", "spherical / amulet of life saving", "oval / amulet of strangulation", "triangular / amulet of restful sleep", "pyramidal / amulet versus poison", "square / amulet of change", "concave / amulet of unchanging", "hexagonal / amulet of reflection", "octagonal / amulet of magical breathing", "Amulet of Yendor / cheap plastic imitation of the Amulet of Yendor", "Amulet of Yendor / Amulet of Yendor", "large box", "chest", "ice box", "bag / sack", "bag / oilskin sack", "bag / bag of holding", "bag / bag of tricks", "key / skeleton key", "lock pick", "credit card", "candle / tallow candle", "candle / wax candle", "brass lantern", "lamp / oil lamp", "lamp / magic lamp", "expensive camera", "looking glass / mirror", "glass orb / crystal ball", "lenses", "blindfold", "towel", "saddle", "leash", "stethoscope", "tinning kit", "tin opener", "can of grease", "figurine", "magic marker", "land mine", "beartrap", "whistle / tin whistle", "whistle / magic whistle", "flute / wooden flute", "flute / magic flute", "horn / tooled horn", "horn / frost horn", "horn / fire horn", "horn / horn of plenty", "harp / wooden harp", "harp / magic harp", "bell", "bugle", "drum / leather drum", "drum / drum of earthquake", "pick-axe", "iron hook / grappling hook", "unicorn horn", "candelabrum / Candelabrum of Invocation", "silver bell / Bell of Opening", "tripe ration", "corpse", "egg", "meatball", "meat stick", "huge chunk of meat", "meat ring", "kelp frond", "eucalyptus leaf", "apple", "orange", "pear", "melon", "banana", "carrot", "sprig of wolfsbane", "clove of garlic", "slime mold", "lump of royal jelly", "cream pie", "candy bar", "fortune cookie", "pancake", "lembas wafer", "cram ration", "food ration", "K-ration", "C-ration", "tin", "ruby / gain ability", "pink / restore ability", "orange / confusion", "yellow / blindness", "emerald / paralysis", "dark green / speed", "cyan / levitation", "sky blue / hallucination", "brilliant blue / invisibility", "magenta / see invisible", "purple-red / healing", "puce / extra healing", "milky / gain level", "swirly / enlightenment", "bubbly / monster detection", "smoky / object detection", "cloudy / gain energy", "effervescent / sleeping", "black / full healing", "golden / polymorph", "brown / booze", "fizzy / sickness", "dark / fruit juice", "white / acid", "murky / oil", "clear / water", "ZELGO MER / enchant armor", "JUYED AWK YACC / destroy armor", "NR 9 / confuse monster", "XIXAXA XOXAXA XUXAXA / scare monster", "PRATYAVAYAH / remove curse", "DAIYEN FOOELS / enchant weapon", "LEP GEX VEN ZEA / create monster", "PRIRUTSENIE / taming", "ELBIB YLOH / genocide", "VERR YED HORRE / light", "VENZAR BORGAVVE / teleportation", "THARR / gold detection", "YUM YUM / food detection", "KERNOD WEL / identify", "ELAM EBOW / magic mapping", "DUAM XNAHT / amnesia", "ANDOVA BEGARIN / fire", "KIRJE / earth", "VE FORBRYDERNE / punishment", "HACKEM MUCHE / charging", "VELOX NEB / stinking cloud", "FOOBIE BLETCH", "TEMOV", "GARVEN DEH", "READ ME", "stamped / mail", "unlabeled / blank paper", "parchment / dig", "vellum / magic missile", "ragged / fireball", "dog eared / cone of cold", "mottled / sleep", "stained / finger of death", "cloth / light", "leather / detect monsters", "white / healing", "pink / knock", "red / force bolt", "orange / confuse monster", "yellow / cure blindness", "velvet / drain life", "light green / slow monster", "dark green / wizard lock", "turquoise / create monster", "cyan / detect food", "light blue / cause fear", "dark blue / clairvoyance", "indigo / cure sickness", "magenta / charm monster", "purple / haste self", "violet / detect unseen", "tan / levitation", "plaid / extra healing", "light brown / restore ability", "dark brown / invisibility", "gray / detect treasure", "wrinkled / remove curse", "dusty / magic mapping", "bronze / identify", "copper / turn undead", "silver / polymorph", "gold / teleport away", "glittering / create familiar", "shining / cancellation", "dull / protection", "thin / jumping", "thick / stone to flesh", "plain / blank paper", "papyrus / Book of the Dead", "glass / light", "balsa / secret door detection", "crystal / enlightenment", "maple / create monster", "pine / wishing", "oak / nothing", "ebony / striking", "marble / make invisible", "tin / slow monster", "brass / speed monster", "copper / undead turning", "silver / polymorph", "platinum / cancellation", "iridium / teleportation", "zinc / opening", "aluminum / locking", "uranium / probing", "iron / digging", "steel / magic missile", "hexagonal / fire", "short / cold", "runed / sleep", "long / death", "curved / lightning", "forked", "spiked", "jeweled", "gold piece", "white / dilithium crystal", "white / diamond", "red / ruby", "orange / jacinth", "blue / sapphire", "black / black opal", "green / emerald", "green / turquoise", "yellow / citrine", "green / aquamarine", "yellowish brown / amber", "yellowish brown / topaz", "black / jet", "white / opal", "yellow / chrysoberyl", "red / garnet", "violet / amethyst", "red / jasper", "violet / fluorite", "black / obsidian", "orange / agate", "green / jade", "white / worthless piece of white glass", "blue / worthless piece of blue glass", "red / worthless piece of red glass", "yellowish brown / worthless piece of yellowish brown glass", "orange / worthless piece of orange glass", "yellow / worthless piece of yellow glass", "black / worthless piece of black glass", "green / worthless piece of green glass", "violet / worthless piece of violet glass", "gray / luckstone", "gray / loadstone", "gray / touchstone", "gray / flint", "rock", "boulder", "statue", "heavy iron ball", "iron chain", "splash of venom / blinding venom", "splash of venom / acid venom", "dark part of a room", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "doorway", "open door", "open door", "closed door", "closed door", "iron bars", "tree", "floor of a room", "corridor", "lit corridor", "staircase up", "staircase down", "ladder up", "ladder down", "altar", "grave", "opulent throne", "sink", "fountain", "water", "ice", "molten lava", "lowered drawbridge", "lowered drawbridge", "raised drawbridge", "raised drawbridge", "air", "cloud", "water", "arrow trap", "dart trap", "falling rock trap", "squeaky board", "bear trap", "land mine", "rolling boulder trap", "sleeping gas trap", "rust trap", "fire trap", "pit", "spiked pit", "hole", "trap door", "teleportation trap", "level teleporter", "magic portal", "web", "statue trap", "magic trap", "anti-magic field", "polymorph trap", "wall", "wall", "wall", "wall", "cmap 67", "cmap 68", "cmap 69", "cmap 70", "cmap 71", "cmap 72", "cmap 73", "cmap 74", "cmap 75", "cmap 76", "cmap 77", "cmap 78", "cmap 79", "cmap 80", "cmap 81", "cmap 82", "explosion dark 0", "explosion dark 1", "explosion dark 2", "explosion dark 3", "explosion dark 4", "explosion dark 5", "explosion dark 6", "explosion dark 7", "explosion dark 8", "explosion noxious 0", "explosion noxious 1", "explosion noxious 2", "explosion noxious 3", "explosion noxious 4", "explosion noxious 5", "explosion noxious 6", "explosion noxious 7", "explosion noxious 8", "explosion muddy 0", "explosion muddy 1", "explosion muddy 2", "explosion muddy 3", "explosion muddy 4", "explosion muddy 5", "explosion muddy 6", "explosion muddy 7", "explosion muddy 8", "explosion wet 0", "explosion wet 1", "explosion wet 2", "explosion wet 3", "explosion wet 4", "explosion wet 5", "explosion wet 6", "explosion wet 7", "explosion wet 8", "explosion magical 0", "explosion magical 1", "explosion magical 2", "explosion magical 3", "explosion magical 4", "explosion magical 5", "explosion magical 6", "explosion magical 7", "explosion magical 8", "explosion fiery 0", "explosion fiery 1", "explosion fiery 2", "explosion fiery 3", "explosion fiery 4", "explosion fiery 5", "explosion fiery 6", "explosion fiery 7", "explosion fiery 8", "explosion frosty 0", "explosion frosty 1", "explosion frosty 2", "explosion frosty 3", "explosion frosty 4", "explosion frosty 5", "explosion frosty 6", "explosion frosty 7", "explosion frosty 8", "zap 0 0", "zap 0 1", "zap 0 2", "zap 0 3", "zap 1 0", "zap 1 1", "zap 1 2", "zap 1 3", "zap 2 0", "zap 2 1", "zap 2 2", "zap 2 3", "zap 3 0", "zap 3 1", "zap 3 2", "zap 3 3", "zap 4 0", "zap 4 1", "zap 4 2", "zap 4 3", "zap 5 0", "zap 5 1", "zap 5 2", "zap 5 3", "zap 6 0", "zap 6 1", "zap 6 2", "zap 6 3", "zap 7 0", "zap 7 1", "zap 7 2", "zap 7 3", "warning 0", "warning 1", "warning 2", "warning 3", "warning 4", "warning 5", "sub mine walls 0", "sub mine walls 1", "sub mine walls 2", "sub mine walls 3", "sub mine walls 4", "sub mine walls 5", "sub mine walls 6", "sub mine walls 7", "sub mine walls 8", "sub mine walls 9", "sub mine walls 10", "sub gehennom walls 0", "sub gehennom walls 1", "sub gehennom walls 2", "sub gehennom walls 3", "sub gehennom walls 4", "sub gehennom walls 5", "sub gehennom walls 6", "sub gehennom walls 7", "sub gehennom walls 8", "sub gehennom walls 9", "sub gehennom walls 10", "sub knox walls 0", "sub knox walls 1", "sub knox walls 2", "sub knox walls 3", "sub knox walls 4", "sub knox walls 5", "sub knox walls 6", "sub knox walls 7", "sub knox walls 8", "sub knox walls 9", "sub knox walls 10", "sub sokoban walls 0", "sub sokoban walls 1", "sub sokoban walls 2", "sub sokoban walls 3", "sub sokoban walls 4", "sub sokoban walls 5", "sub sokoban walls 6", "sub sokoban walls 7", "sub sokoban walls 8", "sub sokoban walls 9", "sub sokoban walls 10"];
+  ;
+  
+        // load_level_file_string(TEST_DES_FILE);
   
         // show warning on exit
         window.addEventListener('beforeunload', function(e) {
-          if(ABORT) {
-            if(window.parent.kongregate) {
-              if(typeof localStorage !== 'undefined') {
-                try {
-                  var savedata = {};
-                  var savefiles = FS.readdir('/nethack/save');
-                  for(var i = 0; i < savefiles.length; ++i) {
-                    var fn = savefiles[i];
-                    if(fn == '.' || fn == '..') continue;
-                    fn = '/nethack/save/' + fn;
-                    try {
-                      savedata[fn] = btoa(String.fromCharCode.apply(null, FS.readFile(fn, {encoding: 'binary'})));
-                    } catch (e) {}
-                  }
-                  localStorage[nethack.LS_KONGREGATE_SAVE] = JSON.stringify(savedata);
-                } catch(e) { }
-              }
-            }
-          } else {
             var msg = "Game progress will be lost if not saved.";
             e.returnValue = msg;
             return msg;
-          }
         });
       },apply_tileset:function(tile_file, tile_width, tile_height) {
         var tile_per_row = 40;
@@ -2144,9 +2388,9 @@ var ASM_CONSTS = {
               }
             }
           }
-        }         
+        }
   
-  	  // update whole map size
+        // update whole map size
         nethack.map_win_content.style.width = nethack.tile_width * 80 + 'px';
         nethack.map_win_content.style.height = nethack.tile_height * 24 + 'px';
   	  
@@ -2209,7 +2453,8 @@ var ASM_CONSTS = {
         ele.appendChild(msg_ele);
         ele.scrollTop = ele.scrollHeight;
       },update_status:function() {
-        if((nethack.status_lines[0] == null) || (nethack.status_lines[1] == null)) return;
+        if((nethack.status_lines[0] == null) || (nethack.status_lines[1] == null))
+          return;
         var win = nethack.status_win;
   
         if(win.childNodes.length < 2) {
@@ -2299,43 +2544,50 @@ var ASM_CONSTS = {
         nethack.status_lines = [];
       },create_window:function(obj) {
         var onclose = obj.onclose;
-        var win_e = document.createElement('div'); win_e.className = 'modal fade';
-          var dialog_e = document.createElement('div'); dialog_e.className = 'modal-dialog';
-            var content_e = document.createElement('div'); content_e.className = 'modal-content';
-              var button_e = document.createElement('button'); button_e.className = 'close'; 
-              button_e.type = 'button';
-              button_e.innerHTML = '<span>&times;</span>';
-              button_e.addEventListener('click', function(e) {
-                nethack.hide_window(win_e);
-                if(onclose) onclose();
-              });
-              if(obj.title) {
-                var header_e = document.createElement('div'); header_e.className = 'modal-header';
-                header_e.appendChild(button_e);
+        var win_e = document.createElement('div');
+        win_e.className = 'modal fade';
+        var dialog_e = document.createElement('div');
+        dialog_e.className = 'modal-dialog';
+        var content_e = document.createElement('div');
+        content_e.className = 'modal-content';
+        var button_e = document.createElement('button');
+        button_e.className = 'close';
+        button_e.type = 'button';
+        button_e.innerHTML = '<span>&times;</span>';
+        button_e.addEventListener('click', function(e) {
+          nethack.hide_window(win_e);
+          if (onclose) onclose();
+        });
+        if (obj.title) {
+          var header_e = document.createElement('div');
+          header_e.className = 'modal-header';
+          header_e.appendChild(button_e);
   
-                var title_e = document.createElement('h4'); title_e.className = 'modal-title';
-                title_e.textContent = obj.title;
-                header_e.appendChild(title_e);
+          var title_e = document.createElement('h4');
+          title_e.className = 'modal-title';
+          title_e.textContent = obj.title;
+          header_e.appendChild(title_e);
   
-                content_e.appendChild(header_e);
-              }
-              var body_e = document.createElement('div'); body_e.className = 'modal-body';
-              // by default, the window is closed by pressing Esc, Enter or Space
-              var keymap = {};
-              keymap[String.fromCharCode(13)] = button_e;
-              keymap[String.fromCharCode(27)] = button_e;
-              keymap[String.fromCharCode(32)] = button_e;
+          content_e.appendChild(header_e);
+        }
+        var body_e = document.createElement('div');
+        body_e.className = 'modal-body';
+        // by default, the window is closed by pressing Esc, Enter or Space
+        var keymap = {};
+        keymap[String.fromCharCode(13)] = button_e;
+        keymap[String.fromCharCode(27)] = button_e;
+        keymap[String.fromCharCode(32)] = button_e;
   
-              if(!obj.title) body_e.appendChild(button_e);
-              if(obj.make_body) obj.make_body(body_e, keymap);
-            content_e.appendChild(body_e);
-          dialog_e.appendChild(content_e);
+        if (!obj.title) body_e.appendChild(button_e);
+        if (obj.make_body) obj.make_body(body_e, keymap);
+        content_e.appendChild(body_e);
+        dialog_e.appendChild(content_e);
         win_e.appendChild(dialog_e);
   
         nethack.pending_window_keymap = keymap;
         return win_e;
       },show_text_window:function(lines, callback, auto_remove) {
-         var win = nethack.create_window({
+        var win = nethack.create_window({
           make_body: function(body) {
             var ele = document.createElement('div');
             ele.className = 'container modal-content-wrapper';
@@ -2352,7 +2604,8 @@ var ASM_CONSTS = {
         nethack.show_window(win);
   
         return win;
-      },show_menu_window:function(items, title, how, selected_pp, resume_callback) {
+      },show_menu_window:function(
+          items, title, how, selected_pp, resume_callback) {
         var menu_items = [];
         var save_menu_selection = function() {
           var selections = [];
@@ -2365,24 +2618,40 @@ var ASM_CONSTS = {
           });
           menu_items = [];
   
-          // allocate memory inside emterpreter resume !
-          resume_callback(function() {
-            if(selections.length > 0) {
-              var selected_p = _malloc(selections.length * 8); // sizeof(MENU_ITEM_P) == 8
-              for(var i = 0; i < selections.length; ++i) {
-                // id
-                HEAP32[(((selected_p)+(i*8))>>2)] = selections[i];
-                // count TODO
-                HEAP32[(((selected_p)+(i*8+4))>>2)] = -1;
-              }
-  
-              HEAP32[((selected_pp)>>2)] = selected_p;
-            } else {
-              HEAP32[((selected_pp)>>2)] = 0;
+          if(selections.length > 0) {
+            var selected_p = _malloc(selections.length * 8); // sizeof(MENU_ITEM_P) == 8
+            for(var i = 0; i < selections.length; ++i) {
+              // id
+              HEAP32[(((selected_p)+(i*8))>>2)] = selections[i];
+              // count TODO
+              HEAP32[(((selected_p)+(i*8+4))>>2)] = -1;
             }
   
-            return selections.length;
-          });
+            HEAP32[((selected_pp)>>2)] = selected_p;
+          } else {
+            HEAP32[((selected_pp)>>2)] = 0;
+          }
+  
+          resume_callback(selections.length);
+  
+          // allocate memory inside emterpreter resume !
+          // resume_callback(function() {
+          //   if(selections.length > 0) {
+          //     var selected_p = _malloc(selections.length * 8); // sizeof(MENU_ITEM_P) == 8
+          //     for(var i = 0; i < selections.length; ++i) {
+          //       // id
+          //       HEAP32[(((selected_p)+(i*8))>>2)] = selections[i];
+          //       // count TODO
+          //       HEAP32[(((selected_p)+(i*8+4))>>2)] = -1;
+          //     }
+  
+          //     HEAP32[((selected_pp)>>2)] = selected_p;
+          //   } else {
+          //     HEAP32[((selected_pp)>>2)] = 0;
+          //   }
+  
+          //   return selections.length;
+          // });
         };
   
         // event handlers
@@ -2498,7 +2767,8 @@ var ASM_CONSTS = {
             } 
           },
           onclose: function() { 
-            resume_callback(function() { return -1; });
+            resume_callback(-1);
+            // resume_callback(function() { return -1; });
           } 
         });
   
@@ -2597,10 +2867,10 @@ var ASM_CONSTS = {
       },create_inventory_element:function(item) {
         var ele = document.createElement('span');
         ele.className = 'inventory-item';
-        if(/\((wielded( in other hand)?|in quiver|weapon in hands?|being worn|on (left|right) (hand|foreclaw|paw|pectoral fin))\)/.test(item.str)) 
-            ele.className += ' active'
+        if(/\((wielded( in other hand)?|in quiver|weapon in hands?|being worn|on (left|right) (hand|foreclaw|paw|pectoral fin))\)/.test(item.str))
+          ele.className += ' active'
   
-        var tile = document.createElement('span');
+          var tile = document.createElement('span');
         tile.className = 'tile';
         if(item.tile == -1) {
           ele.appendChild(tile);
@@ -2694,10 +2964,13 @@ var ASM_CONSTS = {
       },_:null};
   function _BrowserHack_report(str, value) {
       if(window.parent.kongregate)
-        window.parent.kongregate.stats.submit(Pointer_stringify(str), value);
+        window.parent.kongregate.stats.submit(UTF8ToString(str), value);
     }
 
-  function _BrowserHack_update_stats_helper(s_gold, s_level, s_turn, s_depth, s_armorclass, s_have_amulet, s_have_candelabrum, s_have_quest_artifact, s_quest_completed, s_entered_gehennom, s_killed_wizard) {
+  function _BrowserHack_update_stats_helper(
+        s_gold, s_level, s_turn, s_depth, s_armorclass, s_have_amulet,
+        s_have_candelabrum, s_have_quest_artifact, s_quest_completed,
+        s_entered_gehennom, s_killed_wizard) {
       if(!window.parent.kongregate) return;
       var stats = {
         gold: s_gold,
@@ -2721,7 +2994,8 @@ var ASM_CONSTS = {
       }
     }
 
-  function _Web_add_menu_helper(win, tile, identifier, accelerator, groupacc, attr, str, preselected) {
+  function _Web_add_menu_helper(
+        win, tile, identifier, accelerator, groupacc, attr, str, preselected) {
       console.log("Web_add_menu_helper");
       win = nethack.windows[win];
       assert(win);
@@ -2731,18 +3005,15 @@ var ASM_CONSTS = {
         accelerator: accelerator,
         groupacc: groupacc,
         attr: attr,
-        str: Pointer_stringify(str),
+        str: UTF8ToString(str),
         preselected: preselected
       });
     }
 
   function _Web_askname_helper(buf, len) {
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
-        var labels = [
-          'Who are you? ',
-          'What is your name? ',
-          'Enter your name: '
-        ];
+      return Asyncify.handleSleep(function(wakeUp) {
+        var labels =
+            ['Who are you? ', 'What is your name? ', 'Enter your name: '];
         nethack.get_line({
           label: labels[Math.floor(Math.random() * labels.length)],
           default_text: nethack.ui_preferences.player_name || '',
@@ -2750,8 +3021,8 @@ var ASM_CONSTS = {
             value = value || 'Unnamed Player';
             nethack.ui_preferences.player_name = value;
             nethack.save_ui_preferences();
-            writeStringToMemory(value, buf); // TODO: check length
-            emterpreter_resume();
+            writeStringToMemory(value, buf);  // TODO: check length
+            wakeUp();
           }
         });
       });
@@ -2763,24 +3034,27 @@ var ASM_CONSTS = {
       assert(win);
       switch(win.type) {
         case nethack.NHW_MESSAGE:
-          if(win.id != HEAP32[((nethack.win_message_p)>>2)]) console.log('TODO: extra message window');
+          if(win.id != HEAP32[((nethack.win_message_p)>>2)])
+            console.log('TODO: extra message window');
           var last_child = nethack.message_win.lastChild;
           if(!(last_child && (last_child.tagName == 'BR')))
             nethack.message_win.appendChild(document.createElement('br'));
           nethack.message_win.scrollTop = nethack.message_win.scrollHeight;
           break;
         case nethack.NHW_STATUS:
-          if(win.id != HEAP32[((nethack.win_status_p)>>2)]) console.log('TODO: extra status window');
+          if(win.id != HEAP32[((nethack.win_status_p)>>2)])
+            console.log('TODO: extra status window');
           nethack.status_win.innerHTML = '';
           break;
         case nethack.NHW_MAP:
-          if(win.id != HEAP32[((nethack.win_map_p)>>2)]) console.log('TODO: extra map window');
+          if(win.id != HEAP32[((nethack.win_map_p)>>2)])
+            console.log('TODO: extra map window');
           nethack.map_win_content.innerHTML = '';
           nethack.maptiles = [];
           break;
         default:
           console.log(win.type, 'TODO clear_nhwindow');
-      } 
+      }
     }
 
   function _Web_cliparound(x, y) {
@@ -2791,14 +3065,14 @@ var ASM_CONSTS = {
 
   function _Web_create_nhwindow(type) {
       switch(type) {
-          case nethack.NHW_MESSAGE:
-          case nethack.NHW_STATUS:
-          case nethack.NHW_MAP:
-          case nethack.NHW_MENU:
-          case nethack.NHW_TEXT:
-              break;
-          default:
-              assert(false);
+        case nethack.NHW_MESSAGE:
+        case nethack.NHW_STATUS:
+        case nethack.NHW_MAP:
+        case nethack.NHW_MENU:
+        case nethack.NHW_TEXT:
+          break;
+        default:
+          assert(false);
       }
   
       console.log("Web_create_nhwindow");
@@ -2824,6 +3098,7 @@ var ASM_CONSTS = {
       assert(win);
       win.curs_x = x;
       win.curs_y = y;
+      console.log(win.type, x, y);
       switch(win.type) {
         case nethack.NHW_MAP:
           nethack.update_map_cursor(x, y);
@@ -2857,44 +3132,53 @@ var ASM_CONSTS = {
 
   function _Web_display_file(str, complain) {
       console.log("Web_display_file");
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
-        fn = Pointer_stringify(str);
+      return Asyncify.handleSleep(function(wakeUp) {
+        fn = UTF8ToString(str);
         var data = '';
         try {
           data = FS.readFile(fn, { encoding: 'utf8' });
         } catch (e) {
           if (!complain) {
-            setTimeout(emterpreter_resume, 1);
+            setTimeout(wakeUp, 1);
             return;
           }
           data = 'File not found: ' + fn;
         }
         nethack.update_status();
-        nethack.show_text_window([{ attr:nethack.ATR_NONE, str:data }], emterpreter_resume, true);
+        nethack.show_text_window([{ attr:nethack.ATR_NONE, str:data }], wakeUp, true);
       });
     }
 
   function _Web_display_nhwindow(win, blocking) {
       console.log("Web_display_nhwindow");
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
+      return Asyncify.handleSleep(function(wakeUp) {
         if(blocking) nethack.update_status();
         var async = false;
         win = nethack.windows[win];
         assert(win);
         switch(win.type) {
           case nethack.NHW_MAP:
+            console.log("NHW_MAP");
+          break;
           case nethack.NHW_STATUS:
+            console.log("NHW_STATUS");
+          break;
           case nethack.NHW_MESSAGE:
-            break;
+            console.log("NHW_MESSAGE");
+          break;
           case nethack.NHW_TEXT:
-            win.elements_to_remove.push(nethack.show_text_window(win.lines, emterpreter_resume));
+            console.log("NHW_TEXT");
+          
             async = true;
+            win.elements_to_remove.push(nethack.show_text_window(win.lines, wakeUp));
             break;
           case nethack.NHW_MENU:
+            console.log("NHW_MENU");
             if(!blocking) console.log('TODO windows are always blocking');
             if(win.lines) {
-              win.elements_to_remove.push(nethack.show_text_window(win.lines, emterpreter_resume));
+              console.log("NHW_MENU - lines");
               async = true;
+              win.elements_to_remove.push(nethack.show_text_window(win.lines, wakeUp));
             } else if(win.menu) {
               // show menu
               console.log(win.type, 'TODO display_nhwindow (menu)', blocking);
@@ -2905,22 +3189,24 @@ var ASM_CONSTS = {
           default:
             console.log(win.type, 'TODO display_nhwindow', blocking);
         }
-        if(!async) setTimeout(emterpreter_resume, 1);
+        if(!async) {
+          setTimeout(wakeUp, 1);
+        }
       });
     }
 
   function _Web_end_menu(win, prmpt) {
       win = nethack.windows[win];
       assert(win);
-      win.menu_prompt = Pointer_stringify(prmpt);
+      win.menu_prompt = UTF8ToString(prmpt);
     }
 
   function _Web_get_ext_cmd_helper(commands, command_count) {
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
+      return Asyncify.handleSleep(function(wakeUp) {
         nethack.update_status();
         var ext_cmd_list = [];
         for(var i = 0; i < command_count; ++i) 
-          ext_cmd_list.push(Pointer_stringify(HEAP32[(((commands)+(i*4))>>2)]));
+          ext_cmd_list.push(UTF8ToString(HEAP32[(((commands)+(i*4))>>2)]));
   
         nethack.get_line({
           label: '#',
@@ -2931,26 +3217,28 @@ var ASM_CONSTS = {
             if((cmd_idx == -1) && (value != ''))
               nethack.add_message(nethack.message_win, nethack.ATR_NONE, 'Unknown extended command: ' + value);
   
-            emterpreter_resume(function() { return cmd_idx; });
+            wakeUp(cmd_idx);
           }
         });
       });
     }
 
   function _Web_getlin(quest, input) {
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
+      return Asyncify.handleSleep(function(wakeUp) {
         nethack.update_status();
         nethack.get_line({
-          label: (Pointer_stringify(quest) || '') + ' ',
+          label: (UTF8ToString(quest) || '') + ' ',
           callback: function(value) {
             writeStringToMemory(value || '', input); // TODO: check length
-            emterpreter_resume();
+            wakeUp();
           }
         });
       });
     }
 
-  function _Web_init(max_tile, win_message_p, win_status_p, win_map_p, win_inven_p, yn_number_p) {
+  function _Web_init(
+        max_tile, win_message_p, win_status_p, win_map_p, win_inven_p,
+        yn_number_p) {
       console.log("Web_init");
       document.getElementById('browserhack-loading').style.display = 'none';
   
@@ -3038,9 +3326,7 @@ var ASM_CONSTS = {
             nethack.input_area.classList.remove('in');
             var resume_callback = nethack.pending_yn_arg.resume_callback;
             nethack.pending_yn_arg = null;
-            resume_callback(function() {
-              return yn_result.charCodeAt(0);
-            });
+            resume_callback(yn_result.charCodeAt(0));
           }
         } else if (nethack.window_pending) { // text window etc
           // do nothing
@@ -3141,7 +3427,8 @@ var ASM_CONSTS = {
       if(typeof localStorage !== 'undefined') {
         try {
           nethack.ui_preferences = JSON.parse(localStorage[nethack.LS_UI_PREFERENCES]) || {};
-        } catch(e) { }
+        } catch(e) {
+        }
       }
   
       document.getElementById('browserhack-replay-btn').addEventListener('click', function() { window.location.reload(); });
@@ -3156,7 +3443,7 @@ var ASM_CONSTS = {
       ];
   
       if(!nethack.ui_preferences.tileset)
-          nethack.ui_preferences.tileset = nethack.builtin_tilesets[3];
+        nethack.ui_preferences.tileset = nethack.builtin_tilesets[3];
   
       nethack.apply_tileset(
         nethack.ui_preferences.tileset.file,
@@ -3188,7 +3475,9 @@ var ASM_CONSTS = {
         nethack.toggle_zoom();
       });
       nethack.btn_toggle_zoom = btn_toggle_zoom;
-      if(nethack.ui_preferences.zoom_out) { nethack.toggle_zoom(); }
+      if(nethack.ui_preferences.zoom_out) {
+        nethack.toggle_zoom();
+      }
   
       var btn_toggle_fullscreen = document.getElementById('browserhack-toggle-fullscreen');
       if(window.parent.kongregate) {
@@ -3203,7 +3492,9 @@ var ASM_CONSTS = {
           nethack.toggle_fullscreen();
         });
   
-        if(nethack.ui_preferences.fullscreen) { nethack.toggle_fullscreen(); }
+        if(nethack.ui_preferences.fullscreen) {
+          nethack.toggle_fullscreen();
+        }
       }
   
       var btn_options = document.getElementById('browserhack-options');
@@ -3237,13 +3528,13 @@ var ASM_CONSTS = {
 
   function _Web_nh_poskey_helper(x, y, mod) {
       console.log("Web_nh_poskey_helper");
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
+      return Asyncify.handleSleep(function(wakeUp) {
         nethack.update_status();
         if(nethack.keybuffer.length > 0) {
           nethack.enable_map_smooth_scrolling();
           var ch = nethack.keybuffer.pop(0); 
           setTimeout(function() {
-            emterpreter_resume(function() { return ch; });
+            wakeUp(ch);
           }, 1);
         } else if(nethack.mousebuffer.length > 0) {
           // for mouse events we disable the animation on the map
@@ -3253,7 +3544,7 @@ var ASM_CONSTS = {
           HEAP32[((y)>>2)] = e.y;
           HEAP32[((mod)>>2)] = e.mod;
           setTimeout(function() {
-            emterpreter_resume(function() { return 0; });
+            wakeUp(0);
           }, 1);
         } else {
           assert(!nethack.keypress_callback);
@@ -3262,18 +3553,18 @@ var ASM_CONSTS = {
             nethack.keypress_callback = null;
             nethack.mouseclick_callback = null;
             nethack.enable_map_smooth_scrolling();
-            emterpreter_resume(function() { return code; });
+            wakeUp(code);
           };
           nethack.mouseclick_callback = function(e) {
             nethack.keypress_callback = null;
             nethack.mouseclick_callback = null;
             nethack.disable_map_smooth_scrolling();
-            emterpreter_resume(function() { 
-              HEAP32[((x)>>2)] = e.x;
-              HEAP32[((y)>>2)] = e.y;
-              HEAP32[((mod)>>2)] = e.mod;
-              return 0; 
-            });
+            
+            HEAP32[((x)>>2)] = e.x;
+            HEAP32[((y)>>2)] = e.y;
+            HEAP32[((mod)>>2)] = e.mod;
+  
+            wakeUp(0);
           };
         }
           
@@ -3282,20 +3573,20 @@ var ASM_CONSTS = {
 
   function _Web_nhgetch_helper() {
       console.log("Web_nhgetch_helper");
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
+      return Asyncify.handleSleep(function(wakeUp) {
         nethack.update_status();
         // for keyboard events we enable the animation on the map
         nethack.enable_map_smooth_scrolling();
         if(nethack.keybuffer.length > 0) {
           var ch = nethack.keybuffer.pop(0); 
           setTimeout(function() {
-            emterpreter_resume(function() { return ch; });
+            wakeUp(ch);
           }, 1);
         } else {
           assert(!nethack.keypress_callback);
           nethack.keypress_callback = function(code) {
             nethack.keypress_callback = null;
-            emterpreter_resume(function() { return code; });
+            wakeUp(code);
           };
         }
       });
@@ -3305,7 +3596,7 @@ var ASM_CONSTS = {
       var ele = document.getElementById('browserhack-rip-text');
       ele.innerHTML = '';
       for(var i = 0; i < line_count; ++i) {
-        var str = Pointer_stringify(HEAP32[(((lines)+(i*4))>>2)]);
+        var str = UTF8ToString(HEAP32[(((lines)+(i*4))>>2)]);
         var cur_line = document.createElement('p');
         cur_line.textContent = str;
         ele.appendChild(cur_line);
@@ -3318,7 +3609,8 @@ var ASM_CONSTS = {
       win = nethack.windows[win];
       assert(win);
       assert(win.type == nethack.NHW_MAP);
-      if(win.id != HEAP32[((nethack.win_map_p)>>2)]) console.log('TODO: extra map window');
+      if(win.id != HEAP32[((nethack.win_map_p)>>2)])
+        console.log('TODO: extra map window');
       if(!nethack.maptiles[x]) nethack.maptiles[x] = [];
       if(!nethack.maptiles[x][y]) {
         var e = document.createElement('div');
@@ -3342,33 +3634,40 @@ var ASM_CONSTS = {
 
   function _Web_putstr(win, attr, str) {
       console.log("Web_putstr");
-      str = Pointer_stringify(str);
+      str = UTF8ToString(str);
       win = nethack.windows[win];
       assert(win);
+      console.log(win.type, attr, str);
       switch(win.type) {
         case nethack.NHW_MESSAGE:
-          if(win.id != HEAP32[((nethack.win_message_p)>>2)]) console.log('TODO: extra message window');
+          if(win.id != HEAP32[((nethack.win_message_p)>>2)])
+            console.log('TODO: extra message window');
           nethack.add_message(nethack.message_win, attr, str);
           break;
         case nethack.NHW_STATUS:
-          if(win.id != HEAP32[((nethack.win_status_p)>>2)]) console.log('TODO: extra status window');
-          if(win.curs_x != 1) { console.log('TODO: x=' + win.curs_x + ' for status window!'); }
-          else if((win.curs_y != 0) && (win.curs_y != 1)) { console.log('TODO: y=' + win.curs_y + ' for status window!'); }
-          else nethack.status_lines[win.curs_y] = str;
+          if(win.id != HEAP32[((nethack.win_status_p)>>2)])
+            console.log('TODO: extra status window');
+          if(win.curs_x != 1) {
+            console.log('TODO: x=' + win.curs_x + ' for status window!');
+          } else if ((win.curs_y != 0) && (win.curs_y != 1)) {
+            console.log('TODO: y=' + win.curs_y + ' for status window!');
+          } else
+            nethack.status_lines[win.curs_y] = str;
           break;
         case nethack.NHW_MENU:
         case nethack.NHW_TEXT:
           if(!win.lines) win.lines = [];
+          console.log(win.type, attr, str);
           win.lines.push({ attr: attr, str: str });
           break;
         default:
           console.log(win.type, 'TODO putstr', attr, str);
-      } 
+      }
     }
 
   function _Web_select_menu(win, how, selected_pp) {
       console.log("Web_select_menu");
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
+      return Asyncify.handleSleep(function(wakeUp) {
         if(how != nethack.PICK_NONE) nethack.update_status();
         var async = false;
         win = nethack.windows[win];
@@ -3379,7 +3678,7 @@ var ASM_CONSTS = {
             if((win.id == HEAP32[((nethack.win_inven_p)>>2)]) && (how == nethack.PICK_NONE)) {
               nethack.update_inventory_window(win.menu);
             } else {
-              win.elements_to_remove.push(nethack.show_menu_window(win.menu, win.menu_prompt, how, selected_pp, emterpreter_resume));
+              win.elements_to_remove.push(nethack.show_menu_window(win.menu, win.menu_prompt, how, selected_pp, wakeUp));
               async = true;
             }
             break;
@@ -3387,7 +3686,7 @@ var ASM_CONSTS = {
             console.log(win.type, 'ERROR: select_menu called on a non-menu window');
         }
         if(!async) setTimeout(function() {
-          emterpreter_resume(function() { return -1; });
+          wakeUp(-1);
         }, 1);
       });
     }
@@ -3401,10 +3700,10 @@ var ASM_CONSTS = {
 
   function _Web_yn_function_helper(ques, choices, def) {
       console.log("Web_yn_function_helper");
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
+      return Asyncify.handleSleep(function(wakeUp) {
         nethack.update_status();
-        ques = Pointer_stringify(ques);
-        choices = Pointer_stringify(choices);   
+        ques = UTF8ToString(ques);
+        choices = UTF8ToString(choices);   
         def = String.fromCharCode(def & 0xff);
   
         var i = choices.indexOf(String.fromCharCode(27)); //ESC
@@ -3452,13 +3751,13 @@ var ASM_CONSTS = {
           ques: ques,
           choices: choices,
           def: def,
-          resume_callback: emterpreter_resume
+          resume_callback: wakeUp
         };
       });
     }
 
   function ___call_sighandler(fp, sig) {
-      getWasmTableEntry(fp)(sig);
+      (function(a1) {  dynCall_vi.apply(null, [fp, a1]); })(sig);
     }
 
   var PATH = {splitPath:function(filename) {
@@ -6706,8 +7005,16 @@ var ASM_CONSTS = {
       abortOnCannotGrowMemory(requestedSize);
     }
 
-  function _emscripten_sleep() {
-      throw 'Please compile your program with async support in order to use asynchronous operations like emscripten_sleep';
+  /** @param {number=} timeout */
+  function safeSetTimeout(func, timeout) {
+      
+      return setTimeout(function() {
+        
+        callUserCallback(func);
+      }, timeout);
+    }
+  function _emscripten_sleep(ms) {
+      Asyncify.handleSleep((wakeUp) => safeSetTimeout(wakeUp, ms));
     }
 
   var ENV = {};
@@ -6838,18 +7145,16 @@ var ASM_CONSTS = {
   }
 
   function _nethack_exit(status) {
-      return EmterpreterAsync.handle(function(emterpreter_resume) {
+      return Asyncify.handleSleep(function(wakeUp) {
         nethack.map_win_overlay.classList.add('in');
         nethack.map_win_overlay.classList.add('exited');
         document.getElementById('browserhack-replay-btn').focus();
         // sync save/ again, for record and logfile
         FS.syncfs(function (err) { 
-          if(err) console.log('Cannot sync FS, savegame may not work!'); 
-          emterpreter_resume(function() {
-            // emscripten_force_exit
-            Module['noExitRuntime'] = false;
-            Module['exit'](status);
-          });
+          if(err) console.log('Cannot sync FS, savegame may not work!');
+          Module['noExitRuntime'] = false;
+          Module['exit'](status); 
+          wakeUp();
         });
       });
     }
@@ -6866,6 +7171,7 @@ var ASM_CONSTS = {
       }
       return ret;
     }
+
 
 
   var FSNode = /** @constructor */ function(parent, name, mode, rdev) {
@@ -7200,6 +7506,7 @@ var asmLibraryArg = {
   "setTempRet0": _setTempRet0,
   "time": _time
 };
+Asyncify.instrumentWasmImports(asmLibraryArg);
 var asm = createWasm();
 /** @type {function(...*):?} */
 var ___wasm_call_ctors = Module["___wasm_call_ctors"] = createExportWrapper("__wasm_call_ctors");
@@ -7222,6 +7529,11 @@ var ___stdio_exit = Module["___stdio_exit"] = createExportWrapper("__stdio_exit"
 /** @type {function(...*):?} */
 var _emscripten_stack_init = Module["_emscripten_stack_init"] = function() {
   return (_emscripten_stack_init = Module["_emscripten_stack_init"] = Module["asm"]["emscripten_stack_init"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _emscripten_stack_set_limits = Module["_emscripten_stack_set_limits"] = function() {
+  return (_emscripten_stack_set_limits = Module["_emscripten_stack_set_limits"] = Module["asm"]["emscripten_stack_set_limits"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
@@ -7249,7 +7561,52 @@ var stackRestore = Module["stackRestore"] = createExportWrapper("stackRestore");
 var stackAlloc = Module["stackAlloc"] = createExportWrapper("stackAlloc");
 
 /** @type {function(...*):?} */
+var dynCall_iiii = Module["dynCall_iiii"] = createExportWrapper("dynCall_iiii");
+
+/** @type {function(...*):?} */
+var dynCall_iii = Module["dynCall_iii"] = createExportWrapper("dynCall_iii");
+
+/** @type {function(...*):?} */
+var dynCall_ii = Module["dynCall_ii"] = createExportWrapper("dynCall_ii");
+
+/** @type {function(...*):?} */
+var dynCall_i = Module["dynCall_i"] = createExportWrapper("dynCall_i");
+
+/** @type {function(...*):?} */
+var dynCall_viii = Module["dynCall_viii"] = createExportWrapper("dynCall_viii");
+
+/** @type {function(...*):?} */
+var dynCall_vi = Module["dynCall_vi"] = createExportWrapper("dynCall_vi");
+
+/** @type {function(...*):?} */
+var dynCall_vii = Module["dynCall_vii"] = createExportWrapper("dynCall_vii");
+
+/** @type {function(...*):?} */
+var dynCall_v = Module["dynCall_v"] = createExportWrapper("dynCall_v");
+
+/** @type {function(...*):?} */
+var dynCall_viiiiiiii = Module["dynCall_viiiiiiii"] = createExportWrapper("dynCall_viiiiiiii");
+
+/** @type {function(...*):?} */
+var dynCall_viiii = Module["dynCall_viiii"] = createExportWrapper("dynCall_viiii");
+
+/** @type {function(...*):?} */
 var dynCall_jiji = Module["dynCall_jiji"] = createExportWrapper("dynCall_jiji");
+
+/** @type {function(...*):?} */
+var dynCall_iidiiii = Module["dynCall_iidiiii"] = createExportWrapper("dynCall_iidiiii");
+
+/** @type {function(...*):?} */
+var _asyncify_start_unwind = Module["_asyncify_start_unwind"] = createExportWrapper("asyncify_start_unwind");
+
+/** @type {function(...*):?} */
+var _asyncify_stop_unwind = Module["_asyncify_stop_unwind"] = createExportWrapper("asyncify_stop_unwind");
+
+/** @type {function(...*):?} */
+var _asyncify_start_rewind = Module["_asyncify_start_rewind"] = createExportWrapper("asyncify_start_rewind");
+
+/** @type {function(...*):?} */
+var _asyncify_stop_rewind = Module["_asyncify_stop_rewind"] = createExportWrapper("asyncify_stop_rewind");
 
 
 
@@ -7471,6 +7828,8 @@ unexportedRuntimeFunction('GLFW', false);
 unexportedRuntimeFunction('GLEW', false);
 unexportedRuntimeFunction('IDBStore', false);
 unexportedRuntimeFunction('runAndAbortIfError', false);
+unexportedRuntimeFunction('Asyncify', false);
+unexportedRuntimeFunction('Fibers', false);
 unexportedRuntimeFunction('NODEFS', false);
 unexportedRuntimeFunction('IDBFS', false);
 unexportedRuntimeFunction('nethack', false);

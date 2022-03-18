@@ -90,7 +90,7 @@
 # CFLAGS = -g -I../include
 
 CFLAGS = -O3 -I../include 
-LFLAGS = -lnodefs.js -lidbfs.js -s TOTAL_MEMORY=512mb
+LFLAGS = -lnodefs.js -lidbfs.js
 
 # Lu Wang:
 # Utils were supposed to be compiled to binaries
@@ -157,11 +157,16 @@ OALLOC = $(OBJDIR)/alloc.o panic.o
 # object files for makedefs
 MAKEOBJS = makedefs.o $(OMONOBJ)
 
+
 # object files for special levels compiler
 SPLEVOBJS = lev_yacc.o lev_lex.o lev_main.o $(OALLOC) $(ONAMING)
 
 # object files for dungeon compiler
 DGNCOMPOBJS = dgn_yacc.o dgn_lex.o dgn_main.o $(OALLOC)
+
+# # Do not remove these files on compilation
+# .SECONDARY: $(SPLEVOBJS) ${DGNCOMPOBJS}
+# .PRECIOUS: $(SPLEVOBJS) ${DGNCOMPOBJS}
 
 # object files for recovery utility
 RECOVOBJS = recover.o
@@ -412,6 +417,7 @@ spotless: clean
 	-rm -f ../include/tile.h
 	-rm -f makedefs.js lev_comp.js dgn_comp.js recover dlb
 	-rm -f gif2txt txt2ppm tile2x11 tile2img.ttp xpm2img.ttp tilemap.js
+	-rm -f *.wasm
 
 tileedit: tileedit.cpp $(TEXT_IO)
 	$(QTDIR)/bin/moc -o tileedit.moc tileedit.h

@@ -377,6 +377,8 @@ HSOURCES = $(HACKINCL) date.h onames.h pm.h vis_tab.h\
 # the following .o's _must_ be made before any others (for makedefs)
 FIRSTOBJ = monst.o objects.o
 
+UTILDIR = ../util
+
 HOBJ = $(FIRSTOBJ) allmain.o alloc.o apply.o artifact.o attrib.o ball.o \
 	bones.o botl.o cmd.o dbridge.o decl.o detect.o dig.o display.o dlb.o \
 	do.o do_name.o do_wear.o dog.o dogmove.o dokick.o dothrow.o \
@@ -392,15 +394,18 @@ HOBJ = $(FIRSTOBJ) allmain.o alloc.o apply.o artifact.o attrib.o ball.o \
 	steal.o steed.o teleport.o timeout.o topten.o track.o trap.o u_init.o \
 	uhitm.o vault.o vision.o vis_tab.o weapon.o were.o wield.o windows.o \
 	wizard.o worm.o worn.o write.o zap.o \
-	$(RANDOBJ) $(SYSOBJ) $(WINOBJ) version.o
+	$(RANDOBJ) $(SYSOBJ) $(WINOBJ) version.o \
+	$(UTILDIR)/lev_yacc.o $(UTILDIR)/lev_lex.o $(UTILDIR)/lev_main.o
 # the .o files from the HACKCSRC, SYSSRC, and WINSRC lists
+
+ASYNCIFY_IMPORTS=["Web_get_ext_cmd_helper", "nethack_exit", "Web_askname_helper", "Web_display_nhwindow", "Web_yn_function_helper", "Web_select_menu", "Web_display_file", "Web_nh_poskey_helper"]
 
 $(GAME):	$(SYSTEM)
 	@echo "$(GAME) is up to date."
 
 Sysunix:	$(HOBJ) Makefile
 	@echo "Loading ..."
-	$(LINK) $(LFLAGS) -o browserhack.js $(HOBJ) $(WINLIB) $(LIBS) --js-library ../win/web/nethack_lib.js --preload-file /home/bam4d/fb/BrowserHack/build/nethack@../nethack
+	$(LINK) $(LFLAGS) -s 'ASYNCIFY_IMPORTS=$(ASYNCIFY_IMPORTS)' -s ASYNCIFY -o browserhack.js $(HOBJ) $(WINLIB) $(LIBS) --js-library ../win/web/nethack_lib.js --preload-file /home/bam4d/fb/BrowserHack/build/nethack@../nethack
 	@touch Sysunix
 
 Sys3B2:	$(HOBJ) Makefile
@@ -451,6 +456,38 @@ DUMB.Setup:	../include/extern.h
 	@touch DUMB.Setup
 
 all:	$(GAME)
+
+# 
+
+# YTABC = y.tab.c
+# YTABH = y.tab.h
+# LEXYYC = lex.yy.c
+
+# YACC     = yacc
+# LEX      = lex
+
+# # dependencies for lev_comp
+# lev_yacc.o:  lev_yacc.c $(HACK_H) ../include/sp_lev.h
+# lev_main.o:  $(UTILDIR)/lev_main.c $(HACK_H) ../include/sp_lev.h ../include/tcap.h \
+# 		../include/date.h
+
+# # see lev_comp.l for WEIRD_LEX discussion
+# # egrep will return failure if it doesn't find anything, but we know there
+# # is one "_cplusplus" inside a comment
+# lev_lex.o:   lev_lex.c $(HACK_H) ../include/lev_comp.h ../include/sp_lev.h
+# 	@echo $(CC) -c $(CFLAGS) $(UTILDIR)/lev_lex.c
+# 	@$(CC) -c $(CFLAGS) -DWEIRD_LEX=`egrep -c _cplusplus lev_lex.c` lev_lex.c
+
+# ../include/lev_comp.h: lev_yacc.c
+
+# lev_yacc.c: $(UTILDIR)/lev_comp.y
+# 	$(YACC) $(YACCDIST) -d $(UTILDIR)/lev_comp.y
+# 	mv $(YTABC) lev_yacc.c
+# 	mv $(YTABH) ../include/lev_comp.h
+
+# lev_lex.c: $(UTILDIR)/lev_comp.l
+# 	$(LEX) $(FLEXDIST) $(UTILDIR)/lev_comp.l
+# 	mv $(LEXYYC) lev_lex.c
 
 
 #	dependencies for makedefs and its outputs, which the util
@@ -535,6 +572,7 @@ spotless: clean
 	-rm -f ../include/date.h ../include/onames.h ../include/pm.h
 	-rm -f monstr.c ../include/vis_tab.h vis_tab.c tile.c *.moc
 	-rm -f ../win/gnome/gn_rip.h
+	-rm -f *.wasm
 
 
 depend: ../sys/unix/depend.awk \

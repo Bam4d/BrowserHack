@@ -3,7 +3,7 @@
 
 
 var LibraryNetHack = {
-  //$nethack__deps: ['$EmterpreterAsync'],
+  $nethack__deps: ['$Asyncify'],
   $nethack: {
     // Macros from NetHack source code
     // window types
@@ -31,58 +31,72 @@ var LibraryNetHack = {
     LS_OPTIONS: 'BrowserHack_Options',
     LS_KONGREGATE_SAVE: 'BrowserHack_Kongregate_Save',
 
-    pre_run: function() { // thisois called before main()
-      if(window.parent.kongregate) {
-        ENV['USER'] = window.parent.kongregate.services.getUsername();
-        if(ENV['USER'] == 'coolwanglu')
-          Module.arguments = ['-D'];   
-      } else {
-        ENV['USER'] = 'player'; // set to `player` such that NetHack will ask for a name
-        // wizard mode
-        var wizard_mode_hashes = [
-          '#↑↑↓↓←→←→BAStart',
-          '#黑化黑灰化肥灰会挥发',
-          '#The quick brown fox jumps over the lazy dog',
-          '#子子子子子子子子子子子子',
-          '#Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo',
-          '#石室诗士施氏嗜狮誓食十狮',
-          '#WL-the-wizard'
-        ];
-        if(document.location.hash == '#wizard-mode') alert('Could not enable wizard mode!');
-        else if(wizard_mode_hashes.indexOf(document.location.hash) != -1) Module.arguments = ['-D'];
-      }
+    TEST_DES_FILE: `
+MAZE: "mylevel", ' '
+FLAGS:premapped
+GEOMETRY:center,center
+
+MAP
+ ||||||   
+ |....|   
+ |........
+ |....|  .
+ ||||||  .
+         .
+         .
+..........
+ENDMAP
+
+STAIR:(2, 1),down
+BRANCH: (0,7,0,7),(1,8,1,8)
+`,
+
+    // load_level_file_string: function (level_string) {
+    //   // compile the des file
+
+    //   // create the nhdat
+
+    //   // replace the existing nhdat
+    // },
+
+    pre_run: function() {  // thisois called before main()
+      
+      ENV['USER'] = 'player'; // set to `player` such that NetHack will ask for a name
+      // wizard mode
+      var wizard_mode_hashes = [
+        '#↑↑↓↓←→←→BAStart',
+        '#黑化黑灰化肥灰会挥发',
+        '#The quick brown fox jumps over the lazy dog',
+        '#子子子子子子子子子子子子',
+        '#Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo',
+        '#石室诗士施氏嗜狮誓食十狮',
+        '#WL-the-wizard'
+      ];
+      if(document.location.hash == '#wizard-mode')
+        alert('Could not enable wizard mode!');
+      else if(wizard_mode_hashes.indexOf(document.location.hash) != -1)
+        Module.arguments = ['-D'];
+      
 
       ENV['HOME'] = '/home/nethack_player';
-      try { FS.mkdir('/home/nethack_player'); } catch(e) { }
+      try {
+        FS.mkdir('/home/nethack_player');
+      } catch (e) {
+      }
 
       // mount and load the save dir
-      try { FS.mkdir('/nethack/save'); } catch(e) { }
-      if(window.parent.kongregate) {
-        // in kongregate we cannot use IDBFS
-        if(typeof localStorage !== 'undefined') {
-          var savedata = {};
-          try {
-            var savedata = JSON.parse(localStorage[nethack.LS_KONGREGATE_SAVE] || '');
-          } catch (e) {}
-          for(var fn in savedata) {
-            try {
-              var data = atob(savedata[fn]);
-              var buf = new ArrayBuffer(data.length);
-              var array = new Uint8Array(buf);
-              for(var i = 0; i < data.length; ++i)
-                array[i] = data.charCodeAt(i);
-              FS.writeFile(fn, array, { encoding: 'binary' });
-            } catch(e) { }
-          }
-        }
-      } else {
-        FS.mount(IDBFS, {}, '/nethack/save');
-        addRunDependency('BrowserHack-save-dir');
-        FS.syncfs(true, function(err) { 
-          if(err) console.log('Cannot sync fs, savegame may not work!'); 
-          removeRunDependency('BrowserHack-save-dir');
-        });
+      try {
+        FS.mkdir('/nethack/save');
+      } catch (e) {
       }
+      
+      FS.mount(IDBFS, {}, '/nethack/save');
+      addRunDependency('BrowserHack-save-dir');
+      FS.syncfs(true, function(err) { 
+        if(err) console.log('Cannot sync fs, savegame may not work!'); 
+        removeRunDependency('BrowserHack-save-dir');
+      });
+      
 
       // load user options
       if(typeof localStorage !== 'undefined') {
@@ -100,39 +114,18 @@ var LibraryNetHack = {
         FS.writeFile(ENV['HOME'] + '/.nethackrc', user_options, { encoding: 'utf8' });
       }
 
+      // TODO: this can be done async in docs, but not for now
       // load tilenames
-      nethack.tilenames = ["giant ant", "killer bee", "soldier ant", "fire ant", "giant beetle", "queen bee", "acid blob", "quivering blob", "gelatinous cube", "chickatrice", "cockatrice", "pyrolisk", "jackal", "fox", "coyote", "werejackal", "little dog", "dog", "large dog", "dingo", "wolf", "werewolf", "warg", "winter wolf cub", "winter wolf", "hell hound pup", "hell hound", "Cerberus", "gas spore", "floating eye", "freezing sphere", "flaming sphere", "shocking sphere", "beholder", "kitten", "housecat", "jaguar", "lynx", "panther", "large cat", "tiger", "gremlin", "gargoyle", "winged gargoyle", "hobbit", "dwarf", "bugbear", "dwarf lord", "dwarf king", "mind flayer", "master mind flayer", "manes", "homunculus", "imp", "lemure", "quasit", "tengu", "blue jelly", "spotted jelly", "ochre jelly", "kobold", "large kobold", "kobold lord", "kobold shaman", "leprechaun", "small mimic", "large mimic", "giant mimic", "wood nymph", "water nymph", "mountain nymph", "goblin", "hobgoblin", "orc", "hill orc", "Mordor orc", "Uruk-hai", "orc shaman", "orc-captain", "rock piercer", "iron piercer", "glass piercer", "rothe", "mumak", "leocrotta", "wumpus", "titanothere", "baluchitherium", "mastodon", "sewer rat", "giant rat", "rabid rat", "wererat", "rock mole", "woodchuck", "cave spider", "centipede", "giant spider", "scorpion", "lurker above", "trapper", "white unicorn", "gray unicorn", "black unicorn", "pony", "horse", "warhorse", "fog cloud", "dust vortex", "ice vortex", "energy vortex", "steam vortex", "fire vortex", "baby long worm", "baby purple worm", "long worm", "purple worm", "grid bug", "xan", "yellow light", "black light", "zruty", "couatl", "Aleax", "Angel", "ki-rin", "Archon", "bat", "giant bat", "raven", "vampire bat", "plains centaur", "forest centaur", "mountain centaur", "baby gray dragon", "baby silver dragon", "baby shimmering dragon", "baby red dragon", "baby white dragon", "baby orange dragon", "baby black dragon", "baby blue dragon", "baby green dragon", "baby yellow dragon", "gray dragon", "silver dragon", "shimmering dragon", "red dragon", "white dragon", "orange dragon", "black dragon", "blue dragon", "green dragon", "yellow dragon", "stalker", "air elemental", "fire elemental", "earth elemental", "water elemental", "lichen", "brown mold", "yellow mold", "green mold", "red mold", "shrieker", "violet fungus", "gnome", "gnome lord", "gnomish wizard", "gnome king", "giant", "stone giant", "hill giant", "fire giant", "frost giant", "storm giant", "ettin", "titan", "minotaur", "jabberwock", "vorpal jabberwock", "Keystone Kop", "Kop Sergeant", "Kop Lieutenant", "Kop Kaptain", "lich", "demilich", "master lich", "arch-lich", "kobold mummy", "gnome mummy", "orc mummy", "dwarf mummy", "elf mummy", "human mummy", "ettin mummy", "giant mummy", "red naga hatchling", "black naga hatchling", "golden naga hatchling", "guardian naga hatchling", "red naga", "black naga", "golden naga", "guardian naga", "ogre", "ogre lord", "ogre king", "gray ooze", "brown pudding", "black pudding", "green slime", "quantum mechanic", "rust monster", "disenchanter", "garter snake", "snake", "water moccasin", "pit viper", "python", "cobra", "troll", "ice troll", "rock troll", "water troll", "Olog-hai", "umber hulk", "vampire", "vampire lord", "vampire mage", "Vlad the Impaler", "barrow wight", "wraith", "Nazgul", "xorn", "monkey", "ape", "owlbear", "yeti", "carnivorous ape", "sasquatch", "kobold zombie", "gnome zombie", "orc zombie", "dwarf zombie", "elf zombie", "human zombie", "ettin zombie", "giant zombie", "ghoul", "skeleton", "straw golem", "paper golem", "rope golem", "gold golem", "leather golem", "wood golem", "flesh golem", "clay golem", "stone golem", "glass golem", "iron golem", "human", "wererat", "werejackal", "werewolf", "elf", "Woodland-elf", "Green-elf", "Grey-elf", "elf-lord", "Elvenking", "doppelganger", "nurse", "shopkeeper", "guard", "prisoner", "Oracle", "aligned priest", "high priest", "soldier", "sergeant", "lieutenant", "captain", "watchman", "watch captain", "Medusa", "Wizard of Yendor", "Croesus", "Charon", "ghost", "shade", "water demon", "horned devil", "succubus", "incubus", "erinys", "barbed devil", "marilith", "vrock", "hezrou", "bone devil", "ice devil", "nalfeshnee", "pit fiend", "balrog", "Juiblex", "Yeenoghu", "Orcus", "Geryon", "Dispater", "Baalzebub", "Asmodeus", "Demogorgon", "Death", "Pestilence", "Famine", "mail daemon", "djinni", "sandestin", "jellyfish", "piranha", "shark", "giant eel", "electric eel", "kraken", "newt", "gecko", "iguana", "baby crocodile", "lizard", "chameleon", "crocodile", "salamander", "long worm tail", "archeologist", "barbarian", "caveman", "cavewoman", "healer", "knight", "monk", "priest", "priestess", "ranger", "rogue", "samurai", "tourist", "valkyrie", "wizard", "Lord Carnarvon", "Pelias", "Shaman Karnov", "Earendil", "Elwing", "Hippocrates", "King Arthur", "Grand Master", "Arch Priest", "Orion", "Master of Thieves", "Lord Sato", "Twoflower", "Norn", "Neferet the Green", "Minion of Huhetotl", "Thoth Amon", "Chromatic Dragon", "Goblin King", "Cyclops", "Ixoth", "Master Kaen", "Nalzok", "Scorpius", "Master Assassin", "Ashikaga Takauji", "Lord Surtur", "Dark One", "student", "chieftain", "neanderthal", "High-elf", "attendant", "page", "abbot", "acolyte", "hunter", "thug", "ninja", "roshi", "guide", "warrior", "apprentice", "invisible monster", "strange object", "arrow", "runed arrow / elven arrow", "crude arrow / orcish arrow", "silver arrow", "bamboo arrow / ya", "crossbow bolt", "dart", "throwing star / shuriken", "boomerang", "spear", "runed spear / elven spear", "crude spear / orcish spear", "stout spear / dwarvish spear", "silver spear", "throwing spear / javelin", "trident", "dagger", "runed dagger / elven dagger", "crude dagger / orcish dagger", "silver dagger", "athame", "scalpel", "knife", "stiletto", "worm tooth", "crysknife", "axe", "double-headed axe / battle-axe", "short sword", "runed short sword / elven short sword", "crude short sword / orcish short sword", "broad short sword / dwarvish short sword", "curved sword / scimitar", "silver saber", "broadsword", "runed broadsword / elven broadsword", "long sword", "two-handed sword", "samurai sword / katana", "long samurai sword / tsurugi", "runed broadsword / runesword", "vulgar polearm / partisan", "hilted polearm / ranseur", "forked polearm / spetum", "single-edged polearm / glaive", "lance", "angled poleaxe / halberd", "long poleaxe / bardiche", "pole cleaver / voulge", "broad pick / dwarvish mattock", "pole sickle / fauchard", "pruning hook / guisarme", "hooked polearm / bill-guisarme", "pronged polearm / lucern hammer", "beaked polearm / bec de corbin", "mace", "morning star", "war hammer", "club", "rubber hose", "staff / quarterstaff", "thonged club / aklys", "flail", "bullwhip", "bow", "runed bow / elven bow", "crude bow / orcish bow", "long bow / yumi", "sling", "crossbow", "leather hat / elven leather helm", "iron skull cap / orcish helm", "hard hat / dwarvish iron helm", "fedora", "conical hat / cornuthaum", "conical hat / dunce cap", "dented pot", "plumed helmet / helmet", "etched helmet / helm of brilliance", "crested helmet / helm of opposite alignment", "visored helmet / helm of telepathy", "gray dragon scale mail", "silver dragon scale mail", "shimmering dragon scale mail", "red dragon scale mail", "white dragon scale mail", "orange dragon scale mail", "black dragon scale mail", "blue dragon scale mail", "green dragon scale mail", "yellow dragon scale mail", "gray dragon scales", "silver dragon scales", "shimmering dragon scales", "red dragon scales", "white dragon scales", "orange dragon scales", "black dragon scales", "blue dragon scales", "green dragon scales", "yellow dragon scales", "plate mail", "crystal plate mail", "bronze plate mail", "splint mail", "banded mail", "dwarvish mithril-coat", "elven mithril-coat", "chain mail", "crude chain mail / orcish chain mail", "scale mail", "studded leather armor", "ring mail", "crude ring mail / orcish ring mail", "leather armor", "leather jacket", "Hawaiian shirt", "T-shirt", "mummy wrapping", "faded pall / elven cloak", "coarse mantelet / orcish cloak", "hooded cloak / dwarvish cloak", "slippery cloak / oilskin cloak", "robe", "apron / alchemy smock", "leather cloak", "tattered cape / cloak of protection", "opera cloak / cloak of invisibility", "ornamental cope / cloak of magic resistance", "piece of cloth / cloak of displacement", "small shield", "blue and green shield / elven shield", "white-handed shield / Uruk-hai shield", "red-eyed shield / orcish shield", "large shield", "large round shield / dwarvish roundshield", "polished silver shield / shield of reflection", "old gloves / leather gloves", "padded gloves / gauntlets of fumbling", "riding gloves / gauntlets of power", "fencing gloves / gauntlets of dexterity", "walking shoes / low boots", "hard shoes / iron shoes", "jackboots / high boots", "combat boots / speed boots", "jungle boots / water walking boots", "hiking boots / jumping boots", "mud boots / elven boots", "buckled boots / kicking boots", "riding boots / fumble boots", "snow boots / levitation boots", "wooden / adornment", "granite / gain strength", "opal / gain constitution", "clay / increase accuracy", "coral / increase damage", "black onyx / protection", "moonstone / regeneration", "tiger eye / searching", "jade / stealth", "bronze / sustain ability", "agate / levitation", "topaz / hunger", "sapphire / aggravate monster", "ruby / conflict", "diamond / warning", "pearl / poison resistance", "iron / fire resistance", "brass / cold resistance", "copper / shock resistance", "twisted / free action", "steel / slow digestion", "silver / teleportation", "gold / teleport control", "ivory / polymorph", "emerald / polymorph control", "wire / invisibility", "engagement / see invisible", "shiny / protection from shape changers", "circular / amulet of ESP", "spherical / amulet of life saving", "oval / amulet of strangulation", "triangular / amulet of restful sleep", "pyramidal / amulet versus poison", "square / amulet of change", "concave / amulet of unchanging", "hexagonal / amulet of reflection", "octagonal / amulet of magical breathing", "Amulet of Yendor / cheap plastic imitation of the Amulet of Yendor", "Amulet of Yendor / Amulet of Yendor", "large box", "chest", "ice box", "bag / sack", "bag / oilskin sack", "bag / bag of holding", "bag / bag of tricks", "key / skeleton key", "lock pick", "credit card", "candle / tallow candle", "candle / wax candle", "brass lantern", "lamp / oil lamp", "lamp / magic lamp", "expensive camera", "looking glass / mirror", "glass orb / crystal ball", "lenses", "blindfold", "towel", "saddle", "leash", "stethoscope", "tinning kit", "tin opener", "can of grease", "figurine", "magic marker", "land mine", "beartrap", "whistle / tin whistle", "whistle / magic whistle", "flute / wooden flute", "flute / magic flute", "horn / tooled horn", "horn / frost horn", "horn / fire horn", "horn / horn of plenty", "harp / wooden harp", "harp / magic harp", "bell", "bugle", "drum / leather drum", "drum / drum of earthquake", "pick-axe", "iron hook / grappling hook", "unicorn horn", "candelabrum / Candelabrum of Invocation", "silver bell / Bell of Opening", "tripe ration", "corpse", "egg", "meatball", "meat stick", "huge chunk of meat", "meat ring", "kelp frond", "eucalyptus leaf", "apple", "orange", "pear", "melon", "banana", "carrot", "sprig of wolfsbane", "clove of garlic", "slime mold", "lump of royal jelly", "cream pie", "candy bar", "fortune cookie", "pancake", "lembas wafer", "cram ration", "food ration", "K-ration", "C-ration", "tin", "ruby / gain ability", "pink / restore ability", "orange / confusion", "yellow / blindness", "emerald / paralysis", "dark green / speed", "cyan / levitation", "sky blue / hallucination", "brilliant blue / invisibility", "magenta / see invisible", "purple-red / healing", "puce / extra healing", "milky / gain level", "swirly / enlightenment", "bubbly / monster detection", "smoky / object detection", "cloudy / gain energy", "effervescent / sleeping", "black / full healing", "golden / polymorph", "brown / booze", "fizzy / sickness", "dark / fruit juice", "white / acid", "murky / oil", "clear / water", "ZELGO MER / enchant armor", "JUYED AWK YACC / destroy armor", "NR 9 / confuse monster", "XIXAXA XOXAXA XUXAXA / scare monster", "PRATYAVAYAH / remove curse", "DAIYEN FOOELS / enchant weapon", "LEP GEX VEN ZEA / create monster", "PRIRUTSENIE / taming", "ELBIB YLOH / genocide", "VERR YED HORRE / light", "VENZAR BORGAVVE / teleportation", "THARR / gold detection", "YUM YUM / food detection", "KERNOD WEL / identify", "ELAM EBOW / magic mapping", "DUAM XNAHT / amnesia", "ANDOVA BEGARIN / fire", "KIRJE / earth", "VE FORBRYDERNE / punishment", "HACKEM MUCHE / charging", "VELOX NEB / stinking cloud", "FOOBIE BLETCH", "TEMOV", "GARVEN DEH", "READ ME", "stamped / mail", "unlabeled / blank paper", "parchment / dig", "vellum / magic missile", "ragged / fireball", "dog eared / cone of cold", "mottled / sleep", "stained / finger of death", "cloth / light", "leather / detect monsters", "white / healing", "pink / knock", "red / force bolt", "orange / confuse monster", "yellow / cure blindness", "velvet / drain life", "light green / slow monster", "dark green / wizard lock", "turquoise / create monster", "cyan / detect food", "light blue / cause fear", "dark blue / clairvoyance", "indigo / cure sickness", "magenta / charm monster", "purple / haste self", "violet / detect unseen", "tan / levitation", "plaid / extra healing", "light brown / restore ability", "dark brown / invisibility", "gray / detect treasure", "wrinkled / remove curse", "dusty / magic mapping", "bronze / identify", "copper / turn undead", "silver / polymorph", "gold / teleport away", "glittering / create familiar", "shining / cancellation", "dull / protection", "thin / jumping", "thick / stone to flesh", "plain / blank paper", "papyrus / Book of the Dead", "glass / light", "balsa / secret door detection", "crystal / enlightenment", "maple / create monster", "pine / wishing", "oak / nothing", "ebony / striking", "marble / make invisible", "tin / slow monster", "brass / speed monster", "copper / undead turning", "silver / polymorph", "platinum / cancellation", "iridium / teleportation", "zinc / opening", "aluminum / locking", "uranium / probing", "iron / digging", "steel / magic missile", "hexagonal / fire", "short / cold", "runed / sleep", "long / death", "curved / lightning", "forked", "spiked", "jeweled", "gold piece", "white / dilithium crystal", "white / diamond", "red / ruby", "orange / jacinth", "blue / sapphire", "black / black opal", "green / emerald", "green / turquoise", "yellow / citrine", "green / aquamarine", "yellowish brown / amber", "yellowish brown / topaz", "black / jet", "white / opal", "yellow / chrysoberyl", "red / garnet", "violet / amethyst", "red / jasper", "violet / fluorite", "black / obsidian", "orange / agate", "green / jade", "white / worthless piece of white glass", "blue / worthless piece of blue glass", "red / worthless piece of red glass", "yellowish brown / worthless piece of yellowish brown glass", "orange / worthless piece of orange glass", "yellow / worthless piece of yellow glass", "black / worthless piece of black glass", "green / worthless piece of green glass", "violet / worthless piece of violet glass", "gray / luckstone", "gray / loadstone", "gray / touchstone", "gray / flint", "rock", "boulder", "statue", "heavy iron ball", "iron chain", "splash of venom / blinding venom", "splash of venom / acid venom", "dark part of a room", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "doorway", "open door", "open door", "closed door", "closed door", "iron bars", "tree", "floor of a room", "corridor", "lit corridor", "staircase up", "staircase down", "ladder up", "ladder down", "altar", "grave", "opulent throne", "sink", "fountain", "water", "ice", "molten lava", "lowered drawbridge", "lowered drawbridge", "raised drawbridge", "raised drawbridge", "air", "cloud", "water", "arrow trap", "dart trap", "falling rock trap", "squeaky board", "bear trap", "land mine", "rolling boulder trap", "sleeping gas trap", "rust trap", "fire trap", "pit", "spiked pit", "hole", "trap door", "teleportation trap", "level teleporter", "magic portal", "web", "statue trap", "magic trap", "anti-magic field", "polymorph trap", "wall", "wall", "wall", "wall", "cmap 67", "cmap 68", "cmap 69", "cmap 70", "cmap 71", "cmap 72", "cmap 73", "cmap 74", "cmap 75", "cmap 76", "cmap 77", "cmap 78", "cmap 79", "cmap 80", "cmap 81", "cmap 82", "explosion dark 0", "explosion dark 1", "explosion dark 2", "explosion dark 3", "explosion dark 4", "explosion dark 5", "explosion dark 6", "explosion dark 7", "explosion dark 8", "explosion noxious 0", "explosion noxious 1", "explosion noxious 2", "explosion noxious 3", "explosion noxious 4", "explosion noxious 5", "explosion noxious 6", "explosion noxious 7", "explosion noxious 8", "explosion muddy 0", "explosion muddy 1", "explosion muddy 2", "explosion muddy 3", "explosion muddy 4", "explosion muddy 5", "explosion muddy 6", "explosion muddy 7", "explosion muddy 8", "explosion wet 0", "explosion wet 1", "explosion wet 2", "explosion wet 3", "explosion wet 4", "explosion wet 5", "explosion wet 6", "explosion wet 7", "explosion wet 8", "explosion magical 0", "explosion magical 1", "explosion magical 2", "explosion magical 3", "explosion magical 4", "explosion magical 5", "explosion magical 6", "explosion magical 7", "explosion magical 8", "explosion fiery 0", "explosion fiery 1", "explosion fiery 2", "explosion fiery 3", "explosion fiery 4", "explosion fiery 5", "explosion fiery 6", "explosion fiery 7", "explosion fiery 8", "explosion frosty 0", "explosion frosty 1", "explosion frosty 2", "explosion frosty 3", "explosion frosty 4", "explosion frosty 5", "explosion frosty 6", "explosion frosty 7", "explosion frosty 8", "zap 0 0", "zap 0 1", "zap 0 2", "zap 0 3", "zap 1 0", "zap 1 1", "zap 1 2", "zap 1 3", "zap 2 0", "zap 2 1", "zap 2 2", "zap 2 3", "zap 3 0", "zap 3 1", "zap 3 2", "zap 3 3", "zap 4 0", "zap 4 1", "zap 4 2", "zap 4 3", "zap 5 0", "zap 5 1", "zap 5 2", "zap 5 3", "zap 6 0", "zap 6 1", "zap 6 2", "zap 6 3", "zap 7 0", "zap 7 1", "zap 7 2", "zap 7 3", "warning 0", "warning 1", "warning 2", "warning 3", "warning 4", "warning 5", "sub mine walls 0", "sub mine walls 1", "sub mine walls 2", "sub mine walls 3", "sub mine walls 4", "sub mine walls 5", "sub mine walls 6", "sub mine walls 7", "sub mine walls 8", "sub mine walls 9", "sub mine walls 10", "sub gehennom walls 0", "sub gehennom walls 1", "sub gehennom walls 2", "sub gehennom walls 3", "sub gehennom walls 4", "sub gehennom walls 5", "sub gehennom walls 6", "sub gehennom walls 7", "sub gehennom walls 8", "sub gehennom walls 9", "sub gehennom walls 10", "sub knox walls 0", "sub knox walls 1", "sub knox walls 2", "sub knox walls 3", "sub knox walls 4", "sub knox walls 5", "sub knox walls 6", "sub knox walls 7", "sub knox walls 8", "sub knox walls 9", "sub knox walls 10", "sub sokoban walls 0", "sub sokoban walls 1", "sub sokoban walls 2", "sub sokoban walls 3", "sub sokoban walls 4", "sub sokoban walls 5", "sub sokoban walls 6", "sub sokoban walls 7", "sub sokoban walls 8", "sub sokoban walls 9", "sub sokoban walls 10"];;
-      // fetch('tilenames.json', function(u8_array) {
-      //   try {
-      //     nethack.tilenames = JSON.parse(UTF8ArrayToString(u8_array, 0));
-      //   } catch(e) { }
-      // });
+      nethack.tilenames = ["giant ant", "killer bee", "soldier ant", "fire ant", "giant beetle", "queen bee", "acid blob", "quivering blob", "gelatinous cube", "chickatrice", "cockatrice", "pyrolisk", "jackal", "fox", "coyote", "werejackal", "little dog", "dog", "large dog", "dingo", "wolf", "werewolf", "warg", "winter wolf cub", "winter wolf", "hell hound pup", "hell hound", "Cerberus", "gas spore", "floating eye", "freezing sphere", "flaming sphere", "shocking sphere", "beholder", "kitten", "housecat", "jaguar", "lynx", "panther", "large cat", "tiger", "gremlin", "gargoyle", "winged gargoyle", "hobbit", "dwarf", "bugbear", "dwarf lord", "dwarf king", "mind flayer", "master mind flayer", "manes", "homunculus", "imp", "lemure", "quasit", "tengu", "blue jelly", "spotted jelly", "ochre jelly", "kobold", "large kobold", "kobold lord", "kobold shaman", "leprechaun", "small mimic", "large mimic", "giant mimic", "wood nymph", "water nymph", "mountain nymph", "goblin", "hobgoblin", "orc", "hill orc", "Mordor orc", "Uruk-hai", "orc shaman", "orc-captain", "rock piercer", "iron piercer", "glass piercer", "rothe", "mumak", "leocrotta", "wumpus", "titanothere", "baluchitherium", "mastodon", "sewer rat", "giant rat", "rabid rat", "wererat", "rock mole", "woodchuck", "cave spider", "centipede", "giant spider", "scorpion", "lurker above", "trapper", "white unicorn", "gray unicorn", "black unicorn", "pony", "horse", "warhorse", "fog cloud", "dust vortex", "ice vortex", "energy vortex", "steam vortex", "fire vortex", "baby long worm", "baby purple worm", "long worm", "purple worm", "grid bug", "xan", "yellow light", "black light", "zruty", "couatl", "Aleax", "Angel", "ki-rin", "Archon", "bat", "giant bat", "raven", "vampire bat", "plains centaur", "forest centaur", "mountain centaur", "baby gray dragon", "baby silver dragon", "baby shimmering dragon", "baby red dragon", "baby white dragon", "baby orange dragon", "baby black dragon", "baby blue dragon", "baby green dragon", "baby yellow dragon", "gray dragon", "silver dragon", "shimmering dragon", "red dragon", "white dragon", "orange dragon", "black dragon", "blue dragon", "green dragon", "yellow dragon", "stalker", "air elemental", "fire elemental", "earth elemental", "water elemental", "lichen", "brown mold", "yellow mold", "green mold", "red mold", "shrieker", "violet fungus", "gnome", "gnome lord", "gnomish wizard", "gnome king", "giant", "stone giant", "hill giant", "fire giant", "frost giant", "storm giant", "ettin", "titan", "minotaur", "jabberwock", "vorpal jabberwock", "Keystone Kop", "Kop Sergeant", "Kop Lieutenant", "Kop Kaptain", "lich", "demilich", "master lich", "arch-lich", "kobold mummy", "gnome mummy", "orc mummy", "dwarf mummy", "elf mummy", "human mummy", "ettin mummy", "giant mummy", "red naga hatchling", "black naga hatchling", "golden naga hatchling", "guardian naga hatchling", "red naga", "black naga", "golden naga", "guardian naga", "ogre", "ogre lord", "ogre king", "gray ooze", "brown pudding", "black pudding", "green slime", "quantum mechanic", "rust monster", "disenchanter", "garter snake", "snake", "water moccasin", "pit viper", "python", "cobra", "troll", "ice troll", "rock troll", "water troll", "Olog-hai", "umber hulk", "vampire", "vampire lord", "vampire mage", "Vlad the Impaler", "barrow wight", "wraith", "Nazgul", "xorn", "monkey", "ape", "owlbear", "yeti", "carnivorous ape", "sasquatch", "kobold zombie", "gnome zombie", "orc zombie", "dwarf zombie", "elf zombie", "human zombie", "ettin zombie", "giant zombie", "ghoul", "skeleton", "straw golem", "paper golem", "rope golem", "gold golem", "leather golem", "wood golem", "flesh golem", "clay golem", "stone golem", "glass golem", "iron golem", "human", "wererat", "werejackal", "werewolf", "elf", "Woodland-elf", "Green-elf", "Grey-elf", "elf-lord", "Elvenking", "doppelganger", "nurse", "shopkeeper", "guard", "prisoner", "Oracle", "aligned priest", "high priest", "soldier", "sergeant", "lieutenant", "captain", "watchman", "watch captain", "Medusa", "Wizard of Yendor", "Croesus", "Charon", "ghost", "shade", "water demon", "horned devil", "succubus", "incubus", "erinys", "barbed devil", "marilith", "vrock", "hezrou", "bone devil", "ice devil", "nalfeshnee", "pit fiend", "balrog", "Juiblex", "Yeenoghu", "Orcus", "Geryon", "Dispater", "Baalzebub", "Asmodeus", "Demogorgon", "Death", "Pestilence", "Famine", "mail daemon", "djinni", "sandestin", "jellyfish", "piranha", "shark", "giant eel", "electric eel", "kraken", "newt", "gecko", "iguana", "baby crocodile", "lizard", "chameleon", "crocodile", "salamander", "long worm tail", "archeologist", "barbarian", "caveman", "cavewoman", "healer", "knight", "monk", "priest", "priestess", "ranger", "rogue", "samurai", "tourist", "valkyrie", "wizard", "Lord Carnarvon", "Pelias", "Shaman Karnov", "Earendil", "Elwing", "Hippocrates", "King Arthur", "Grand Master", "Arch Priest", "Orion", "Master of Thieves", "Lord Sato", "Twoflower", "Norn", "Neferet the Green", "Minion of Huhetotl", "Thoth Amon", "Chromatic Dragon", "Goblin King", "Cyclops", "Ixoth", "Master Kaen", "Nalzok", "Scorpius", "Master Assassin", "Ashikaga Takauji", "Lord Surtur", "Dark One", "student", "chieftain", "neanderthal", "High-elf", "attendant", "page", "abbot", "acolyte", "hunter", "thug", "ninja", "roshi", "guide", "warrior", "apprentice", "invisible monster", "strange object", "arrow", "runed arrow / elven arrow", "crude arrow / orcish arrow", "silver arrow", "bamboo arrow / ya", "crossbow bolt", "dart", "throwing star / shuriken", "boomerang", "spear", "runed spear / elven spear", "crude spear / orcish spear", "stout spear / dwarvish spear", "silver spear", "throwing spear / javelin", "trident", "dagger", "runed dagger / elven dagger", "crude dagger / orcish dagger", "silver dagger", "athame", "scalpel", "knife", "stiletto", "worm tooth", "crysknife", "axe", "double-headed axe / battle-axe", "short sword", "runed short sword / elven short sword", "crude short sword / orcish short sword", "broad short sword / dwarvish short sword", "curved sword / scimitar", "silver saber", "broadsword", "runed broadsword / elven broadsword", "long sword", "two-handed sword", "samurai sword / katana", "long samurai sword / tsurugi", "runed broadsword / runesword", "vulgar polearm / partisan", "hilted polearm / ranseur", "forked polearm / spetum", "single-edged polearm / glaive", "lance", "angled poleaxe / halberd", "long poleaxe / bardiche", "pole cleaver / voulge", "broad pick / dwarvish mattock", "pole sickle / fauchard", "pruning hook / guisarme", "hooked polearm / bill-guisarme", "pronged polearm / lucern hammer", "beaked polearm / bec de corbin", "mace", "morning star", "war hammer", "club", "rubber hose", "staff / quarterstaff", "thonged club / aklys", "flail", "bullwhip", "bow", "runed bow / elven bow", "crude bow / orcish bow", "long bow / yumi", "sling", "crossbow", "leather hat / elven leather helm", "iron skull cap / orcish helm", "hard hat / dwarvish iron helm", "fedora", "conical hat / cornuthaum", "conical hat / dunce cap", "dented pot", "plumed helmet / helmet", "etched helmet / helm of brilliance", "crested helmet / helm of opposite alignment", "visored helmet / helm of telepathy", "gray dragon scale mail", "silver dragon scale mail", "shimmering dragon scale mail", "red dragon scale mail", "white dragon scale mail", "orange dragon scale mail", "black dragon scale mail", "blue dragon scale mail", "green dragon scale mail", "yellow dragon scale mail", "gray dragon scales", "silver dragon scales", "shimmering dragon scales", "red dragon scales", "white dragon scales", "orange dragon scales", "black dragon scales", "blue dragon scales", "green dragon scales", "yellow dragon scales", "plate mail", "crystal plate mail", "bronze plate mail", "splint mail", "banded mail", "dwarvish mithril-coat", "elven mithril-coat", "chain mail", "crude chain mail / orcish chain mail", "scale mail", "studded leather armor", "ring mail", "crude ring mail / orcish ring mail", "leather armor", "leather jacket", "Hawaiian shirt", "T-shirt", "mummy wrapping", "faded pall / elven cloak", "coarse mantelet / orcish cloak", "hooded cloak / dwarvish cloak", "slippery cloak / oilskin cloak", "robe", "apron / alchemy smock", "leather cloak", "tattered cape / cloak of protection", "opera cloak / cloak of invisibility", "ornamental cope / cloak of magic resistance", "piece of cloth / cloak of displacement", "small shield", "blue and green shield / elven shield", "white-handed shield / Uruk-hai shield", "red-eyed shield / orcish shield", "large shield", "large round shield / dwarvish roundshield", "polished silver shield / shield of reflection", "old gloves / leather gloves", "padded gloves / gauntlets of fumbling", "riding gloves / gauntlets of power", "fencing gloves / gauntlets of dexterity", "walking shoes / low boots", "hard shoes / iron shoes", "jackboots / high boots", "combat boots / speed boots", "jungle boots / water walking boots", "hiking boots / jumping boots", "mud boots / elven boots", "buckled boots / kicking boots", "riding boots / fumble boots", "snow boots / levitation boots", "wooden / adornment", "granite / gain strength", "opal / gain constitution", "clay / increase accuracy", "coral / increase damage", "black onyx / protection", "moonstone / regeneration", "tiger eye / searching", "jade / stealth", "bronze / sustain ability", "agate / levitation", "topaz / hunger", "sapphire / aggravate monster", "ruby / conflict", "diamond / warning", "pearl / poison resistance", "iron / fire resistance", "brass / cold resistance", "copper / shock resistance", "twisted / free action", "steel / slow digestion", "silver / teleportation", "gold / teleport control", "ivory / polymorph", "emerald / polymorph control", "wire / invisibility", "engagement / see invisible", "shiny / protection from shape changers", "circular / amulet of ESP", "spherical / amulet of life saving", "oval / amulet of strangulation", "triangular / amulet of restful sleep", "pyramidal / amulet versus poison", "square / amulet of change", "concave / amulet of unchanging", "hexagonal / amulet of reflection", "octagonal / amulet of magical breathing", "Amulet of Yendor / cheap plastic imitation of the Amulet of Yendor", "Amulet of Yendor / Amulet of Yendor", "large box", "chest", "ice box", "bag / sack", "bag / oilskin sack", "bag / bag of holding", "bag / bag of tricks", "key / skeleton key", "lock pick", "credit card", "candle / tallow candle", "candle / wax candle", "brass lantern", "lamp / oil lamp", "lamp / magic lamp", "expensive camera", "looking glass / mirror", "glass orb / crystal ball", "lenses", "blindfold", "towel", "saddle", "leash", "stethoscope", "tinning kit", "tin opener", "can of grease", "figurine", "magic marker", "land mine", "beartrap", "whistle / tin whistle", "whistle / magic whistle", "flute / wooden flute", "flute / magic flute", "horn / tooled horn", "horn / frost horn", "horn / fire horn", "horn / horn of plenty", "harp / wooden harp", "harp / magic harp", "bell", "bugle", "drum / leather drum", "drum / drum of earthquake", "pick-axe", "iron hook / grappling hook", "unicorn horn", "candelabrum / Candelabrum of Invocation", "silver bell / Bell of Opening", "tripe ration", "corpse", "egg", "meatball", "meat stick", "huge chunk of meat", "meat ring", "kelp frond", "eucalyptus leaf", "apple", "orange", "pear", "melon", "banana", "carrot", "sprig of wolfsbane", "clove of garlic", "slime mold", "lump of royal jelly", "cream pie", "candy bar", "fortune cookie", "pancake", "lembas wafer", "cram ration", "food ration", "K-ration", "C-ration", "tin", "ruby / gain ability", "pink / restore ability", "orange / confusion", "yellow / blindness", "emerald / paralysis", "dark green / speed", "cyan / levitation", "sky blue / hallucination", "brilliant blue / invisibility", "magenta / see invisible", "purple-red / healing", "puce / extra healing", "milky / gain level", "swirly / enlightenment", "bubbly / monster detection", "smoky / object detection", "cloudy / gain energy", "effervescent / sleeping", "black / full healing", "golden / polymorph", "brown / booze", "fizzy / sickness", "dark / fruit juice", "white / acid", "murky / oil", "clear / water", "ZELGO MER / enchant armor", "JUYED AWK YACC / destroy armor", "NR 9 / confuse monster", "XIXAXA XOXAXA XUXAXA / scare monster", "PRATYAVAYAH / remove curse", "DAIYEN FOOELS / enchant weapon", "LEP GEX VEN ZEA / create monster", "PRIRUTSENIE / taming", "ELBIB YLOH / genocide", "VERR YED HORRE / light", "VENZAR BORGAVVE / teleportation", "THARR / gold detection", "YUM YUM / food detection", "KERNOD WEL / identify", "ELAM EBOW / magic mapping", "DUAM XNAHT / amnesia", "ANDOVA BEGARIN / fire", "KIRJE / earth", "VE FORBRYDERNE / punishment", "HACKEM MUCHE / charging", "VELOX NEB / stinking cloud", "FOOBIE BLETCH", "TEMOV", "GARVEN DEH", "READ ME", "stamped / mail", "unlabeled / blank paper", "parchment / dig", "vellum / magic missile", "ragged / fireball", "dog eared / cone of cold", "mottled / sleep", "stained / finger of death", "cloth / light", "leather / detect monsters", "white / healing", "pink / knock", "red / force bolt", "orange / confuse monster", "yellow / cure blindness", "velvet / drain life", "light green / slow monster", "dark green / wizard lock", "turquoise / create monster", "cyan / detect food", "light blue / cause fear", "dark blue / clairvoyance", "indigo / cure sickness", "magenta / charm monster", "purple / haste self", "violet / detect unseen", "tan / levitation", "plaid / extra healing", "light brown / restore ability", "dark brown / invisibility", "gray / detect treasure", "wrinkled / remove curse", "dusty / magic mapping", "bronze / identify", "copper / turn undead", "silver / polymorph", "gold / teleport away", "glittering / create familiar", "shining / cancellation", "dull / protection", "thin / jumping", "thick / stone to flesh", "plain / blank paper", "papyrus / Book of the Dead", "glass / light", "balsa / secret door detection", "crystal / enlightenment", "maple / create monster", "pine / wishing", "oak / nothing", "ebony / striking", "marble / make invisible", "tin / slow monster", "brass / speed monster", "copper / undead turning", "silver / polymorph", "platinum / cancellation", "iridium / teleportation", "zinc / opening", "aluminum / locking", "uranium / probing", "iron / digging", "steel / magic missile", "hexagonal / fire", "short / cold", "runed / sleep", "long / death", "curved / lightning", "forked", "spiked", "jeweled", "gold piece", "white / dilithium crystal", "white / diamond", "red / ruby", "orange / jacinth", "blue / sapphire", "black / black opal", "green / emerald", "green / turquoise", "yellow / citrine", "green / aquamarine", "yellowish brown / amber", "yellowish brown / topaz", "black / jet", "white / opal", "yellow / chrysoberyl", "red / garnet", "violet / amethyst", "red / jasper", "violet / fluorite", "black / obsidian", "orange / agate", "green / jade", "white / worthless piece of white glass", "blue / worthless piece of blue glass", "red / worthless piece of red glass", "yellowish brown / worthless piece of yellowish brown glass", "orange / worthless piece of orange glass", "yellow / worthless piece of yellow glass", "black / worthless piece of black glass", "green / worthless piece of green glass", "violet / worthless piece of violet glass", "gray / luckstone", "gray / loadstone", "gray / touchstone", "gray / flint", "rock", "boulder", "statue", "heavy iron ball", "iron chain", "splash of venom / blinding venom", "splash of venom / acid venom", "dark part of a room", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "doorway", "open door", "open door", "closed door", "closed door", "iron bars", "tree", "floor of a room", "corridor", "lit corridor", "staircase up", "staircase down", "ladder up", "ladder down", "altar", "grave", "opulent throne", "sink", "fountain", "water", "ice", "molten lava", "lowered drawbridge", "lowered drawbridge", "raised drawbridge", "raised drawbridge", "air", "cloud", "water", "arrow trap", "dart trap", "falling rock trap", "squeaky board", "bear trap", "land mine", "rolling boulder trap", "sleeping gas trap", "rust trap", "fire trap", "pit", "spiked pit", "hole", "trap door", "teleportation trap", "level teleporter", "magic portal", "web", "statue trap", "magic trap", "anti-magic field", "polymorph trap", "wall", "wall", "wall", "wall", "cmap 67", "cmap 68", "cmap 69", "cmap 70", "cmap 71", "cmap 72", "cmap 73", "cmap 74", "cmap 75", "cmap 76", "cmap 77", "cmap 78", "cmap 79", "cmap 80", "cmap 81", "cmap 82", "explosion dark 0", "explosion dark 1", "explosion dark 2", "explosion dark 3", "explosion dark 4", "explosion dark 5", "explosion dark 6", "explosion dark 7", "explosion dark 8", "explosion noxious 0", "explosion noxious 1", "explosion noxious 2", "explosion noxious 3", "explosion noxious 4", "explosion noxious 5", "explosion noxious 6", "explosion noxious 7", "explosion noxious 8", "explosion muddy 0", "explosion muddy 1", "explosion muddy 2", "explosion muddy 3", "explosion muddy 4", "explosion muddy 5", "explosion muddy 6", "explosion muddy 7", "explosion muddy 8", "explosion wet 0", "explosion wet 1", "explosion wet 2", "explosion wet 3", "explosion wet 4", "explosion wet 5", "explosion wet 6", "explosion wet 7", "explosion wet 8", "explosion magical 0", "explosion magical 1", "explosion magical 2", "explosion magical 3", "explosion magical 4", "explosion magical 5", "explosion magical 6", "explosion magical 7", "explosion magical 8", "explosion fiery 0", "explosion fiery 1", "explosion fiery 2", "explosion fiery 3", "explosion fiery 4", "explosion fiery 5", "explosion fiery 6", "explosion fiery 7", "explosion fiery 8", "explosion frosty 0", "explosion frosty 1", "explosion frosty 2", "explosion frosty 3", "explosion frosty 4", "explosion frosty 5", "explosion frosty 6", "explosion frosty 7", "explosion frosty 8", "zap 0 0", "zap 0 1", "zap 0 2", "zap 0 3", "zap 1 0", "zap 1 1", "zap 1 2", "zap 1 3", "zap 2 0", "zap 2 1", "zap 2 2", "zap 2 3", "zap 3 0", "zap 3 1", "zap 3 2", "zap 3 3", "zap 4 0", "zap 4 1", "zap 4 2", "zap 4 3", "zap 5 0", "zap 5 1", "zap 5 2", "zap 5 3", "zap 6 0", "zap 6 1", "zap 6 2", "zap 6 3", "zap 7 0", "zap 7 1", "zap 7 2", "zap 7 3", "warning 0", "warning 1", "warning 2", "warning 3", "warning 4", "warning 5", "sub mine walls 0", "sub mine walls 1", "sub mine walls 2", "sub mine walls 3", "sub mine walls 4", "sub mine walls 5", "sub mine walls 6", "sub mine walls 7", "sub mine walls 8", "sub mine walls 9", "sub mine walls 10", "sub gehennom walls 0", "sub gehennom walls 1", "sub gehennom walls 2", "sub gehennom walls 3", "sub gehennom walls 4", "sub gehennom walls 5", "sub gehennom walls 6", "sub gehennom walls 7", "sub gehennom walls 8", "sub gehennom walls 9", "sub gehennom walls 10", "sub knox walls 0", "sub knox walls 1", "sub knox walls 2", "sub knox walls 3", "sub knox walls 4", "sub knox walls 5", "sub knox walls 6", "sub knox walls 7", "sub knox walls 8", "sub knox walls 9", "sub knox walls 10", "sub sokoban walls 0", "sub sokoban walls 1", "sub sokoban walls 2", "sub sokoban walls 3", "sub sokoban walls 4", "sub sokoban walls 5", "sub sokoban walls 6", "sub sokoban walls 7", "sub sokoban walls 8", "sub sokoban walls 9", "sub sokoban walls 10"];
+;
+
+      // load_level_file_string(TEST_DES_FILE);
 
       // show warning on exit
       window.addEventListener('beforeunload', function(e) {
-        if(ABORT) {
-          if(window.parent.kongregate) {
-            if(typeof localStorage !== 'undefined') {
-              try {
-                var savedata = {};
-                var savefiles = FS.readdir('/nethack/save');
-                for(var i = 0; i < savefiles.length; ++i) {
-                  var fn = savefiles[i];
-                  if(fn == '.' || fn == '..') continue;
-                  fn = '/nethack/save/' + fn;
-                  try {
-                    savedata[fn] = btoa(String.fromCharCode.apply(null, FS.readFile(fn, {encoding: 'binary'})));
-                  } catch (e) {}
-                }
-                localStorage[nethack.LS_KONGREGATE_SAVE] = JSON.stringify(savedata);
-              } catch(e) { }
-            }
-          }
-        } else {
           var msg = "Game progress will be lost if not saved.";
           e.returnValue = msg;
           return msg;
-        }
       });
     },
 
@@ -175,9 +168,9 @@ var LibraryNetHack = {
             }
           }
         }
-      }         
+      }
 
-	  // update whole map size
+      // update whole map size
       nethack.map_win_content.style.width = nethack.tile_width * 80 + 'px';
       nethack.map_win_content.style.height = nethack.tile_height * 24 + 'px';
 	  
@@ -249,10 +242,12 @@ var LibraryNetHack = {
     },
 
     // update the status lines and highlight changed areas
-    // NetHack sometimes updates the (same) status lines for multiple times, which cancels all the highlight
+    // NetHack sometimes updates the (same) status lines for multiple times,
+    // which cancels all the highlight
     // so we only call this function right before waiting for user input
     update_status: function() {
-      if((nethack.status_lines[0] == null) || (nethack.status_lines[1] == null)) return;
+      if((nethack.status_lines[0] == null) || (nethack.status_lines[1] == null))
+        return;
       var win = nethack.status_win;
 
       if(win.childNodes.length < 2) {
@@ -345,37 +340,44 @@ var LibraryNetHack = {
 
     create_window: function(obj) {
       var onclose = obj.onclose;
-      var win_e = document.createElement('div'); win_e.className = 'modal fade';
-        var dialog_e = document.createElement('div'); dialog_e.className = 'modal-dialog';
-          var content_e = document.createElement('div'); content_e.className = 'modal-content';
-            var button_e = document.createElement('button'); button_e.className = 'close'; 
-            button_e.type = 'button';
-            button_e.innerHTML = '<span>&times;</span>';
-            button_e.addEventListener('click', function(e) {
-              nethack.hide_window(win_e);
-              if(onclose) onclose();
-            });
-            if(obj.title) {
-              var header_e = document.createElement('div'); header_e.className = 'modal-header';
-              header_e.appendChild(button_e);
+      var win_e = document.createElement('div');
+      win_e.className = 'modal fade';
+      var dialog_e = document.createElement('div');
+      dialog_e.className = 'modal-dialog';
+      var content_e = document.createElement('div');
+      content_e.className = 'modal-content';
+      var button_e = document.createElement('button');
+      button_e.className = 'close';
+      button_e.type = 'button';
+      button_e.innerHTML = '<span>&times;</span>';
+      button_e.addEventListener('click', function(e) {
+        nethack.hide_window(win_e);
+        if (onclose) onclose();
+      });
+      if (obj.title) {
+        var header_e = document.createElement('div');
+        header_e.className = 'modal-header';
+        header_e.appendChild(button_e);
 
-              var title_e = document.createElement('h4'); title_e.className = 'modal-title';
-              title_e.textContent = obj.title;
-              header_e.appendChild(title_e);
+        var title_e = document.createElement('h4');
+        title_e.className = 'modal-title';
+        title_e.textContent = obj.title;
+        header_e.appendChild(title_e);
 
-              content_e.appendChild(header_e);
-            }
-            var body_e = document.createElement('div'); body_e.className = 'modal-body';
-            // by default, the window is closed by pressing Esc, Enter or Space
-            var keymap = {};
-            keymap[String.fromCharCode(13)] = button_e;
-            keymap[String.fromCharCode(27)] = button_e;
-            keymap[String.fromCharCode(32)] = button_e;
+        content_e.appendChild(header_e);
+      }
+      var body_e = document.createElement('div');
+      body_e.className = 'modal-body';
+      // by default, the window is closed by pressing Esc, Enter or Space
+      var keymap = {};
+      keymap[String.fromCharCode(13)] = button_e;
+      keymap[String.fromCharCode(27)] = button_e;
+      keymap[String.fromCharCode(32)] = button_e;
 
-            if(!obj.title) body_e.appendChild(button_e);
-            if(obj.make_body) obj.make_body(body_e, keymap);
-          content_e.appendChild(body_e);
-        dialog_e.appendChild(content_e);
+      if (!obj.title) body_e.appendChild(button_e);
+      if (obj.make_body) obj.make_body(body_e, keymap);
+      content_e.appendChild(body_e);
+      dialog_e.appendChild(content_e);
       win_e.appendChild(dialog_e);
 
       nethack.pending_window_keymap = keymap;
@@ -383,7 +385,7 @@ var LibraryNetHack = {
     },
 
     show_text_window: function(lines, callback, auto_remove) {
-       var win = nethack.create_window({
+      var win = nethack.create_window({
         make_body: function(body) {
           var ele = document.createElement('div');
           ele.className = 'container modal-content-wrapper';
@@ -402,7 +404,8 @@ var LibraryNetHack = {
       return win;
     },
 
-    show_menu_window: function(items, title, how, selected_pp, resume_callback) {
+    show_menu_window: function(
+        items, title, how, selected_pp, resume_callback) {
       var menu_items = [];
       var save_menu_selection = function() {
         var selections = [];
@@ -415,24 +418,41 @@ var LibraryNetHack = {
         });
         menu_items = [];
 
-        // allocate memory inside emterpreter resume !
-        resume_callback(function() {
-          if(selections.length > 0) {
-            var selected_p = _malloc(selections.length * 8); // sizeof(MENU_ITEM_P) == 8
-            for(var i = 0; i < selections.length; ++i) {
-              // id
-              {{{ makeSetValue('selected_p', 'i*8', 'selections[i]', 'i32') }}};
-              // count TODO
-              {{{ makeSetValue('selected_p', 'i*8+4', '-1', 'i32') }}};
-            }
-
-            {{{ makeSetValue('selected_pp', 0, 'selected_p', 'i32') }}};
-          } else {
-            {{{ makeSetValue('selected_pp', 0, '0', 'i32') }}};
+        if(selections.length > 0) {
+          var selected_p = _malloc(selections.length * 8); // sizeof(MENU_ITEM_P) == 8
+          for(var i = 0; i < selections.length; ++i) {
+            // id
+            {{{ makeSetValue('selected_p', 'i*8', 'selections[i]', 'i32') }}};
+            // count TODO
+            {{{ makeSetValue('selected_p', 'i*8+4', '-1', 'i32') }}};
           }
 
-          return selections.length;
-        });
+          {{{ makeSetValue('selected_pp', 0, 'selected_p', 'i32') }}};
+        } else {
+          {{{ makeSetValue('selected_pp', 0, '0', 'i32') }}};
+        }
+
+        resume_callback(selections.length);
+
+
+        // allocate memory inside emterpreter resume !
+        // resume_callback(function() {
+        //   if(selections.length > 0) {
+        //     var selected_p = _malloc(selections.length * 8); // sizeof(MENU_ITEM_P) == 8
+        //     for(var i = 0; i < selections.length; ++i) {
+        //       // id
+        //       {{{ makeSetValue('selected_p', 'i*8', 'selections[i]', 'i32') }}};
+        //       // count TODO
+        //       {{{ makeSetValue('selected_p', 'i*8+4', '-1', 'i32') }}};
+        //     }
+
+        //     {{{ makeSetValue('selected_pp', 0, 'selected_p', 'i32') }}};
+        //   } else {
+        //     {{{ makeSetValue('selected_pp', 0, '0', 'i32') }}};
+        //   }
+
+        //   return selections.length;
+        // });
       };
 
       // event handlers
@@ -549,7 +569,8 @@ var LibraryNetHack = {
           } 
         },
         onclose: function() { 
-          resume_callback(function() { return -1; });
+          resume_callback(-1);
+          // resume_callback(function() { return -1; });
         } 
       });
 
@@ -656,10 +677,10 @@ var LibraryNetHack = {
     create_inventory_element: function(item) {
       var ele = document.createElement('span');
       ele.className = 'inventory-item';
-      if(/\((wielded( in other hand)?|in quiver|weapon in hands?|being worn|on (left|right) (hand|foreclaw|paw|pectoral fin))\)/.test(item.str)) 
-          ele.className += ' active'
+      if(/\((wielded( in other hand)?|in quiver|weapon in hands?|being worn|on (left|right) (hand|foreclaw|paw|pectoral fin))\)/.test(item.str))
+        ele.className += ' active'
 
-      var tile = document.createElement('span');
+        var tile = document.createElement('span');
       tile.className = 'tile';
       if(item.tile == -1) {
         ele.appendChild(tile);
@@ -775,7 +796,9 @@ var LibraryNetHack = {
     _: null
   },
 
-  Web_init: function(max_tile, win_message_p, win_status_p, win_map_p, win_inven_p, yn_number_p) {
+  Web_init: function(
+      max_tile, win_message_p, win_status_p, win_map_p, win_inven_p,
+      yn_number_p) {
     console.log("Web_init");
     document.getElementById('browserhack-loading').style.display = 'none';
 
@@ -863,9 +886,7 @@ var LibraryNetHack = {
           nethack.input_area.classList.remove('in');
           var resume_callback = nethack.pending_yn_arg.resume_callback;
           nethack.pending_yn_arg = null;
-          resume_callback(function() {
-            return yn_result.charCodeAt(0);
-          });
+          resume_callback(yn_result.charCodeAt(0));
         }
       } else if (nethack.window_pending) { // text window etc
         // do nothing
@@ -966,7 +987,8 @@ var LibraryNetHack = {
     if(typeof localStorage !== 'undefined') {
       try {
         nethack.ui_preferences = JSON.parse(localStorage[nethack.LS_UI_PREFERENCES]) || {};
-      } catch(e) { }
+      } catch(e) {
+      }
     }
 
     document.getElementById('browserhack-replay-btn').addEventListener('click', function() { window.location.reload(); });
@@ -981,7 +1003,7 @@ var LibraryNetHack = {
     ];
 
     if(!nethack.ui_preferences.tileset)
-        nethack.ui_preferences.tileset = nethack.builtin_tilesets[3];
+      nethack.ui_preferences.tileset = nethack.builtin_tilesets[3];
 
     nethack.apply_tileset(
       nethack.ui_preferences.tileset.file,
@@ -1013,7 +1035,9 @@ var LibraryNetHack = {
       nethack.toggle_zoom();
     });
     nethack.btn_toggle_zoom = btn_toggle_zoom;
-    if(nethack.ui_preferences.zoom_out) { nethack.toggle_zoom(); }
+    if(nethack.ui_preferences.zoom_out) {
+      nethack.toggle_zoom();
+    }
 
     var btn_toggle_fullscreen = document.getElementById('browserhack-toggle-fullscreen');
     if(window.parent.kongregate) {
@@ -1028,7 +1052,9 @@ var LibraryNetHack = {
         nethack.toggle_fullscreen();
       });
 
-      if(nethack.ui_preferences.fullscreen) { nethack.toggle_fullscreen(); }
+      if(nethack.ui_preferences.fullscreen) {
+        nethack.toggle_fullscreen();
+      }
     }
 
     var btn_options = document.getElementById('browserhack-options');
@@ -1061,12 +1087,9 @@ var LibraryNetHack = {
   },
 
   Web_askname_helper: function(buf, len) {
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
-      var labels = [
-        'Who are you? ',
-        'What is your name? ',
-        'Enter your name: '
-      ];
+    return Asyncify.handleSleep(function(wakeUp) {
+      var labels =
+          ['Who are you? ', 'What is your name? ', 'Enter your name: '];
       nethack.get_line({
         label: labels[Math.floor(Math.random() * labels.length)],
         default_text: nethack.ui_preferences.player_name || '',
@@ -1074,14 +1097,38 @@ var LibraryNetHack = {
           value = value || 'Unnamed Player';
           nethack.ui_preferences.player_name = value;
           nethack.save_ui_preferences();
-          writeStringToMemory(value, buf); // TODO: check length
-          emterpreter_resume();
+          writeStringToMemory(value, buf);  // TODO: check length
+          wakeUp();
         }
       });
     });
   },
 
-  BrowserHack_update_stats_helper: function(s_gold, s_level, s_turn, s_depth, s_armorclass, s_have_amulet, s_have_candelabrum, s_have_quest_artifact, s_quest_completed, s_entered_gehennom, s_killed_wizard) {
+  // Web_askname_helper: function(buf, len) {
+  //   return Asyncify.handleSleep(function(wakeUp) {
+  //     var labels = [
+  //       'Who are you? ',
+  //       'What is your name? ',
+  //       'Enter your name: '
+  //     ];
+  //     nethack.get_line({
+  //       label: labels[Math.floor(Math.random() * labels.length)],
+  //       default_text: nethack.ui_preferences.player_name || '',
+  //       callback: function(value) {
+  //         value = value || 'Unnamed Player';
+  //         nethack.ui_preferences.player_name = value;
+  //         nethack.save_ui_preferences();
+  //         writeStringToMemory(value, buf); // TODO: check length
+  //         wakeUp();
+  //       }
+  //     });
+  //   });
+  // },
+
+  BrowserHack_update_stats_helper: function(
+      s_gold, s_level, s_turn, s_depth, s_armorclass, s_have_amulet,
+      s_have_candelabrum, s_have_quest_artifact, s_quest_completed,
+      s_entered_gehennom, s_killed_wizard) {
     if(!window.parent.kongregate) return;
     var stats = {
       gold: s_gold,
@@ -1107,19 +1154,19 @@ var LibraryNetHack = {
 
   BrowserHack_report: function(str, value) {
     if(window.parent.kongregate)
-      window.parent.kongregate.stats.submit(Pointer_stringify(str), value);
+      window.parent.kongregate.stats.submit(UTF8ToString(str), value);
   },
 
   Web_create_nhwindow: function(type) {
     switch(type) {
-        case nethack.NHW_MESSAGE:
-        case nethack.NHW_STATUS:
-        case nethack.NHW_MAP:
-        case nethack.NHW_MENU:
-        case nethack.NHW_TEXT:
-            break;
-        default:
-            assert(false);
+      case nethack.NHW_MESSAGE:
+      case nethack.NHW_STATUS:
+      case nethack.NHW_MAP:
+      case nethack.NHW_MENU:
+      case nethack.NHW_TEXT:
+        break;
+      default:
+        assert(false);
     }
 
     console.log("Web_create_nhwindow");
@@ -1145,47 +1192,59 @@ var LibraryNetHack = {
     assert(win);
     switch(win.type) {
       case nethack.NHW_MESSAGE:
-        if(win.id != {{{ makeGetValue('nethack.win_message_p', '0', 'i32') }}}) console.log('TODO: extra message window');
+        if(win.id != {{{ makeGetValue('nethack.win_message_p', '0', 'i32') }}})
+          console.log('TODO: extra message window');
         var last_child = nethack.message_win.lastChild;
         if(!(last_child && (last_child.tagName == 'BR')))
           nethack.message_win.appendChild(document.createElement('br'));
         nethack.message_win.scrollTop = nethack.message_win.scrollHeight;
         break;
       case nethack.NHW_STATUS:
-        if(win.id != {{{ makeGetValue('nethack.win_status_p', '0', 'i32') }}}) console.log('TODO: extra status window');
+        if(win.id != {{{ makeGetValue('nethack.win_status_p', '0', 'i32') }}})
+          console.log('TODO: extra status window');
         nethack.status_win.innerHTML = '';
         break;
       case nethack.NHW_MAP:
-        if(win.id != {{{ makeGetValue('nethack.win_map_p', '0', 'i32') }}}) console.log('TODO: extra map window');
+        if(win.id != {{{ makeGetValue('nethack.win_map_p', '0', 'i32') }}})
+          console.log('TODO: extra map window');
         nethack.map_win_content.innerHTML = '';
         nethack.maptiles = [];
         break;
       default:
         console.log(win.type, 'TODO clear_nhwindow');
-    } 
+    }
   },
 
   Web_display_nhwindow: function(win, blocking) {
     console.log("Web_display_nhwindow");
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
+    return Asyncify.handleSleep(function(wakeUp) {
       if(blocking) nethack.update_status();
       var async = false;
       win = nethack.windows[win];
       assert(win);
       switch(win.type) {
         case nethack.NHW_MAP:
+          console.log("NHW_MAP");
+        break;
         case nethack.NHW_STATUS:
+          console.log("NHW_STATUS");
+        break;
         case nethack.NHW_MESSAGE:
-          break;
+          console.log("NHW_MESSAGE");
+        break;
         case nethack.NHW_TEXT:
-          win.elements_to_remove.push(nethack.show_text_window(win.lines, emterpreter_resume));
+          console.log("NHW_TEXT");
+        
           async = true;
+          win.elements_to_remove.push(nethack.show_text_window(win.lines, wakeUp));
           break;
         case nethack.NHW_MENU:
+          console.log("NHW_MENU");
           if(!blocking) console.log('TODO windows are always blocking');
           if(win.lines) {
-            win.elements_to_remove.push(nethack.show_text_window(win.lines, emterpreter_resume));
+            console.log("NHW_MENU - lines");
             async = true;
+            win.elements_to_remove.push(nethack.show_text_window(win.lines, wakeUp));
           } else if(win.menu) {
             // show menu
             console.log(win.type, 'TODO display_nhwindow (menu)', blocking);
@@ -1196,7 +1255,9 @@ var LibraryNetHack = {
         default:
           console.log(win.type, 'TODO display_nhwindow', blocking);
       }
-      if(!async) setTimeout(emterpreter_resume, 1);
+      if(!async) {
+        setTimeout(wakeUp, 1);
+      }
     });
   },
 
@@ -1226,6 +1287,7 @@ var LibraryNetHack = {
     assert(win);
     win.curs_x = x;
     win.curs_y = y;
+    console.log(win.type, x, y);
     switch(win.type) {
       case nethack.NHW_MAP:
         nethack.update_map_cursor(x, y);
@@ -1239,46 +1301,53 @@ var LibraryNetHack = {
 
   Web_putstr: function(win, attr, str) {
     console.log("Web_putstr");
-    str = Pointer_stringify(str);
+    str = UTF8ToString(str);
     win = nethack.windows[win];
     assert(win);
+    console.log(win.type, attr, str);
     switch(win.type) {
       case nethack.NHW_MESSAGE:
-        if(win.id != {{{ makeGetValue('nethack.win_message_p', '0', 'i32') }}}) console.log('TODO: extra message window');
+        if(win.id != {{{ makeGetValue('nethack.win_message_p', '0', 'i32') }}})
+          console.log('TODO: extra message window');
         nethack.add_message(nethack.message_win, attr, str);
         break;
       case nethack.NHW_STATUS:
-        if(win.id != {{{ makeGetValue('nethack.win_status_p', '0', 'i32') }}}) console.log('TODO: extra status window');
-        if(win.curs_x != 1) { console.log('TODO: x=' + win.curs_x + ' for status window!'); }
-        else if((win.curs_y != 0) && (win.curs_y != 1)) { console.log('TODO: y=' + win.curs_y + ' for status window!'); }
-        else nethack.status_lines[win.curs_y] = str;
+        if(win.id != {{{ makeGetValue('nethack.win_status_p', '0', 'i32') }}})
+          console.log('TODO: extra status window');
+        if(win.curs_x != 1) {
+          console.log('TODO: x=' + win.curs_x + ' for status window!');
+        } else if ((win.curs_y != 0) && (win.curs_y != 1)) {
+          console.log('TODO: y=' + win.curs_y + ' for status window!');
+        } else
+          nethack.status_lines[win.curs_y] = str;
         break;
       case nethack.NHW_MENU:
       case nethack.NHW_TEXT:
         if(!win.lines) win.lines = [];
+        console.log(win.type, attr, str);
         win.lines.push({ attr: attr, str: str });
         break;
       default:
         console.log(win.type, 'TODO putstr', attr, str);
-    } 
+    }
   },
 
   Web_display_file: function(str, complain) {
     console.log("Web_display_file");
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
-      fn = Pointer_stringify(str);
+    return Asyncify.handleSleep(function(wakeUp) {
+      fn = UTF8ToString(str);
       var data = '';
       try {
         data = FS.readFile(fn, { encoding: 'utf8' });
       } catch (e) {
         if (!complain) {
-          setTimeout(emterpreter_resume, 1);
+          setTimeout(wakeUp, 1);
           return;
         }
         data = 'File not found: ' + fn;
       }
       nethack.update_status();
-      nethack.show_text_window([{ attr:nethack.ATR_NONE, str:data }], emterpreter_resume, true);
+      nethack.show_text_window([{ attr:nethack.ATR_NONE, str:data }], wakeUp, true);
     });
   },
 
@@ -1289,7 +1358,8 @@ var LibraryNetHack = {
     win.menu = [];
   },
 
-  Web_add_menu_helper: function(win, tile, identifier, accelerator, groupacc, attr, str, preselected) {
+  Web_add_menu_helper: function(
+      win, tile, identifier, accelerator, groupacc, attr, str, preselected) {
     console.log("Web_add_menu_helper");
     win = nethack.windows[win];
     assert(win);
@@ -1299,7 +1369,7 @@ var LibraryNetHack = {
       accelerator: accelerator,
       groupacc: groupacc,
       attr: attr,
-      str: Pointer_stringify(str),
+      str: UTF8ToString(str),
       preselected: preselected
     });
   },
@@ -1307,12 +1377,12 @@ var LibraryNetHack = {
   Web_end_menu: function(win, prmpt) {
     win = nethack.windows[win];
     assert(win);
-    win.menu_prompt = Pointer_stringify(prmpt);
+    win.menu_prompt = UTF8ToString(prmpt);
   },
 
   Web_select_menu: function(win, how, selected_pp) {
     console.log("Web_select_menu");
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
+    return Asyncify.handleSleep(function(wakeUp) {
       if(how != nethack.PICK_NONE) nethack.update_status();
       var async = false;
       win = nethack.windows[win];
@@ -1323,7 +1393,7 @@ var LibraryNetHack = {
           if((win.id == {{{ makeGetValue('nethack.win_inven_p', '0', 'i32') }}}) && (how == nethack.PICK_NONE)) {
             nethack.update_inventory_window(win.menu);
           } else {
-            win.elements_to_remove.push(nethack.show_menu_window(win.menu, win.menu_prompt, how, selected_pp, emterpreter_resume));
+            win.elements_to_remove.push(nethack.show_menu_window(win.menu, win.menu_prompt, how, selected_pp, wakeUp));
             async = true;
           }
           break;
@@ -1331,7 +1401,7 @@ var LibraryNetHack = {
           console.log(win.type, 'ERROR: select_menu called on a non-menu window');
       }
       if(!async) setTimeout(function() {
-        emterpreter_resume(function() { return -1; });
+        wakeUp(-1);
       }, 1);
     });
   },
@@ -1346,7 +1416,8 @@ var LibraryNetHack = {
     win = nethack.windows[win];
     assert(win);
     assert(win.type == nethack.NHW_MAP);
-    if(win.id != {{{ makeGetValue('nethack.win_map_p', '0', 'i32') }}}) console.log('TODO: extra map window');
+    if(win.id != {{{ makeGetValue('nethack.win_map_p', '0', 'i32') }}})
+      console.log('TODO: extra map window');
     if(!nethack.maptiles[x]) nethack.maptiles[x] = [];
     if(!nethack.maptiles[x][y]) {
       var e = document.createElement('div');
@@ -1370,33 +1441,33 @@ var LibraryNetHack = {
 
   Web_nhgetch_helper: function() {
     console.log("Web_nhgetch_helper");
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
+    return Asyncify.handleSleep(function(wakeUp) {
       nethack.update_status();
       // for keyboard events we enable the animation on the map
       nethack.enable_map_smooth_scrolling();
       if(nethack.keybuffer.length > 0) {
         var ch = nethack.keybuffer.pop(0); 
         setTimeout(function() {
-          emterpreter_resume(function() { return ch; });
+          wakeUp(ch);
         }, 1);
       } else {
         assert(!nethack.keypress_callback);
         nethack.keypress_callback = function(code) {
           nethack.keypress_callback = null;
-          emterpreter_resume(function() { return code; });
+          wakeUp(code);
         };
       }
     });
   },
   Web_nh_poskey_helper: function(x, y, mod) {
     console.log("Web_nh_poskey_helper");
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
+    return Asyncify.handleSleep(function(wakeUp) {
       nethack.update_status();
       if(nethack.keybuffer.length > 0) {
         nethack.enable_map_smooth_scrolling();
         var ch = nethack.keybuffer.pop(0); 
         setTimeout(function() {
-          emterpreter_resume(function() { return ch; });
+          wakeUp(ch);
         }, 1);
       } else if(nethack.mousebuffer.length > 0) {
         // for mouse events we disable the animation on the map
@@ -1406,7 +1477,7 @@ var LibraryNetHack = {
         {{{ makeSetValue('y', 0, 'e.y', 'i32') }}};
         {{{ makeSetValue('mod', 0, 'e.mod', 'i32') }}};
         setTimeout(function() {
-          emterpreter_resume(function() { return 0; });
+          wakeUp(0);
         }, 1);
       } else {
         assert(!nethack.keypress_callback);
@@ -1415,18 +1486,18 @@ var LibraryNetHack = {
           nethack.keypress_callback = null;
           nethack.mouseclick_callback = null;
           nethack.enable_map_smooth_scrolling();
-          emterpreter_resume(function() { return code; });
+          wakeUp(code);
         };
         nethack.mouseclick_callback = function(e) {
           nethack.keypress_callback = null;
           nethack.mouseclick_callback = null;
           nethack.disable_map_smooth_scrolling();
-          emterpreter_resume(function() { 
-            {{{ makeSetValue('x', 0, 'e.x', 'i32') }}};
-            {{{ makeSetValue('y', 0, 'e.y', 'i32') }}};
-            {{{ makeSetValue('mod', 0, 'e.mod', 'i32') }}};
-            return 0; 
-          });
+          
+          {{{ makeSetValue('x', 0, 'e.x', 'i32') }}};
+          {{{ makeSetValue('y', 0, 'e.y', 'i32') }}};
+          {{{ makeSetValue('mod', 0, 'e.mod', 'i32') }}};
+
+          wakeUp(0);
         };
       }
         
@@ -1435,10 +1506,10 @@ var LibraryNetHack = {
 
   Web_yn_function_helper: function(ques, choices, def) {
     console.log("Web_yn_function_helper");
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
+    return Asyncify.handleSleep(function(wakeUp) {
       nethack.update_status();
-      ques = Pointer_stringify(ques);
-      choices = Pointer_stringify(choices);   
+      ques = UTF8ToString(ques);
+      choices = UTF8ToString(choices);   
       def = String.fromCharCode(def & 0xff);
 
       var i = choices.indexOf(String.fromCharCode(27)); //ESC
@@ -1486,19 +1557,19 @@ var LibraryNetHack = {
         ques: ques,
         choices: choices,
         def: def,
-        resume_callback: emterpreter_resume
+        resume_callback: wakeUp
       };
     });
   },
 
   Web_getlin: function(quest, input) {
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
+    return Asyncify.handleSleep(function(wakeUp) {
       nethack.update_status();
       nethack.get_line({
-        label: (Pointer_stringify(quest) || '') + ' ',
+        label: (UTF8ToString(quest) || '') + ' ',
         callback: function(value) {
           writeStringToMemory(value || '', input); // TODO: check length
-          emterpreter_resume();
+          wakeUp();
         }
       });
     });
@@ -1508,7 +1579,7 @@ var LibraryNetHack = {
     var ele = document.getElementById('browserhack-rip-text');
     ele.innerHTML = '';
     for(var i = 0; i < line_count; ++i) {
-      var str = Pointer_stringify({{{ makeGetValue('lines', 'i*4', 'i32'); }}});
+      var str = UTF8ToString({{{ makeGetValue('lines', 'i*4', 'i32'); }}});
       var cur_line = document.createElement('p');
       cur_line.textContent = str;
       ele.appendChild(cur_line);
@@ -1518,11 +1589,11 @@ var LibraryNetHack = {
   },
 
   Web_get_ext_cmd_helper: function(commands, command_count) {
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
+    return Asyncify.handleSleep(function(wakeUp) {
       nethack.update_status();
       var ext_cmd_list = [];
       for(var i = 0; i < command_count; ++i) 
-        ext_cmd_list.push(Pointer_stringify({{{ makeGetValue('commands', 'i*4', 'i32'); }}}));
+        ext_cmd_list.push(UTF8ToString({{{ makeGetValue('commands', 'i*4', 'i32'); }}}));
 
       nethack.get_line({
         label: '#',
@@ -1533,25 +1604,23 @@ var LibraryNetHack = {
           if((cmd_idx == -1) && (value != ''))
             nethack.add_message(nethack.message_win, nethack.ATR_NONE, 'Unknown extended command: ' + value);
 
-          emterpreter_resume(function() { return cmd_idx; });
+          wakeUp(cmd_idx);
         }
       });
     });
   },
 
   nethack_exit: function(status) {
-    return EmterpreterAsync.handle(function(emterpreter_resume) {
+    return Asyncify.handleSleep(function(wakeUp) {
       nethack.map_win_overlay.classList.add('in');
       nethack.map_win_overlay.classList.add('exited');
       document.getElementById('browserhack-replay-btn').focus();
       // sync save/ again, for record and logfile
       FS.syncfs(function (err) { 
-        if(err) console.log('Cannot sync FS, savegame may not work!'); 
-        emterpreter_resume(function() {
-          // emscripten_force_exit
-          Module['noExitRuntime'] = false;
-          Module['exit'](status);
-        });
+        if(err) console.log('Cannot sync FS, savegame may not work!');
+        Module['noExitRuntime'] = false;
+        Module['exit'](status); 
+        wakeUp();
       });
     });
   },

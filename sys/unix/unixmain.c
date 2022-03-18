@@ -180,13 +180,17 @@ char *argv[];
 		catmore = DEF_PAGER;
 #endif
 #ifdef MAIL
-	getmailstatus();
+	raw_print("get mail status");
+	//getmailstatus();
+	raw_print("after mail status");
 #endif
 #ifdef WIZARD
 	if (wizard)
 		Strcpy(plname, "wizard");
 	else
 #endif
+	raw_print("plname");
+	raw_print(plname);
 	if(!*plname || !strncmp(plname, "player", 4)
 		    || !strncmp(plname, "games", 4)) {
 		askname();
@@ -301,13 +305,14 @@ char *argv[];
 {
 	int i;
 
-
+	raw_print("processing options");
 	/*
 	 * Process options.
 	 */
 	while(argc > 1 && argv[1][0] == '-'){
 		argv++;
 		argc--;
+		raw_print(argv[0][1]);
 		switch(argv[0][1]){
 		case 'D':
 #ifdef WIZARD
@@ -322,6 +327,7 @@ char *argv[];
 
 			  uid = getuid();
 			  user = getlogin();
+			  raw_print(user);
 			  if (user) {
 			      pw = getpwnam(user);
 			      if (pw && (pw->pw_uid != uid)) pw = 0;
@@ -329,6 +335,8 @@ char *argv[];
 			  if (pw == 0) {
 			      user = nh_getenv("USER");
 			      if (user) {
+					  raw_print("ENV USER");
+					  raw_print(user);
 				  pw = getpwnam(user);
 				  if (pw && (pw->pw_uid != uid)) pw = 0;
 			      }
@@ -406,7 +414,7 @@ char *argv[];
 			/* else raw_printf("Unknown option: %s", *argv); */
 		}
 	}
-
+	raw_print("Processing options 2");
 	if(argc > 1)
 		locknum = atoi(argv[1]);
 #ifdef MAX_NR_OF_PLAYERS
