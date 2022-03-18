@@ -2,3 +2,7 @@
 
 *.wasm
 build/
+
+web/browserhack.data
+web/browserhack.wasm
+web/browserhack.js
