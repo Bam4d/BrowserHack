@@ -101,7 +101,7 @@ static boolean FDECL(write_objects, (int,char *,object ***));
 static boolean FDECL(write_engravings, (int,char *,engraving ***));
 static boolean FDECL(write_maze, (int,specialmaze *));
 static boolean FDECL(write_rooms, (int,splev *));
-static void NDECL(init_obj_classes);
+void NDECL(init_obj_classes);
 
 static struct {
 	const char *name;
@@ -165,9 +165,9 @@ static struct {
 	{ 0, 0 }
 };
 
-const char *fname = "(stdin)";
-int fatal_error = 0;
-int want_warnings = 0;
+extern const char *fname;
+extern int fatal_error;
+extern int want_warnings;
 
 #ifdef FLEX23_BUG
 /* Flex 2.3 bug work around; not needed for 2.3.6 or later */
@@ -343,7 +343,7 @@ char c;		/* class */
 	return ERR;
 }
 
-static void
+void
 init_obj_classes()
 {
 	int i, class, prev_class;

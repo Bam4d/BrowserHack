@@ -33,6 +33,39 @@ void BrowserHack_update_stats() {
   );
 }
 
+const char *fname = "(browserhack input)";
+int fatal_error = 0;
+int want_warnings = 0;
+
+extern int  NDECL (yyparse);
+extern void FDECL (init_yyin, (FILE *));
+extern void FDECL (init_yyout, (FILE *));
+
+extern void NDECL(monst_init);
+extern void NDECL(objects_init);
+extern void NDECL(decl_init);
+extern void NDECL(init_obj_classes);
+
+EMSCRIPTEN_KEEPALIVE
+void lev_compile(const char* level_string_ptr, int level_string_len) {
+    monst_init();
+	objects_init();
+	decl_init();
+	/* this one does something... */
+	init_obj_classes();
+
+    FILE* mem_file = fmemopen(level_string_ptr, level_string_len, "r");
+
+    init_yyout(stdout);
+    init_yyin(mem_file);
+    (void) yyparse();
+}
+
+EMSCRIPTEN_KEEPALIVE
+void repack() {
+    
+}
+
 // forward declaration
 void Web_raw_print(const char * str);
 winid Web_create_nhwindow(int type);

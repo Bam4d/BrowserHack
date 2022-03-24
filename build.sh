@@ -2,7 +2,7 @@
 set -e
 
 EMCC=emcc
-JOBS=4
+JOBS=1
 MYDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 stage1() {

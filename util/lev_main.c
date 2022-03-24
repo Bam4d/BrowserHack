@@ -74,7 +74,6 @@ extern void FDECL (init_yyout, (FILE *));
 extern void NDECL(monst_init);
 extern void NDECL(objects_init);
 extern void NDECL(decl_init);
-
 extern void NDECL(init_obj_classes);
 
 extern int line_number;

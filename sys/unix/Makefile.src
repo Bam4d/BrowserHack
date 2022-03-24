@@ -305,6 +305,19 @@ RANDOBJ =
 # used by `make depend' to reconstruct this Makefile; you shouldn't need this
 AWK	= nawk
 
+# lev comp stuff
+YACC     = yacc
+LEX      = lex
+# YACC     = bison -y
+# YACC     = byacc
+# LEX      = flex
+ 
+# these are the names of the output files from YACC/LEX. Under MS-DOS
+# and similar systems, they may differ
+YTABC = y.tab.c
+YTABH = y.tab.h
+LEXYYC = lex.yy.c
+
 # ----------------------------------------
 #
 # Nothing below this line should have to be changed.
@@ -375,7 +388,7 @@ HSOURCES = $(HACKINCL) date.h onames.h pm.h vis_tab.h\
 		lev_comp.h dgn_comp.h dgn_file.h
 
 # the following .o's _must_ be made before any others (for makedefs)
-FIRSTOBJ = monst.o objects.o
+FIRSTOBJ = monst.o objects.o lev_yacc.o lev_lex.o lev_lib.o
 
 UTILDIR = ../util
 
@@ -394,8 +407,8 @@ HOBJ = $(FIRSTOBJ) allmain.o alloc.o apply.o artifact.o attrib.o ball.o \
 	steal.o steed.o teleport.o timeout.o topten.o track.o trap.o u_init.o \
 	uhitm.o vault.o vision.o vis_tab.o weapon.o were.o wield.o windows.o \
 	wizard.o worm.o worn.o write.o zap.o \
-	$(RANDOBJ) $(SYSOBJ) $(WINOBJ) version.o \
-	$(UTILDIR)/lev_yacc.o $(UTILDIR)/lev_lex.o $(UTILDIR)/lev_lib.o
+	$(RANDOBJ) $(SYSOBJ) $(WINOBJ) version.o
+	
 # the .o files from the HACKCSRC, SYSSRC, and WINSRC lists
 
 ASYNCIFY_IMPORTS=["Web_get_ext_cmd_helper", "nethack_exit", "Web_askname_helper", "Web_display_nhwindow", "Web_yn_function_helper", "Web_select_menu", "Web_display_file", "Web_nh_poskey_helper"]
@@ -456,6 +469,35 @@ DUMB.Setup:	../include/extern.h
 	@touch DUMB.Setup
 
 all:	$(GAME)
+
+
+#	dependencies for lev_comp
+#
+
+
+lev_yacc.o:  lev_yacc.c $(HACK_H) ../include/sp_lev.h
+
+lev_lib.o:  $(UTILDIR)/lev_lib.c $(HACK_H) ../include/sp_lev.h ../include/tcap.h \
+		../include/date.h
+	$(CC) $(CFLAGS) -c $(UTILDIR)/lev_lib.c $(HACK_H)
+
+# see lev_comp.l for WEIRD_LEX discussion
+# egrep will return failure if it doesn't find anything, but we know there
+# is one "_cplusplus" inside a comment
+lev_lex.o:   lev_lex.c $(HACK_H) ../include/lev_comp.h ../include/sp_lev.h
+	@echo $(CC) -c $(CFLAGS) lev_lex.c
+	@$(CC) -c $(CFLAGS) -DWEIRD_LEX=`egrep -c _cplusplus lev_lex.c` lev_lex.c
+
+../include/lev_comp.h: lev_yacc.c
+
+lev_yacc.c: $(UTILDIR)/lev_comp.y
+	$(YACC) $(YACCDIST) -d $(UTILDIR)/lev_comp.y
+	mv $(YTABC) lev_yacc.c
+	mv $(YTABH) ../include/lev_comp.h
+
+lev_lex.c: $(UTILDIR)/lev_comp.l
+	$(LEX) $(FLEXDIST) $(UTILDIR)/lev_comp.l
+	mv $(LEXYYC) lev_lex.c
 
 #	dependencies for makedefs and its outputs, which the util
 #	Makefile is responsible for keeping up to date
@@ -536,8 +578,8 @@ clean:
 
 spotless: clean
 	-rm -f a.out core $(GAME) Sys*
-	-rm -f ../include/date.h ../include/onames.h ../include/pm.h
-	-rm -f monstr.c ../include/vis_tab.h vis_tab.c tile.c *.moc
+	-rm -f ../include/date.h ../include/onames.h ../include/pm.h ../include/lev_comp.h
+	-rm -f monstr.c ../include/vis_tab.h vis_tab.c tile.c lev_yacc.c lev_lex.c *.moc
 	-rm -f ../win/gnome/gn_rip.h
 	-rm -f *.wasm
 

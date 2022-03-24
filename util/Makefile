@@ -159,7 +159,7 @@ MAKEOBJS = makedefs.o $(OMONOBJ)
 
 
 # object files for special levels compiler
-SPLEVOBJS = lev_yacc.o lev_lex.o lev_main.o $(OALLOC) $(ONAMING)
+SPLEVOBJS = lev_yacc.o lev_lex.o lev_main.o lev_lib.o $(OALLOC) $(ONAMING)
 
 # object files for dungeon compiler
 DGNCOMPOBJS = dgn_yacc.o dgn_lex.o dgn_main.o $(OALLOC)
@@ -233,6 +233,8 @@ lev_comp.js:  $(SPLEVOBJS)
 	$(CC) $(LFLAGS) $(UTIL_CFLAGS) -o lev_comp.js $(SPLEVOBJS) $(LIBS)
 
 lev_yacc.o:  lev_yacc.c $(HACK_H) ../include/sp_lev.h
+lev_lib.o:  lev_lib.c $(HACK_H) ../include/sp_lev.h ../include/tcap.h \
+		../include/date.h
 lev_main.o:  lev_main.c $(HACK_H) ../include/sp_lev.h ../include/tcap.h \
 		../include/date.h
 
